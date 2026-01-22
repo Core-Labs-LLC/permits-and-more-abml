@@ -160,6 +160,39 @@
       line-height: 1.2;
       font-weight: 700;
     }
+    
+    /* About section specific styling */
+    #about {
+      position: relative;
+    }
+    
+    #about img {
+      transition: transform 0.5s ease;
+    }
+    
+    #about:hover img {
+      transform: scale(1.02);
+    }
+    
+    /* Link hover effect matching McCarthy */
+    #about a {
+      position: relative;
+    }
+    
+    #about a::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: currentColor;
+      transition: width 0.3s ease;
+    }
+    
+    #about a:hover::after {
+      width: 100%;
+    }
 
     /* Mobile menu */
     .mobile-menu {
@@ -267,22 +300,38 @@
     </div>
   </section>
 
-  <!-- Trusted Partner Section - Matching McCarthy's style -->
-  <section id="about" class="py-20 md:py-32 bg-white">
-    <div class="max-w-[1440px] mx-auto px-4 md:px-8">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
-        <div class="h-[400px] md:h-[500px] overflow-hidden rounded-lg">
-          <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/fa9c7a6e86-05f45ac384674ed211af.png" alt="Professional team reviewing construction permits" class="w-full h-full object-cover">
+  <!-- About Permits & More Section - Matching McCarthy.com Structure Exactly -->
+  <section id="about" class="py-16 md:py-20 lg:py-24 bg-white">
+    <div class="max-w-[1440px] mx-auto px-4 md:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 lg:gap-20 items-center">
+        <!-- Image Section - Left Side (matching McCarthy's layout) -->
+        <div class="order-2 lg:order-1">
+          <div class="relative w-full h-[450px] md:h-[550px] lg:h-[650px] overflow-hidden">
+            <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/fa9c7a6e86-05f45ac384674ed211af.png" alt="Professional team reviewing construction permits and blueprints in modern office, business photography, high quality" class="w-full h-full object-cover">
+          </div>
         </div>
-        <div>
-          <h2 class="font-display section-headline text-gray-900 mb-6">
-            A Trusted, Collaborative Partner <span class="text-secondary">Focused on Your Goals</span>
+        
+        <!-- Content Section - Right Side (matching McCarthy's typography and spacing) -->
+        <div class="order-1 lg:order-2 lg:pl-8">
+          <h2 class="font-display text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 mb-6 md:mb-8 leading-[1.1]">
+            About <span class="text-secondary">Permits & More</span>
           </h2>
-          <p class="text-lg md:text-xl text-gray-700 mb-8 leading-relaxed">
-            As one of the leading permit processing companies with deep industry expertise, we're more than permit processors -- we're problem solvers. From our industry-leading approaches to compliance and quality, to our passion for innovation and technology, we deliver certainty by focusing on what matters to you.
-          </p>
-          <a href="#approach" class="inline-block text-secondary font-semibold text-lg hover:text-primary transition-colors">
-            Our Approach <i class="fa-solid fa-arrow-right ml-2"></i>
+          <div class="space-y-6 text-base md:text-lg lg:text-xl text-gray-700 leading-relaxed max-w-2xl">
+            <p>
+              Permits & More provides exceptional engineering and permit services for a wide range of projects. We specialize in guiding projects seamlessly from the conceptual phase through design and into permitting with city building departments—delivering accuracy, efficiency, and timelines you can rely on.
+            </p>
+            <p>
+              Our mission is to simplify what is often a long and complex permitting process. Serving the City of San Diego, the County of San Diego, and surrounding areas, we help make obtaining building permits faster, easier, and far less stressful for our clients. For over five years, we've supported architects, developers, sign contractors, general contractors, and homeowners with dependable engineering and permit processing services.
+            </p>
+            <p>
+              In addition, we offer building code violation assistance, helping clients resolve violations and maintain full code compliance. Our goal is to protect your investment and help you maximize the value of your property with confidence.
+            </p>
+          </div>
+          <a href="#approach" class="inline-flex items-center text-secondary font-semibold text-base md:text-lg lg:text-xl hover:text-primary transition-all duration-300 group mt-8">
+            <span>Our Approach</span>
+            <svg class="w-5 h-5 md:w-6 md:h-6 ml-2 transition-transform duration-300 group-hover:translate-x-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+            </svg>
           </a>
         </div>
       </div>
@@ -290,8 +339,11 @@
   </section>
 
   <!-- Dream It / Build It Section - Matching McCarthy's bold typography -->
-  <section class="py-20 md:py-32 bg-gray-50">
-    <div class="max-w-[1440px] mx-auto px-4 md:px-8 text-center">
+  <section class="py-20 md:py-32 relative overflow-hidden" style="background-image: url('https://sprottshaw.com/wp-content/uploads/2019/12/GettyImages-842866442.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+    <!-- Light gray overlay mask -->
+    <div class="absolute inset-0 bg-gray-100/80"></div>
+    <!-- Content -->
+    <div class="relative z-10 max-w-[1440px] mx-auto px-4 md:px-8 text-center">
       <div class="max-w-4xl mx-auto">
         <h2 class="font-display hero-headline text-gray-900 mb-4">
           <span class="block">If you can <span class="text-secondary">dream it</span></span>
