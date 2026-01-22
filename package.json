@@ -1,0 +1,19 @@
+{
+  "name": "permits-and-more",
+  "version": "1.0.0",
+  "description": "Permits & More - Professional Permit Processing & Inspection Services",
+  "main": "index.html",
+  "scripts": {
+    "dev": "npx serve .",
+    "build": "echo 'Static site - no build needed'"
+  },
+  "keywords": [
+    "permits",
+    "construction",
+    "inspection",
+    "compliance"
+  ],
+  "author": "Permits & More",
+  "license": "MIT"
+}
+
