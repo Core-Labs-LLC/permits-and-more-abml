@@ -135,12 +135,17 @@
       left: 0;
       width: 0;
       height: 2px;
-      background: #3b82f6;
+      background: currentColor;
       transition: width 0.3s ease;
     }
 
     .nav-link:hover::after {
       width: 100%;
+    }
+    
+    /* Header transparency */
+    #header.bg-transparent {
+      background: transparent !important;
     }
 
     /* Typography styles matching McCarthy */
@@ -194,36 +199,40 @@
 </head>
 
 <body class="bg-white">
-  <!-- Header Navigation -->
-  <header id="header" class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm transition-all duration-300 shadow-sm">
-    <div class="max-w-[1440px] mx-auto px-4 md:px-8 py-4">
+  <!-- Header Navigation - Absolute positioned, no background like McCarthy.com -->
+  <header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+    <div class="max-w-[1440px] mx-auto px-4 md:px-8 py-6">
       <div class="flex items-center justify-between">
+        <!-- Logo - Absolute positioned -->
         <div class="flex items-center">
-          <img src="https://i0.wp.com/permitsandmore.com/wp-content/uploads/2016/06/cropped-logo-1.png?fit=263%2C60&ssl=1" alt="Permits & More Logo" class="h-10 md:h-14 w-auto" loading="eager">
+          <a href="#home" class="block">
+            <img src="https://i0.wp.com/permitsandmore.com/wp-content/uploads/2016/06/cropped-logo-1.png?fit=263%2C60&ssl=1" alt="Permits & More Logo" class="h-8 md:h-12 w-auto" loading="eager">
+          </a>
         </div>
+        <!-- Navigation - Right aligned, white text for hero overlay -->
         <nav class="desktop-nav flex items-center space-x-6 md:space-x-8">
-          <a href="#about" class="nav-link text-gray-800 font-medium text-sm uppercase tracking-wide hover:text-secondary">About</a>
-          <a href="#services" class="nav-link text-gray-800 font-medium text-sm uppercase tracking-wide hover:text-secondary">Services</a>
-          <a href="#work" class="nav-link text-gray-800 font-medium text-sm uppercase tracking-wide hover:text-secondary">Our Work</a>
-          <a href="#approach" class="nav-link text-gray-800 font-medium text-sm uppercase tracking-wide hover:text-secondary">Our Approach</a>
-          <a href="#contact" class="nav-link text-gray-800 font-medium text-sm uppercase tracking-wide hover:text-secondary">Contact</a>
-          <button onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})" class="bg-secondary hover:bg-primary text-white px-6 md:px-8 py-2 md:py-3 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg text-sm md:text-base">
+          <a href="#about" class="nav-link text-white font-medium text-sm uppercase tracking-wide hover:text-blue-200 transition-colors">About</a>
+          <a href="#services" class="nav-link text-white font-medium text-sm uppercase tracking-wide hover:text-blue-200 transition-colors">Services</a>
+          <a href="#work" class="nav-link text-white font-medium text-sm uppercase tracking-wide hover:text-blue-200 transition-colors">Our Work</a>
+          <a href="#approach" class="nav-link text-white font-medium text-sm uppercase tracking-wide hover:text-blue-200 transition-colors">Our Approach</a>
+          <a href="#contact" class="nav-link text-white font-medium text-sm uppercase tracking-wide hover:text-blue-200 transition-colors">Contact</a>
+          <button onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})" class="bg-white text-primary hover:bg-gray-100 px-6 md:px-8 py-2 md:py-3 rounded-full font-semibold transition-all duration-300 text-sm md:text-base">
             Get Started
           </button>
         </nav>
-        <button id="mobile-menu-btn" class="mobile-menu text-gray-800 text-2xl md:hidden" aria-label="Toggle menu">
+        <button id="mobile-menu-btn" class="mobile-menu text-white text-2xl md:hidden" aria-label="Toggle menu">
           <i class="fas fa-bars"></i>
         </button>
       </div>
       <!-- Mobile Navigation -->
-      <nav id="mobile-nav" class="mobile-menu hidden md:hidden mt-4 pb-4 border-t border-gray-200">
-        <div class="flex flex-col space-y-4 pt-4">
-          <a href="#about" class="nav-link text-gray-800 font-medium text-sm uppercase tracking-wide">About</a>
-          <a href="#services" class="nav-link text-gray-800 font-medium text-sm uppercase tracking-wide">Services</a>
-          <a href="#work" class="nav-link text-gray-800 font-medium text-sm uppercase tracking-wide">Our Work</a>
-          <a href="#approach" class="nav-link text-gray-800 font-medium text-sm uppercase tracking-wide">Our Approach</a>
-          <a href="#contact" class="nav-link text-gray-800 font-medium text-sm uppercase tracking-wide">Contact</a>
-          <button onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})" class="bg-secondary hover:bg-primary text-white px-8 py-3 rounded-full font-semibold transition-all duration-300 w-full">
+      <nav id="mobile-nav" class="mobile-menu hidden md:hidden mt-4 pb-4 bg-black/80 backdrop-blur-sm rounded-lg">
+        <div class="flex flex-col space-y-4 pt-4 px-4">
+          <a href="#about" class="nav-link text-white font-medium text-sm uppercase tracking-wide">About</a>
+          <a href="#services" class="nav-link text-white font-medium text-sm uppercase tracking-wide">Services</a>
+          <a href="#work" class="nav-link text-white font-medium text-sm uppercase tracking-wide">Our Work</a>
+          <a href="#approach" class="nav-link text-white font-medium text-sm uppercase tracking-wide">Our Approach</a>
+          <a href="#contact" class="nav-link text-white font-medium text-sm uppercase tracking-wide">Contact</a>
+          <button onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})" class="bg-white text-primary hover:bg-gray-100 px-8 py-3 rounded-full font-semibold transition-all duration-300 w-full">
             Get Started
           </button>
         </div>
@@ -783,16 +792,51 @@
         setInterval(nextHeroSlide, 5000);
       }
 
-      // Header scroll effect
+      // Header scroll effect - Change to white background when scrolling past hero
       const header = document.getElementById('header');
-      if (header) {
+      const heroSection = document.getElementById('home');
+      if (header && heroSection) {
         window.addEventListener('scroll', function() {
-          if (window.scrollY > 50) {
-            header.classList.add('shadow-lg');
+          const heroHeight = heroSection.offsetHeight;
+          const scrollPosition = window.scrollY;
+          
+          if (scrollPosition > heroHeight - 100) {
+            // Past hero section - add white background
+            header.classList.add('bg-white', 'shadow-md');
+            header.classList.remove('bg-transparent');
+            // Change nav links to dark
+            header.querySelectorAll('.nav-link').forEach(link => {
+              link.classList.remove('text-white', 'hover:text-blue-200');
+              link.classList.add('text-gray-800', 'hover:text-secondary');
+            });
+            // Change mobile menu button
+            const mobileBtn = document.getElementById('mobile-menu-btn');
+            if (mobileBtn) {
+              mobileBtn.classList.remove('text-white');
+              mobileBtn.classList.add('text-gray-800');
+            }
           } else {
-            header.classList.remove('shadow-lg');
+            // On hero section - transparent background
+            header.classList.remove('bg-white', 'shadow-md');
+            header.classList.add('bg-transparent');
+            // Change nav links to white
+            header.querySelectorAll('.nav-link').forEach(link => {
+              link.classList.add('text-white', 'hover:text-blue-200');
+              link.classList.remove('text-gray-800', 'hover:text-secondary');
+            });
+            // Change mobile menu button
+            const mobileBtn = document.getElementById('mobile-menu-btn');
+            if (mobileBtn) {
+              mobileBtn.classList.add('text-white');
+              mobileBtn.classList.remove('text-gray-800');
+            }
           }
         });
+        
+        // Set initial state
+        if (window.scrollY <= heroSection.offsetHeight - 100) {
+          header.classList.add('bg-transparent');
+        }
       }
 
       // Smooth scroll for anchor links
