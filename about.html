@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="About Permits & More - Expert permit processing and engineering services for construction projects throughout Southern California.">
+  <meta name="keywords" content="about, permits, construction permits, San Diego, California, permit services">
+  <meta name="author" content="Permits & More">
+  <meta property="og:title" content="About Us - Permits & More">
+  <meta property="og:description" content="Learn about Permits & More and our commitment to simplifying the permit process">
+  <meta property="og:type" content="website">
+  <title>About Us - Permits & More</title>
+  
+  <!-- Preconnect for performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer">
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#1e3a8a',
+            secondary: '#3b82f6',
+            accent: '#60a5fa',
+          }
+        }
+      }
+    }
+  </script>
+  
+  <style>
+    * { box-sizing: border-box; }
+    ::-webkit-scrollbar { display: none; }
+    body { font-family: 'Inter', sans-serif; margin: 0; scroll-behavior: smooth; }
+    .font-display { font-family: 'Playfair Display', serif; }
+    .nav-link { position: relative; transition: all 0.3s ease; }
+    .nav-link::after { content: ''; position: absolute; bottom: -5px; left: 0; width: 0; height: 2px; background: currentColor; transition: width 0.3s ease; }
+    .nav-link:hover::after { width: 100%; }
+    .section-headline { font-size: clamp(2rem, 4vw, 3.5rem); line-height: 1.2; font-weight: 700; }
+    .mobile-menu { display: none; }
+    @media (max-width: 768px) {
+      .mobile-menu { display: block; }
+      .desktop-nav { display: none; }
+    }
+    img { max-width: 100%; height: auto; }
+  </style>
+</head>
+
+<body class="bg-white">
+  <!-- Header Navigation -->
+  <header id="header" class="fixed top-0 left-0 right-0 z-50 bg-white shadow-md transition-all duration-300">
+    <div class="max-w-[1440px] mx-auto px-4 md:px-6 lg:px-8 py-4 md:py-6">
+      <div class="flex items-center justify-between">
+        <div class="flex items-center flex-shrink-0">
+          <a href="index.html" class="block">
+            <img src="https://i0.wp.com/permitsandmore.com/wp-content/uploads/2016/06/cropped-logo-1.png?fit=263%2C60&ssl=1" alt="Permits & More Logo" class="h-8 md:h-12 lg:h-16 w-auto" loading="eager">
+          </a>
+        </div>
+        <nav class="desktop-nav flex items-center space-x-6 md:space-x-8">
+          <a href="about.html" class="nav-link text-gray-800 font-medium text-sm uppercase tracking-wide hover:text-secondary transition-colors border-b-2 border-secondary">About</a>
+          <a href="services.html" class="nav-link text-gray-800 font-medium text-sm uppercase tracking-wide hover:text-secondary transition-colors">Services</a>
+          <a href="work.html" class="nav-link text-gray-800 font-medium text-sm uppercase tracking-wide hover:text-secondary transition-colors">Our Work</a>
+          <a href="approach.html" class="nav-link text-gray-800 font-medium text-sm uppercase tracking-wide hover:text-secondary transition-colors">Our Approach</a>
+          <a href="contact.html" class="nav-link text-gray-800 font-medium text-sm uppercase tracking-wide hover:text-secondary transition-colors">Contact</a>
+          <a href="contact.html" class="bg-secondary text-white hover:bg-primary px-6 md:px-8 py-2 md:py-3 rounded-full font-semibold transition-all duration-300 text-sm md:text-base">Get Started</a>
+        </nav>
+        <button id="mobile-menu-btn" class="mobile-menu text-gray-800 text-2xl md:hidden" aria-label="Toggle menu">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+      <nav id="mobile-nav" class="mobile-menu hidden md:hidden mt-4 pb-4 bg-white border border-gray-200 rounded-lg shadow-lg">
+        <div class="flex flex-col space-y-4 pt-4 px-4">
+          <a href="about.html" class="nav-link text-gray-800 font-medium text-sm uppercase tracking-wide border-b-2 border-secondary pb-1">About</a>
+          <a href="services.html" class="nav-link text-gray-800 font-medium text-sm uppercase tracking-wide">Services</a>
+          <a href="work.html" class="nav-link text-gray-800 font-medium text-sm uppercase tracking-wide">Our Work</a>
+          <a href="approach.html" class="nav-link text-gray-800 font-medium text-sm uppercase tracking-wide">Our Approach</a>
+          <a href="contact.html" class="nav-link text-gray-800 font-medium text-sm uppercase tracking-wide">Contact</a>
+          <a href="contact.html" class="bg-secondary text-white hover:bg-primary px-8 py-3 rounded-full font-semibold transition-all duration-300 w-full text-center">Get Started</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="pt-32 md:pt-40 pb-20 md:pb-24 bg-gray-100">
+    <div class="max-w-[1440px] mx-auto px-4 md:px-8 text-center">
+      <h1 class="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
+        About <span class="text-secondary">Permits & More</span>
+      </h1>
+      <p class="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto">
+        Your trusted partner for exceptional engineering and permit services throughout Southern California.
+      </p>
+    </div>
+  </section>
+
+  <!-- About Content Section -->
+  <section class="py-16 md:py-20 lg:py-24 bg-white">
+    <div class="max-w-[1440px] mx-auto px-4 md:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 lg:gap-20 items-center">
+        <div class="order-2 lg:order-1">
+          <div class="relative w-full h-[450px] md:h-[550px] lg:h-[650px] overflow-hidden rounded-lg shadow-xl">
+            <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/fa9c7a6e86-05f45ac384674ed211af.png" alt="Professional team reviewing construction permits and blueprints" class="w-full h-full object-cover">
+          </div>
+        </div>
+        <div class="order-1 lg:order-2 lg:pl-8">
+          <div class="space-y-6 text-base md:text-lg lg:text-xl text-gray-700 leading-relaxed max-w-2xl">
+            <p>
+              Permits & More provides exceptional engineering and permit services for a wide range of projects. We specialize in guiding projects seamlessly from the conceptual phase through design and into permitting with city building departments—delivering accuracy, efficiency, and timelines you can rely on.
+            </p>
+            <p>
+              Our mission is to simplify what is often a long and complex permitting process. Serving the City of San Diego, the County of San Diego, and surrounding areas, we help make obtaining building permits faster, easier, and far less stressful for our clients. For over five years, we've supported architects, developers, sign contractors, general contractors, and homeowners with dependable engineering and permit processing services.
+            </p>
+            <p>
+              In addition, we offer building code violation assistance, helping clients resolve violations and maintain full code compliance. Our goal is to protect your investment and help you maximize the value of your property with confidence.
+            </p>
+          </div>
+          <a href="approach.html" class="inline-flex items-center text-secondary font-semibold text-base md:text-lg lg:text-xl hover:text-primary transition-all duration-300 group mt-8">
+            <span>Our Approach</span>
+            <svg class="w-5 h-5 md:w-6 md:h-6 ml-2 transition-transform duration-300 group-hover:translate-x-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white pt-12 md:pt-16 pb-6 md:pb-8">
+    <div class="max-w-[1440px] mx-auto px-4 md:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-12 mb-8 md:mb-12">
+        <div>
+          <img src="https://i0.wp.com/permitsandmore.com/wp-content/uploads/2016/06/cropped-logo-1.png?fit=263%2C60&ssl=1" alt="Permits & More Logo" class="h-12 md:h-14 w-auto mb-6">
+          <p class="text-gray-400 leading-relaxed mb-6">Your trusted partner for construction permit processing and inspection coordination services throughout Southern California.</p>
+          <div class="flex space-x-4">
+            <a href="#" class="w-10 h-10 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center transition-all duration-300" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" class="w-10 h-10 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center transition-all duration-300" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="#" class="w-10 h-10 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center transition-all duration-300" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          </div>
+        </div>
+        <div>
+          <h3 class="text-lg font-bold mb-4">Quick Links</h3>
+          <ul class="space-y-3">
+            <li><a href="about.html" class="text-gray-400 hover:text-white transition-colors">About</a></li>
+            <li><a href="services.html" class="text-gray-400 hover:text-white transition-colors">Services</a></li>
+            <li><a href="work.html" class="text-gray-400 hover:text-white transition-colors">Our Work</a></li>
+            <li><a href="approach.html" class="text-gray-400 hover:text-white transition-colors">Our Approach</a></li>
+            <li><a href="contact.html" class="text-gray-400 hover:text-white transition-colors">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-lg font-bold mb-4">Services</h3>
+          <ul class="space-y-3">
+            <li><a href="services.html" class="text-gray-400 hover:text-white transition-colors">Permit Processing</a></li>
+            <li><a href="services.html" class="text-gray-400 hover:text-white transition-colors">Inspection Coordination</a></li>
+            <li><a href="services.html" class="text-gray-400 hover:text-white transition-colors">Compliance Support</a></li>
+            <li><a href="services.html" class="text-gray-400 hover:text-white transition-colors">Code Review</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-lg font-bold mb-4">Contact</h3>
+          <ul class="space-y-3 text-gray-400">
+            <li>619-323-4048</li>
+            <li>info@permitsandmore.com</li>
+            <li>101 West Broadway<br>Suite 300<br>San Diego CA 92101</li>
+          </ul>
+        </div>
+      </div>
+      <div class="border-t border-gray-800 pt-6 md:pt-8">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+          <p class="text-gray-400 text-sm mb-4 md:mb-0">© 2025 Permits &amp; More. All Rights Reserved.</p>
+          <div class="flex flex-wrap justify-center md:justify-end gap-4 md:gap-6">
+            <a href="#" class="text-gray-400 hover:text-white text-sm transition-colors">Privacy Policy</a>
+            <a href="#" class="text-gray-400 hover:text-white text-sm transition-colors">Terms of Service</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+      const mobileNav = document.getElementById('mobile-nav');
+      if (mobileMenuBtn && mobileNav) {
+        mobileMenuBtn.addEventListener('click', function() {
+          mobileNav.classList.toggle('hidden');
+          const icon = mobileMenuBtn.querySelector('i');
+          if (icon) {
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-times');
+          }
+        });
+      }
+    });
+  </script>
+</body>
+
+</html>
+
