@@ -34,6 +34,9 @@
             primary: '#1e3a8a',
             secondary: '#3b82f6',
             accent: '#60a5fa',
+          },
+          gridTemplateColumns: {
+            '16': 'repeat(16, minmax(0, 1fr))',
           }
         }
       }
@@ -246,18 +249,146 @@
     .scroll-down-btn {
       cursor: pointer;
     }
+    
+    /* Recent Insights Carousel Styles */
+    .insights-carousel {
+      overflow: hidden;
+      position: relative;
+      width: 100%;
+    }
+    
+    .insights-carousel-wrapper {
+      display: flex;
+      transition: transform 0.5s ease;
+      will-change: transform;
+    }
+    
+    .insight-slide {
+      flex: 0 0 calc(33.333% - 21.33px);
+      margin-right: 32px;
+      min-width: 0;
+    }
+    
+    @media (max-width: 1023px) {
+      .insight-slide {
+        flex: 0 0 calc(50% - 16px);
+        margin-right: 32px;
+      }
+    }
+    
+    @media (max-width: 767px) {
+      .insight-slide {
+        flex: 0 0 100%;
+        margin-right: 0;
+      }
+    }
+    
+    .insight-card {
+      background: white;
+      overflow: hidden;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+      transition: box-shadow 0.3s ease;
+    }
+    
+    .insight-card:hover {
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    }
+    
+    .insight-image {
+      width: 100%;
+      aspect-ratio: 312/195;
+      object-fit: cover;
+    }
+    
+    .insight-content {
+      padding: 24px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .insight-category {
+      font-weight: 700;
+      font-size: 15px;
+      line-height: 19px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: #3b82f6;
+      margin-top: 24px;
+      margin-bottom: 12px;
+    }
+    
+    .insight-title {
+      font-weight: 700;
+      font-size: 22px;
+      line-height: 28px;
+      color: #1f2937;
+      margin-bottom: 12px;
+      flex-shrink: 0;
+    }
+    
+    .insight-excerpt {
+      color: #6b7280;
+      font-size: 16px;
+      line-height: 1.5;
+      flex: 1;
+    }
+    
+    /* Sign Up Card Styling */
+    .insight-slide section.insight-card {
+      min-height: 100%;
+      justify-content: center;
+    }
+    
+    .carousel-nav-btn {
+      width: 32px;
+      height: 32px;
+      background: #f3f4f6;
+      color: #1f2937;
+      border: none;
+      display: inline-grid;
+      place-items: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .carousel-nav-btn:hover:not(:disabled) {
+      background: #e5e7eb;
+    }
+    
+    .carousel-nav-btn:disabled {
+      color: #9ca3af;
+      cursor: not-allowed;
+    }
+    
+    @media (min-width: 1024px) {
+      .carousel-nav-btn {
+        width: 36px;
+        height: 36px;
+      }
+    }
+    
+    /* 16-column grid for desktop */
+    @media (min-width: 1024px) {
+      .lg\:grid-cols-16 {
+        grid-template-columns: repeat(16, minmax(0, 1fr));
+      }
+    }
   </style>
 </head>
 
 <body class="bg-white">
   <!-- Header Navigation - Absolute positioned, no background like McCarthy.com -->
   <header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
-    <div class="max-w-[1440px] mx-auto px-4 md:px-8 py-6">
+    <div class="max-w-[1440px] mx-auto px-4 md:px-6 lg:px-8 py-4 md:py-6">
       <div class="flex items-center justify-between">
-        <!-- Logo - Absolute positioned -->
-        <div class="flex items-center">
-          <a href="#home" class="block">
-            <img src="https://i0.wp.com/permitsandmore.com/wp-content/uploads/2016/06/cropped-logo-1.png?fit=263%2C60&ssl=1" alt="Permits & More Logo" class="h-10 md:h-16 w-auto" loading="eager">
+        <!-- Logo - Properly aligned -->
+        <div class="flex items-center flex-shrink-0">
+          <a href="index.html" class="block">
+            <img src="https://i0.wp.com/permitsandmore.com/wp-content/uploads/2016/06/cropped-logo-1.png?fit=263%2C60&ssl=1" alt="Permits & More Logo" class="h-8 md:h-12 lg:h-16 w-auto" loading="eager">
           </a>
         </div>
         <!-- Navigation - Right aligned, white text for hero overlay -->
@@ -266,10 +397,10 @@
           <a href="#services" class="nav-link text-white font-medium text-sm uppercase tracking-wide hover:text-blue-200 transition-colors">Services</a>
           <a href="#work" class="nav-link text-white font-medium text-sm uppercase tracking-wide hover:text-blue-200 transition-colors">Our Work</a>
           <a href="#approach" class="nav-link text-white font-medium text-sm uppercase tracking-wide hover:text-blue-200 transition-colors">Our Approach</a>
-          <a href="#contact" class="nav-link text-white font-medium text-sm uppercase tracking-wide hover:text-blue-200 transition-colors">Contact</a>
-          <button id="header-get-started-btn" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})" class="bg-white text-primary hover:bg-gray-100 px-6 md:px-8 py-2 md:py-3 rounded-full font-semibold transition-all duration-300 text-sm md:text-base">
+          <a href="contact.html" class="nav-link text-white font-medium text-sm uppercase tracking-wide hover:text-blue-200 transition-colors">Contact</a>
+          <a href="contact.html" id="header-get-started-btn" class="bg-white text-primary hover:bg-gray-100 px-6 md:px-8 py-2 md:py-3 rounded-full font-semibold transition-all duration-300 text-sm md:text-base">
             Get Started
-          </button>
+          </a>
         </nav>
         <button id="mobile-menu-btn" class="mobile-menu text-white text-2xl md:hidden" aria-label="Toggle menu">
           <i class="fas fa-bars"></i>
@@ -282,10 +413,10 @@
           <a href="#services" class="nav-link text-white font-medium text-sm uppercase tracking-wide">Services</a>
           <a href="#work" class="nav-link text-white font-medium text-sm uppercase tracking-wide">Our Work</a>
           <a href="#approach" class="nav-link text-white font-medium text-sm uppercase tracking-wide">Our Approach</a>
-          <a href="#contact" class="nav-link text-white font-medium text-sm uppercase tracking-wide">Contact</a>
-          <button onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})" class="bg-white text-primary hover:bg-gray-100 px-8 py-3 rounded-full font-semibold transition-all duration-300 w-full">
+          <a href="contact.html" class="nav-link text-white font-medium text-sm uppercase tracking-wide">Contact</a>
+          <a href="contact.html" class="bg-white text-primary hover:bg-gray-100 px-8 py-3 rounded-full font-semibold transition-all duration-300 w-full text-center">
             Get Started
-          </button>
+          </a>
         </div>
       </nav>
     </div>
@@ -298,28 +429,28 @@
     <div class="hero-slide" style="background-image: url('https://storage.googleapis.com/uxpilot-auth.appspot.com/f2f35aba59-e83f97eea49778969d0d.png');"></div>
     <div class="hero-overlay"></div>
     <div class="absolute inset-0 flex items-center justify-center z-10">
-      <div class="text-center text-white max-w-5xl px-4 md:px-8">
-        <h1 class="font-display hero-headline mb-6 font-bold">
+      <div class="text-center text-white w-full max-w-5xl px-4 md:px-6 lg:px-8 mx-auto">
+        <h1 class="font-display hero-headline mb-4 md:mb-6 font-bold leading-tight">
           <span class="block">We Love to Process Permits.</span>
-          <span class="block">It's Who We Are and What We Do.</span>
+          <span class="block mt-2 md:mt-3">It's Who We Are and What We Do.</span>
         </h1>
-        <p class="text-xl md:text-2xl mb-8 font-light max-w-3xl mx-auto">
+        <p class="text-base md:text-xl lg:text-2xl mb-6 md:mb-8 font-light max-w-3xl mx-auto leading-relaxed px-2 md:px-0">
           It's not just what we do -- it's how we do it. Our expertise is foundational to who we are, allowing us to deliver more value. Together, we overcome the toughest permitting challenges and maximize outcomes for our clients, contractors, and communities.
         </p>
-        <div class="flex flex-col md:flex-row gap-4 justify-center">
-          <button onclick="document.getElementById('services').scrollIntoView({behavior: 'smooth'})" class="bg-white text-primary hover:bg-gray-100 px-8 md:px-12 py-4 rounded-full text-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-2xl">
+        <div class="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center items-center px-4 md:px-0">
+          <button onclick="document.getElementById('services').scrollIntoView({behavior: 'smooth'})" class="w-full sm:w-auto bg-white text-primary hover:bg-gray-100 px-6 md:px-8 lg:px-12 py-3 md:py-4 rounded-full text-base md:text-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-2xl">
             See Our Services
           </button>
-          <button onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})" class="bg-transparent border-2 border-white text-white hover:bg-white hover:text-primary px-8 md:px-12 py-4 rounded-full text-lg font-semibold transition-all duration-300 transform hover:scale-105">
+          <a href="contact.html" class="w-full sm:w-auto bg-transparent border-2 border-white text-white hover:bg-white hover:text-primary px-6 md:px-8 lg:px-12 py-3 md:py-4 rounded-full text-base md:text-lg font-semibold transition-all duration-300 transform hover:scale-105 text-center inline-block">
             Get Started
-          </button>
+          </a>
         </div>
       </div>
     </div>
     <!-- Scroll Down Button - Bottom Center -->
     <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20">
-      <button onclick="document.getElementById('about').scrollIntoView({behavior: 'smooth'})" class="scroll-down-btn w-12 h-12 md:w-14 md:h-14 rounded-full bg-white/20 hover:bg-white/30 backdrop-blur-sm border-2 border-white/50 hover:border-white transition-all duration-300 flex items-center justify-center group animate-bounce" aria-label="Scroll to next section">
-        <i class="fas fa-chevron-down text-white text-xl md:text-2xl group-hover:text-white transition-transform group-hover:translate-y-1"></i>
+      <button onclick="document.getElementById('about').scrollIntoView({behavior: 'smooth'})" class="scroll-down-btn w-6 h-6 md:w-8 md:h-8 rounded-full bg-white/20 hover:bg-white/30 backdrop-blur-sm border border-white/50 hover:border-white transition-all duration-300 flex items-center justify-center group animate-bounce" aria-label="Scroll to next section">
+        <i class="fas fa-chevron-down text-white text-xs md:text-sm group-hover:text-white transition-transform group-hover:translate-y-1"></i>
       </button>
     </div>
   </section>
@@ -597,48 +728,138 @@
     </div>
   </section>
 
-  <!-- Recent Insights/News Section -->
-  <section class="py-20 md:py-32 bg-gray-50">
-    <div class="max-w-[1440px] mx-auto px-4 md:px-8">
-      <div class="text-center mb-12 md:mb-16">
-        <h2 class="font-display section-headline text-gray-900 mb-4">Recent Insights</h2>
-        <a href="#contact" class="text-secondary font-semibold hover:text-primary transition-colors inline-flex items-center">
-          All Insights <i class="fa-solid fa-arrow-right ml-2"></i>
-        </a>
+  <!-- Recent Insights Section - Matching McCarthy.com Structure -->
+  <section class="py-20 md:py-32 lg:py-40 bg-gray-50">
+    <div class="max-w-[1440px] mx-auto px-4 md:px-8 lg:px-12 xl:px-16">
+      <!-- Header Row -->
+      <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-12 md:mb-16 lg:mb-20">
+        <h2 class="font-display font-bold text-2xl md:text-3xl lg:text-4xl leading-tight uppercase text-gray-900 mb-6 lg:mb-0">
+          Recent Insights
+        </h2>
+        <div class="flex items-center justify-between lg:justify-start print:hidden">
+          <a href="contact.html" class="bg-primary hover:bg-secondary text-white px-6 md:px-8 py-3 md:py-4 rounded-full font-semibold transition-all duration-300 mr-4 md:mr-8">
+            All Insights
+          </a>
+          <ul class="flex items-center space-x-2">
+            <li>
+              <button type="button" id="insights-prev" class="carousel-nav-btn swiper-custom-prev" aria-label="Previous Slide">
+                <svg role="img" class="block w-8 h-4 m-auto fill-current pointer-events-none" focusable="false" viewBox="0 0 24 24">
+                  <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+                </svg>
+              </button>
+            </li>
+            <li>
+              <button type="button" id="insights-next" class="carousel-nav-btn swiper-custom-next" aria-label="Next Slide">
+                <svg role="img" class="block w-8 h-4 m-auto fill-current pointer-events-none" focusable="false" viewBox="0 0 24 24">
+                  <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
+                </svg>
+              </button>
+            </li>
+          </ul>
+        </div>
       </div>
       
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
-        <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300">
-          <div class="h-48 overflow-hidden">
-            <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/49b2095347-2bb481764220134c1869.png" alt="Permit News" class="w-full h-full object-cover">
-          </div>
-          <div class="p-6">
-            <p class="text-sm text-gray-500 mb-2">News Release</p>
-            <h3 class="font-display text-xl font-bold text-gray-900 mb-3">New Building Code Updates for 2025</h3>
-            <p class="text-gray-600">Important changes to California building codes that affect permit applications and inspections...</p>
-          </div>
-        </div>
-        
-        <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300">
-          <div class="h-48 overflow-hidden">
-            <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/928b4fb573-6ac86857e21980919a65.png" alt="Industry Trends" class="w-full h-full object-cover">
-          </div>
-          <div class="p-6">
-            <p class="text-sm text-gray-500 mb-2">Editorial</p>
-            <h3 class="font-display text-xl font-bold text-gray-900 mb-3">Streamlining the Permit Process</h3>
-            <p class="text-gray-600">How technology and process improvements are making permit processing faster and more efficient...</p>
-          </div>
-        </div>
-        
-        <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300">
-          <div class="h-48 overflow-hidden">
-            <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/f2f35aba59-e83f97eea49778969d0d.png" alt="Project Success" class="w-full h-full object-cover">
-          </div>
-          <div class="p-6">
-            <p class="text-sm text-gray-500 mb-2">In the News</p>
-            <h3 class="font-display text-xl font-bold text-gray-900 mb-3">Major Project Completion</h3>
-            <p class="text-gray-600">Permits & More successfully completes permit processing for major downtown development...</p>
-          </div>
+      <!-- Carousel Row -->
+      <div class="insights-carousel relative z-10">
+        <div class="insights-carousel-wrapper" id="insights-carousel-wrapper">
+          <!-- Insight Card 1 -->
+          <article class="insight-slide">
+            <a href="#contact" rel="bookmark" class="block insight-card h-full">
+              <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/49b2095347-2bb481764220134c1869.png" alt="Commercial building permit project" class="insight-image" loading="lazy">
+              <div class="insight-content">
+                <div class="insight-category">News Release</div>
+                <h3 class="insight-title">
+                  <span>New Building Code Updates for 2025: What You Need to Know</span>
+                </h3>
+                <div class="insight-excerpt">
+                  <p>Important changes to California building codes that affect permit applications and inspections. Stay ahead with our comprehensive guide...</p>
+                </div>
+              </div>
+            </a>
+          </article>
+          
+          <!-- Insight Card 2 -->
+          <article class="insight-slide">
+            <a href="#contact" rel="bookmark" class="block insight-card h-full">
+              <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/928b4fb573-6ac86857e21980919a65.png" alt="Technology streamlining permit process" class="insight-image" loading="lazy">
+              <div class="insight-content">
+                <div class="insight-category">Editorial</div>
+                <h3 class="insight-title">
+                  <span>Streamlining the Permit Process: Technology and Innovation</span>
+                </h3>
+                <div class="insight-excerpt">
+                  <p>How technology and process improvements are making permit processing faster and more efficient for contractors and developers...</p>
+                </div>
+              </div>
+            </a>
+          </article>
+          
+          <!-- Sign Up Card -->
+          <section class="insight-slide insight-card bg-white text-center">
+            <div class="insight-content flex items-center justify-center">
+              <div class="w-full">
+                <h2 class="font-display uppercase text-2xl md:text-3xl leading-tight border-b-2 border-gray-300 pb-4 mb-6">
+                  Sign Up for <strong>P</strong><span class="lowercase"><strong>ermits &</strong></span> <strong>More Insights</strong>
+                </h2>
+                <div class="text-gray-600 mb-8 text-base">
+                  <p>Construction news and trends you need to know for future projects, delivered today.</p>
+                </div>
+                <p>
+                <a href="contact.html" class="inline-block bg-primary hover:bg-secondary text-white px-8 py-4 rounded-full font-semibold transition-all duration-300">
+                  Subscribe
+                </a>
+                </p>
+              </div>
+            </div>
+          </section>
+          
+          <!-- Insight Card 3 -->
+          <article class="insight-slide">
+            <a href="#contact" rel="bookmark" class="block insight-card h-full">
+              <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/f2f35aba59-e83f97eea49778969d0d.png" alt="Major project completion" class="insight-image" loading="lazy">
+              <div class="insight-content">
+                <div class="insight-category">In the News</div>
+                <h3 class="insight-title">
+                  <span>Major Project Completion: Downtown Development Success</span>
+                </h3>
+                <div class="insight-excerpt">
+                  <p>Permits & More successfully completes permit processing for major downtown development, setting new standards for efficiency...</p>
+                </div>
+              </div>
+            </a>
+          </article>
+          
+          <!-- Insight Card 4 -->
+          <article class="insight-slide">
+            <a href="#contact" rel="bookmark" class="block insight-card h-full">
+              <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/685ed0c7a3-a1a6ee1b1ffb6486a9af.png" alt="Residential permit success" class="insight-image" loading="lazy">
+              <div class="insight-content">
+                <div class="insight-category">Editorial</div>
+                <h3 class="insight-title">
+                  <span>Residential Permit Processing: A Homeowner's Guide</span>
+                </h3>
+                <div class="insight-excerpt">
+                  <p>Navigating residential permit requirements doesn't have to be overwhelming. Our expert guide breaks down everything you need to know...</p>
+                </div>
+              </div>
+            </a>
+          </article>
+          
+          <!-- Insight Card 5 -->
+          <article class="insight-slide">
+            <a href="#contact" rel="bookmark" class="block insight-card h-full">
+              <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/0f42743cc1-5b43c0799e7e610bf657.png" alt="Code compliance assistance" class="insight-image" loading="lazy">
+              <div class="insight-content">
+                <div class="insight-category">News Release</div>
+                <h3 class="insight-title">
+                  <span>Building Code Violation Assistance: Resolving Issues Quickly</span>
+                </h3>
+                <div class="insight-excerpt">
+                  <p>Learn how our code violation assistance services help clients resolve violations and maintain full code compliance...</p>
+                </div>
+              </div>
+            </a>
+          </article>
         </div>
       </div>
     </div>
@@ -662,112 +883,47 @@
     </div>
   </section>
 
-  <!-- CTA Section - "Let's Build Together" -->
-  <section class="py-20 md:py-32 bg-gray-900 text-white relative overflow-hidden">
-    <div class="absolute inset-0 opacity-10">
-      <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/6f736a88e0-4cc6e3756abb280cf77c.png" alt="Background" class="w-full h-full object-cover">
-    </div>
-    <div class="relative z-10 max-w-[1440px] mx-auto px-4 md:px-8 text-center">
-      <h2 class="font-display section-headline mb-6">
-        <span class="block">Let's Process</span>
-        <span class="block text-secondary">Together</span>
-      </h2>
-      <div class="flex flex-col md:flex-row gap-6 justify-center mt-8">
-        <button onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})" class="bg-secondary hover:bg-accent text-white px-8 md:px-12 py-4 rounded-full text-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-2xl">
-          Let's Talk
-        </button>
-        <button onclick="window.open('tel:619-323-4048')" class="bg-transparent border-2 border-white text-white hover:bg-white hover:text-gray-900 px-8 md:px-12 py-4 rounded-full text-lg font-semibold transition-all duration-300 transform hover:scale-105">
-          Call Us: 619-323-4048
-        </button>
+  <!-- Footer CTA Section - Matching McCarthy.com Structure -->
+  <section class="relative grid grid-cols-1 lg:grid-cols-12 mb-0">
+    <!-- Left Side - "Let's Process Together" with Background Image (75% width) -->
+    <div class="relative lg:col-span-9 bg-gray-900 z-10 min-h-[500px] lg:min-h-[640px] overflow-hidden">
+      <!-- Background Image -->
+      <div class="absolute inset-0 z-0">
+        <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/6f736a88e0-4cc6e3756abb280cf77c.png" alt="Construction team meeting" class="w-full h-full object-cover">
+        <div class="absolute inset-0 bg-gradient-to-br from-gray-900/80 to-gray-900/60"></div>
+      </div>
+      
+      <!-- Content Overlay - Bottom Left -->
+      <div class="absolute bottom-0 left-0 right-0 z-20 pt-16 lg:pt-20 pb-14 lg:pb-24 px-4 md:px-8 lg:px-12">
+        <div class="max-w-2xl text-center lg:text-left">
+          <h2 class="font-display text-4xl md:text-5xl lg:text-7xl xl:text-8xl leading-tight uppercase text-white mb-8 lg:mb-10">
+            <strong class="block">Let's Process</strong>
+            <span class="block text-secondary">Together</span>
+          </h2>
+          <p class="mb-6 lg:mb-8">
+            <a href="#services" class="inline-block bg-secondary hover:bg-primary text-white px-8 md:px-10 py-4 md:py-5 rounded-full text-base md:text-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-2xl">
+              View Our Services
+            </a>
+          </p>
+        </div>
       </div>
     </div>
-  </section>
-
-  <!-- Contact Section -->
-  <section id="contact" class="py-20 md:py-32 bg-white">
-    <div class="max-w-[1440px] mx-auto px-4 md:px-8">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16">
-        <div>
-          <h2 class="font-display section-headline text-gray-900 mb-6">Need to Reach Us?</h2>
-          <p class="text-lg text-gray-600 mb-8">
-            Ready to start your project? Contact us today for a free consultation.
+    
+    <!-- Right Side - "Need to Reach Us?" White Card (25% width) -->
+    <div class="relative lg:col-span-3 lg:py-20 -mt-12 lg:-mt-0 z-20 px-4 md:px-8 lg:px-6">
+      <div class="bg-white shadow-2xl text-center lg:h-full flex items-center">
+        <div class="w-full py-16 lg:py-12 px-8 lg:px-10">
+          <p class="font-display font-bold text-sm md:text-base leading-tight tracking-wider uppercase text-gray-500 mb-2">
+            Let's Talk
           </p>
-          <div class="space-y-6">
-            <div class="flex items-start">
-              <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
-                <i class="fa-solid fa-phone text-primary text-xl"></i>
-              </div>
-              <div>
-                <h3 class="font-bold text-gray-900 mb-1">Phone</h3>
-                <a href="tel:619-323-4048" class="text-secondary hover:text-primary transition-colors text-lg">619-323-4048</a>
-              </div>
-            </div>
-            <div class="flex items-start">
-              <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
-                <i class="fa-solid fa-envelope text-primary text-xl"></i>
-              </div>
-              <div>
-                <h3 class="font-bold text-gray-900 mb-1">Email</h3>
-                <a href="mailto:info@permitsandmore.com" class="text-secondary hover:text-primary transition-colors text-lg">info@permitsandmore.com</a>
-              </div>
-            </div>
-            <div class="flex items-start">
-              <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
-                <i class="fa-solid fa-map-marker-alt text-primary text-xl"></i>
-              </div>
-              <div>
-                <h3 class="font-bold text-gray-900 mb-1">Address</h3>
-                <p class="text-gray-600 text-lg">101 West Broadway<br>Suite 300<br>San Diego CA 92101</p>
-              </div>
-            </div>
-            <div class="flex items-start">
-              <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
-                <i class="fa-solid fa-clock text-primary text-xl"></i>
-              </div>
-              <div>
-                <h3 class="font-bold text-gray-900 mb-1">Business Hours</h3>
-                <p class="text-gray-600">Monday - Friday: 8:00 AM - 6:00 PM<br>Saturday: 9:00 AM - 2:00 PM<br>Sunday: Closed</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="bg-gray-50 rounded-lg p-8 shadow-xl">
-          <h3 class="text-2xl font-bold text-gray-900 mb-6">Send Us a Message</h3>
-          <form onsubmit="handleFormSubmit(event)" class="space-y-6">
-            <div>
-              <label class="block text-gray-700 font-semibold mb-2">Full Name *</label>
-              <input type="text" placeholder="John Doe" required class="w-full px-4 py-3 bg-white rounded-lg border border-gray-300 focus:border-secondary focus:ring-2 focus:ring-secondary/20 outline-none transition-all">
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div>
-                <label class="block text-gray-700 font-semibold mb-2">Email *</label>
-                <input type="email" placeholder="john@example.com" required class="w-full px-4 py-3 bg-white rounded-lg border border-gray-300 focus:border-secondary focus:ring-2 focus:ring-secondary/20 outline-none transition-all">
-              </div>
-              <div>
-                <label class="block text-gray-700 font-semibold mb-2">Phone *</label>
-                <input type="tel" placeholder="(619) 555-0123" required class="w-full px-4 py-3 bg-white rounded-lg border border-gray-300 focus:border-secondary focus:ring-2 focus:ring-secondary/20 outline-none transition-all">
-              </div>
-            </div>
-            <div>
-              <label class="block text-gray-700 font-semibold mb-2">Project Type *</label>
-              <select required class="w-full px-4 py-3 bg-white text-gray-900 rounded-lg border border-gray-300 focus:border-secondary focus:ring-2 focus:ring-secondary/20 outline-none transition-all">
-                <option value="" class="text-gray-500">Select Project Type</option>
-                <option class="text-gray-900">Residential New Construction</option>
-                <option class="text-gray-900">Residential Remodel</option>
-                <option class="text-gray-900">Commercial New Construction</option>
-                <option class="text-gray-900">Commercial Tenant Improvement</option>
-                <option class="text-gray-900">Industrial</option>
-                <option class="text-gray-900">Other</option>
-              </select>
-            </div>
-            <div>
-              <label class="block text-gray-700 font-semibold mb-2">Message *</label>
-              <textarea rows="5" placeholder="Tell us about your project..." required class="w-full px-4 py-3 bg-white rounded-lg border border-gray-300 focus:border-secondary focus:ring-2 focus:ring-secondary/20 outline-none transition-all"></textarea>
-            </div>
-            <button type="submit" class="w-full bg-secondary hover:bg-primary text-white py-4 rounded-lg font-semibold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg">
-              Send Message
-            </button>
-          </form>
+          <h2 class="font-display font-bold text-2xl md:text-3xl lg:text-4xl leading-tight uppercase text-gray-900 mb-8">
+            Need to Reach Us?
+          </h2>
+          <p class="mb-6 lg:mb-8">
+            <a href="contact.html" class="inline-block bg-secondary hover:bg-primary text-white px-8 md:px-10 py-4 md:py-5 rounded-full text-base md:text-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg w-full text-center">
+              Contact Us
+            </a>
+          </p>
         </div>
       </div>
     </div>
@@ -801,7 +957,7 @@
             <li><a href="#services" class="text-gray-400 hover:text-white transition-colors">Services</a></li>
             <li><a href="#work" class="text-gray-400 hover:text-white transition-colors">Our Work</a></li>
             <li><a href="#approach" class="text-gray-400 hover:text-white transition-colors">Our Approach</a></li>
-            <li><a href="#contact" class="text-gray-400 hover:text-white transition-colors">Contact</a></li>
+            <li><a href="contact.html" class="text-gray-400 hover:text-white transition-colors">Contact</a></li>
           </ul>
         </div>
         <div>
@@ -1009,7 +1165,97 @@
     if (projectSlides.length > 1) {
       setInterval(nextProject, 8000);
     }
+
+    // Recent Insights Carousel Functionality
+    const insightsCarousel = document.getElementById('insights-carousel-wrapper');
+    const insightsPrevBtn = document.getElementById('insights-prev');
+    const insightsNextBtn = document.getElementById('insights-next');
+    let insightsCurrentIndex = 0;
+    let insightsSlidesPerView = 3;
+    let insightsTotalSlides = 0;
+
+    function updateInsightsSlidesPerView() {
+      if (window.innerWidth >= 1024) {
+        insightsSlidesPerView = 3;
+      } else if (window.innerWidth >= 768) {
+        insightsSlidesPerView = 2;
+      } else {
+        insightsSlidesPerView = 1;
+      }
+      
+      if (insightsCarousel) {
+        insightsTotalSlides = insightsCarousel.children.length;
+        updateInsightsButtons();
+      }
+    }
+
+    function updateInsightsCarousel() {
+      if (!insightsCarousel) return;
+      
+      const slideWidth = insightsCarousel.children[0]?.offsetWidth || 0;
+      const gap = 32;
+      const translateX = -(insightsCurrentIndex * (slideWidth + gap));
+      insightsCarousel.style.transform = `translateX(${translateX}px)`;
+      updateInsightsButtons();
+    }
+
+    function updateInsightsButtons() {
+      if (!insightsPrevBtn || !insightsNextBtn) return;
+      
+      const maxIndex = Math.max(0, insightsTotalSlides - insightsSlidesPerView);
+      
+      insightsPrevBtn.disabled = insightsCurrentIndex === 0;
+      insightsNextBtn.disabled = insightsCurrentIndex >= maxIndex;
+      
+      if (insightsPrevBtn.disabled) {
+        insightsPrevBtn.classList.add('disabled');
+      } else {
+        insightsPrevBtn.classList.remove('disabled');
+      }
+      
+      if (insightsNextBtn.disabled) {
+        insightsNextBtn.classList.add('disabled');
+      } else {
+        insightsNextBtn.classList.remove('disabled');
+      }
+    }
+
+    function nextInsight() {
+      const maxIndex = Math.max(0, insightsTotalSlides - insightsSlidesPerView);
+      if (insightsCurrentIndex < maxIndex) {
+        insightsCurrentIndex++;
+        updateInsightsCarousel();
+      }
+    }
+
+    function prevInsight() {
+      if (insightsCurrentIndex > 0) {
+        insightsCurrentIndex--;
+        updateInsightsCarousel();
+      }
+    }
+
+    if (insightsCarousel) {
+      updateInsightsSlidesPerView();
+      window.addEventListener('resize', () => {
+        updateInsightsSlidesPerView();
+        insightsCurrentIndex = 0;
+        updateInsightsCarousel();
+      });
+      
+      if (insightsPrevBtn) {
+        insightsPrevBtn.addEventListener('click', prevInsight);
+      }
+      
+      if (insightsNextBtn) {
+        insightsNextBtn.addEventListener('click', nextInsight);
+      }
+      
+      // Initialize carousel
+      updateInsightsCarousel();
+    }
   </script>
 </body>
 
 </html>
+
