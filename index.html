@@ -449,14 +449,14 @@
     </div>
     <!-- Scroll Down Button - Bottom Center -->
     <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20">
-      <button onclick="document.getElementById('about').scrollIntoView({behavior: 'smooth'})" class="scroll-down-btn w-6 h-6 md:w-8 md:h-8 rounded-full bg-white/20 hover:bg-white/30 backdrop-blur-sm border border-white/50 hover:border-white transition-all duration-300 flex items-center justify-center group animate-bounce" aria-label="Scroll to next section">
+      <button onclick="scrollToNextSection()" class="scroll-down-btn w-6 h-6 md:w-8 md:h-8 rounded-full bg-white/20 hover:bg-white/30 backdrop-blur-sm border border-white/50 hover:border-white transition-all duration-300 flex items-center justify-center group animate-bounce cursor-pointer" aria-label="Scroll to next section">
         <i class="fas fa-chevron-down text-white text-xs md:text-sm group-hover:text-white transition-transform group-hover:translate-y-1"></i>
       </button>
     </div>
   </section>
 
   <!-- Dream It / Build It Section - Matching McCarthy's bold typography -->
-  <section class="py-20 md:py-32 relative overflow-hidden" style="background-image: url('https://sprottshaw.com/wp-content/uploads/2019/12/GettyImages-842866442.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+  <section id="next-section" class="py-20 md:py-32 relative overflow-hidden" style="background-image: url('https://sprottshaw.com/wp-content/uploads/2019/12/GettyImages-842866442.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">
     <!-- Light gray overlay mask -->
     <div class="absolute inset-0 bg-gray-100/80"></div>
     <!-- Content -->
@@ -865,6 +865,20 @@
         e.preventDefault();
         alert('Thank you for subscribing to our newsletter!');
         e.target.reset();
+      };
+
+      // Scroll to next section function
+      window.scrollToNextSection = function() {
+        const nextSection = document.getElementById('next-section');
+        const header = document.getElementById('header');
+        if (nextSection) {
+          const headerHeight = header ? header.offsetHeight : 0;
+          const targetPosition = nextSection.offsetTop - headerHeight;
+          window.scrollTo({
+            top: targetPosition,
+            behavior: 'smooth'
+          });
+        }
       };
     });
 
