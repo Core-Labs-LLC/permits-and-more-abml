@@ -1466,7 +1466,8 @@
         mobileMenu.classList.remove("opacity-0", "pointer-events-none");
         mobileMenu.classList.add("opacity-100", "pointer-events-auto");
         
-        // Add background to header so logo is visible
+        // Hide header logo, show centered menu logo instead
+        document.getElementById("header-logo").classList.add("opacity-0");
         document.getElementById("header").classList.add("bg-white");
         mobileMenuBtn.classList.remove("text-white");
         mobileMenuBtn.classList.add("text-neutral-700");
@@ -1494,6 +1495,9 @@
           link.classList.add("translate-y-4", "opacity-0");
           link.classList.remove("translate-y-0", "opacity-100");
         });
+        
+        // Show header logo again
+        document.getElementById("header-logo").classList.remove("opacity-0");
         
         // Animate hamburger back
         line1.style.transform = "";
