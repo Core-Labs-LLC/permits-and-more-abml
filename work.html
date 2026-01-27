@@ -4,301 +4,317 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Our Work - Permits & More showcases successful permit processing projects across Southern California.">
-  <title>Our Work - Permits & More</title>
+  <meta name="description" content="Our Projects - Permits & More showcases successful permit processing projects across San Diego and Southern California.">
+  <meta name="keywords" content="projects, portfolio, permit processing, San Diego, construction permits">
+  <meta name="author" content="Permits & More">
+  <title>Projects - Permits & More</title>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
+
   <script>
     tailwind.config = {
       theme: {
         extend: {
           colors: {
-            primary: '#1e3a8a',
-            secondary: '#3b82f6',
-            accent: '#60a5fa',
-          }
+            brand: { 50: '#eff6ff', 100: '#dbeafe', 200: '#bfdbfe', 300: '#93c5fd', 400: '#60a5fa', 500: '#3B82F6', 600: '#2563eb', 700: '#1d4ed8', 800: '#1e40af', 900: '#1e3a8a' },
+            neutral: { 850: '#1a1a1a', 950: '#0a0a0a' }
+          },
+          fontFamily: { sans: ['Outfit', 'system-ui', 'sans-serif'], serif: ['Instrument Serif', 'Georgia', 'serif'] },
         }
       }
     }
   </script>
+
   <style>
     * { box-sizing: border-box; }
-    ::-webkit-scrollbar { display: none; }
-    body { font-family: 'Inter', sans-serif; margin: 0; scroll-behavior: smooth; }
-    .font-display { font-family: 'Playfair Display', serif; }
-    .nav-link { position: relative; transition: all 0.3s ease; }
-    .nav-link::after { content: ''; position: absolute; bottom: -5px; left: 0; width: 0; height: 2px; background: currentColor; transition: width 0.3s ease; }
-    .nav-link:hover::after { width: 100%; }
-    .section-headline { font-size: clamp(2rem, 4vw, 3.5rem); line-height: 1.2; font-weight: 700; }
-    .project-carousel { position: relative; overflow: hidden; }
-    .project-slide { display: none; }
-    .project-slide.active { display: block; animation: fadeIn 1s ease-in-out; }
-    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-    .carousel-control { cursor: pointer; transition: all 0.3s ease; }
-    .carousel-control:hover { opacity: 0.8; }
-    .mobile-menu { display: none; }
-    @media (max-width: 768px) {
-      .mobile-menu { display: block; }
-      .desktop-nav { display: none; }
-    }
-    img { max-width: 100%; height: auto; }
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: #f1f1f1; }
+    ::-webkit-scrollbar-thumb { background: #3B82F6; border-radius: 4px; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Outfit', sans-serif; margin: 0; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+    .font-serif { font-family: 'Instrument Serif', Georgia, serif; }
+    .btn-primary { background: #3B82F6; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
+    .btn-primary:hover { background: #2563eb; transform: translateY(-2px); box-shadow: 0 20px 40px -10px rgba(59, 130, 246, 0.4); }
+    .card-hover { transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); }
+    .card-hover:hover { transform: translateY(-8px); box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15); }
+    .link-underline { position: relative; }
+    .link-underline::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 0; height: 1.5px; background: currentColor; transition: width 0.3s ease; }
+    .link-underline:hover::after { width: 100%; }
+    .animate-on-scroll { opacity: 0; transform: translateY(40px); transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1); }
+    .animate-on-scroll.visible { opacity: 1; transform: translateY(0); }
+    .animate-on-scroll.delay-1 { transition-delay: 0.1s; }
+    .animate-on-scroll.delay-2 { transition-delay: 0.2s; }
+    .animate-on-scroll.delay-3 { transition-delay: 0.3s; }
+    .divider-gradient { height: 1px; background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.3), transparent); }
+    .mobile-menu-overlay { backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); }
   </style>
 </head>
 
-<body class="bg-white">
-  <header id="header" class="fixed top-0 left-0 right-0 z-50 bg-white shadow-md transition-all duration-300">
-    <div class="max-w-[1440px] mx-auto px-4 md:px-6 lg:px-8 py-4 md:py-6">
-      <div class="flex items-center justify-between">
-        <div class="flex items-center flex-shrink-0">
-          <a href="index.html" class="block">
-            <img src="https://i0.wp.com/permitsandmore.com/wp-content/uploads/2016/06/cropped-logo-1.png?fit=263%2C60&ssl=1" alt="Permits & More Logo" class="h-8 md:h-12 lg:h-16 w-auto" loading="eager">
-          </a>
-        </div>
-        <nav class="desktop-nav flex items-center space-x-6 md:space-x-8">
-          <a href="about.html" class="nav-link text-gray-800 font-medium text-sm uppercase tracking-wide hover:text-secondary transition-colors">About</a>
-          <a href="services.html" class="nav-link text-gray-800 font-medium text-sm uppercase tracking-wide hover:text-secondary transition-colors">Services</a>
-          <a href="work.html" class="nav-link text-gray-800 font-medium text-sm uppercase tracking-wide hover:text-secondary transition-colors border-b-2 border-secondary">Our Work</a>
-          <a href="approach.html" class="nav-link text-gray-800 font-medium text-sm uppercase tracking-wide hover:text-secondary transition-colors">Our Approach</a>
-          <a href="contact.html" class="nav-link text-gray-800 font-medium text-sm uppercase tracking-wide hover:text-secondary transition-colors">Contact</a>
-          <a href="contact.html" class="bg-secondary text-white hover:bg-primary px-6 md:px-8 py-2 md:py-3 rounded-full font-semibold transition-all duration-300 text-sm md:text-base">Get Started</a>
+<body class="bg-white text-neutral-850">
+
+  <!-- Header Navigation -->
+  <header id="header" class="fixed top-0 left-0 right-0 z-50 bg-white shadow-sm transition-all duration-500">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20 lg:h-24">
+        <a href="index.html" class="relative z-10 flex-shrink-0">
+          <img src="https://i0.wp.com/permitsandmore.com/wp-content/uploads/2016/06/cropped-logo-1.png?fit=263%2C60&ssl=1" alt="Permits & More" class="h-10 lg:h-14 w-auto">
+        </a>
+
+        <nav class="hidden md:flex items-center gap-6 lg:gap-8">
+          <a href="about.html" class="nav-link link-underline text-sm font-medium tracking-wide uppercase text-neutral-700 hover:text-brand-500 transition-colors duration-300">About</a>
+          <a href="services.html" class="nav-link link-underline text-sm font-medium tracking-wide uppercase text-neutral-700 hover:text-brand-500 transition-colors duration-300">Services</a>
+          <a href="work.html" class="nav-link link-underline text-sm font-medium tracking-wide uppercase text-brand-500 transition-colors duration-300">Projects</a>
+          <a href="newsletter.html" class="nav-link link-underline text-sm font-medium tracking-wide uppercase text-neutral-700 hover:text-brand-500 transition-colors duration-300">Newsletter</a>
+          <a href="reviews.html" class="nav-link link-underline text-sm font-medium tracking-wide uppercase text-neutral-700 hover:text-brand-500 transition-colors duration-300">Reviews</a>
+          <a href="contact.html" class="nav-link link-underline text-sm font-medium tracking-wide uppercase text-neutral-700 hover:text-brand-500 transition-colors duration-300">Contact</a>
         </nav>
-        <button id="mobile-menu-btn" class="mobile-menu text-gray-800 text-2xl md:hidden" aria-label="Toggle menu">
-          <i class="fas fa-bars"></i>
+
+        <button id="mobile-menu-btn" class="md:hidden relative z-10 w-10 h-10 flex items-center justify-center" aria-label="Toggle menu">
+          <div class="space-y-1.5">
+            <span class="block w-6 h-0.5 bg-neutral-700 transition-all duration-300 origin-center" id="line1"></span>
+            <span class="block w-6 h-0.5 bg-neutral-700 transition-all duration-300" id="line2"></span>
+            <span class="block w-4 h-0.5 bg-neutral-700 transition-all duration-300 origin-center" id="line3"></span>
+          </div>
         </button>
       </div>
-      <nav id="mobile-nav" class="mobile-menu hidden md:hidden mt-4 pb-4 bg-white border border-gray-200 rounded-lg shadow-lg">
-        <div class="flex flex-col space-y-4 pt-4 px-4">
-          <a href="about.html" class="nav-link text-gray-800 font-medium text-sm uppercase tracking-wide">About</a>
-          <a href="services.html" class="nav-link text-gray-800 font-medium text-sm uppercase tracking-wide">Services</a>
-          <a href="work.html" class="nav-link text-gray-800 font-medium text-sm uppercase tracking-wide border-b-2 border-secondary pb-1">Our Work</a>
-          <a href="approach.html" class="nav-link text-gray-800 font-medium text-sm uppercase tracking-wide">Our Approach</a>
-          <a href="contact.html" class="nav-link text-gray-800 font-medium text-sm uppercase tracking-wide">Contact</a>
-          <a href="contact.html" class="bg-secondary text-white hover:bg-primary px-8 py-3 rounded-full font-semibold transition-all duration-300 w-full text-center">Get Started</a>
-        </div>
-      </nav>
+    </div>
+
+    <div id="mobile-menu" class="fixed inset-0 bg-white mobile-menu-overlay translate-x-full transition-transform duration-500 ease-out md:hidden">
+      <div class="flex flex-col items-center justify-center h-full gap-6">
+        <a href="about.html" class="text-2xl font-light tracking-wide hover:text-brand-500 transition-colors">About</a>
+        <a href="services.html" class="text-2xl font-light tracking-wide hover:text-brand-500 transition-colors">Services</a>
+        <a href="work.html" class="text-2xl font-light tracking-wide text-brand-500">Projects</a>
+        <a href="newsletter.html" class="text-2xl font-light tracking-wide hover:text-brand-500 transition-colors">Newsletter</a>
+        <a href="reviews.html" class="text-2xl font-light tracking-wide hover:text-brand-500 transition-colors">Reviews</a>
+        <a href="contact.html" class="text-2xl font-light tracking-wide hover:text-brand-500 transition-colors">Contact</a>
+      </div>
     </div>
   </header>
 
-  <section class="pt-32 md:pt-40 pb-20 md:pb-24 bg-gray-100">
-    <div class="max-w-[1440px] mx-auto px-4 md:px-8 text-center">
-      <h1 class="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
-        Our <span class="text-secondary">Work</span>
+  <!-- Page Hero -->
+  <section class="pt-32 lg:pt-40 pb-16 lg:pb-20 bg-neutral-50">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 text-center">
+      <p class="text-brand-500 text-sm font-medium tracking-[0.2em] uppercase mb-4">Our Work</p>
+      <h1 class="text-4xl md:text-5xl lg:text-6xl leading-tight">
+        <span class="font-medium">Featured</span>
+        <span class="font-serif italic text-brand-500"> Projects</span>
       </h1>
-      <p class="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto">
+      <p class="text-lg text-neutral-600 max-w-2xl mx-auto mt-6">
         We've done one thing for over 15 years: Process Permits. We take pride in our ability to tackle the most complex permitting challenges.
       </p>
     </div>
   </section>
 
-  <section class="py-20 md:py-32 bg-white">
-    <div class="max-w-[1440px] mx-auto px-4 md:px-8">
-      <div class="text-center mb-12 md:mb-16">
-        <h2 class="font-display section-headline text-gray-900 mb-4">
-          <span class="block">We've Done One Thing</span>
-          <span class="block">For Over 15 Years: <span class="text-secondary">Process Permits</span></span>
-        </h2>
-        <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mt-6">
-          We take pride in our ability to tackle the most complex permitting challenges, ensuring that every detail is executed to the highest standard.
-        </p>
-      </div>
-      
-      <div class="project-carousel relative">
-        <div class="project-slide active">
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-            <div class="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300">
-              <div class="h-64 overflow-hidden">
-                <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/49b2095347-2bb481764220134c1869.png" alt="Commercial Building Project" class="w-full h-full object-cover">
-              </div>
-              <div class="p-6">
-                <h3 class="font-display text-2xl font-bold text-gray-900 mb-2">Commercial Complex</h3>
-                <p class="text-gray-600 mb-4">San Diego, CA</p>
-                <p class="text-gray-700">Complete permit processing and inspection coordination for a 50,000 sq ft commercial development.</p>
-              </div>
-            </div>
-            <div class="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300">
-              <div class="h-64 overflow-hidden">
-                <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/928b4fb573-6ac86857e21980919a65.png" alt="Healthcare Facility Project" class="w-full h-full object-cover">
-              </div>
-              <div class="p-6">
-                <h3 class="font-display text-2xl font-bold text-gray-900 mb-2">Healthcare Facility</h3>
-                <p class="text-gray-600 mb-4">La Jolla, CA</p>
-                <p class="text-gray-700">Comprehensive permit services for a state-of-the-art medical center expansion project.</p>
-              </div>
-            </div>
-            <div class="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300">
-              <div class="h-64 overflow-hidden">
-                <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/f2f35aba59-e83f97eea49778969d0d.png" alt="Residential Development" class="w-full h-full object-cover">
-              </div>
-              <div class="p-6">
-                <h3 class="font-display text-2xl font-bold text-gray-900 mb-2">Residential Development</h3>
-                <p class="text-gray-600 mb-4">Carlsbad, CA</p>
-                <p class="text-gray-700">Full-service permit processing for a 200-unit residential community development.</p>
-              </div>
-            </div>
-          </div>
+  <!-- Stats Bar -->
+  <section class="py-12 bg-brand-500">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center text-white">
+        <div>
+          <div class="text-4xl md:text-5xl font-light mb-2">500+</div>
+          <div class="text-white/80">Projects Completed</div>
         </div>
-        
-        <div class="project-slide">
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-            <div class="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300">
-              <div class="h-64 overflow-hidden">
-                <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/685ed0c7a3-a1a6ee1b1ffb6486a9af.png" alt="Downtown Project" class="w-full h-full object-cover">
-              </div>
-              <div class="p-6">
-                <h3 class="font-display text-2xl font-bold text-gray-900 mb-2">Downtown Office Tower</h3>
-                <p class="text-gray-600 mb-4">San Diego, CA</p>
-                <p class="text-gray-700">Multi-phase permit processing for a 20-story office building in downtown San Diego.</p>
-              </div>
-            </div>
-            <div class="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300">
-              <div class="h-64 overflow-hidden">
-                <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/0f42743cc1-5b43c0799e7e610bf657.png" alt="Coastal Project" class="w-full h-full object-cover">
-              </div>
-              <div class="p-6">
-                <h3 class="font-display text-2xl font-bold text-gray-900 mb-2">Coastal Resort</h3>
-                <p class="text-gray-600 mb-4">Oceanside, CA</p>
-                <p class="text-gray-700">Complex permit coordination for a luxury beachfront resort and spa development.</p>
-              </div>
-            </div>
-            <div class="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300">
-              <div class="h-64 overflow-hidden">
-                <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/6f736a88e0-4cc6e3756abb280cf77c.png" alt="Industrial Project" class="w-full h-full object-cover">
-              </div>
-              <div class="p-6">
-                <h3 class="font-display text-2xl font-bold text-gray-900 mb-2">Industrial Complex</h3>
-                <p class="text-gray-600 mb-4">Chula Vista, CA</p>
-                <p class="text-gray-700">Complete permit processing for a 100,000 sq ft manufacturing and distribution facility.</p>
-              </div>
-            </div>
-          </div>
+        <div>
+          <div class="text-4xl md:text-5xl font-light mb-2">98%</div>
+          <div class="text-white/80">Approval Rate</div>
         </div>
-        
-        <div class="flex justify-center items-center mt-8 space-x-4">
-          <button onclick="previousProject()" class="carousel-control w-12 h-12 rounded-full bg-gray-200 hover:bg-secondary text-gray-700 hover:text-white flex items-center justify-center transition-all">
-            <i class="fas fa-chevron-left"></i>
-          </button>
-          <div class="flex space-x-2">
-            <span id="project-indicator-1" class="w-3 h-3 rounded-full bg-secondary cursor-pointer" onclick="goToProject(0)"></span>
-            <span id="project-indicator-2" class="w-3 h-3 rounded-full bg-gray-300 cursor-pointer" onclick="goToProject(1)"></span>
-          </div>
-          <button onclick="nextProject()" class="carousel-control w-12 h-12 rounded-full bg-gray-200 hover:bg-secondary text-gray-700 hover:text-white flex items-center justify-center transition-all">
-            <i class="fas fa-chevron-right"></i>
-          </button>
+        <div>
+          <div class="text-4xl md:text-5xl font-light mb-2">5+</div>
+          <div class="text-white/80">Years Experience</div>
+        </div>
+        <div>
+          <div class="text-4xl md:text-5xl font-light mb-2">24hr</div>
+          <div class="text-white/80">Response Time</div>
         </div>
       </div>
     </div>
   </section>
 
-  <footer class="bg-gray-900 text-white pt-12 md:pt-16 pb-6 md:pb-8">
-    <div class="max-w-[1440px] mx-auto px-4 md:px-8">
-      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-12 mb-8 md:mb-12">
-        <div>
-          <img src="https://i0.wp.com/permitsandmore.com/wp-content/uploads/2016/06/cropped-logo-1.png?fit=263%2C60&ssl=1" alt="Permits & More Logo" class="h-12 md:h-14 w-auto mb-6">
-          <p class="text-gray-400 leading-relaxed mb-6">Your trusted partner for construction permit processing and inspection coordination services throughout Southern California.</p>
-          <div class="flex space-x-4">
-            <a href="#" class="w-10 h-10 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center transition-all duration-300" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-            <a href="#" class="w-10 h-10 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center transition-all duration-300" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-            <a href="#" class="w-10 h-10 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center transition-all duration-300" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+  <!-- Projects Grid -->
+  <section class="py-20 lg:py-28 bg-white">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Project 1 -->
+        <div class="group card-hover animate-on-scroll">
+          <div class="relative overflow-hidden rounded-2xl">
+            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2670&auto=format&fit=crop" alt="Commercial Complex" class="w-full aspect-[4/3] object-cover transition-transform duration-500 group-hover:scale-105">
+            <div class="absolute inset-0 bg-gradient-to-t from-neutral-950/80 via-transparent to-transparent"></div>
+            <div class="absolute bottom-0 left-0 right-0 p-6">
+              <span class="text-brand-400 text-sm font-medium">Commercial</span>
+              <h3 class="text-xl font-semibold text-white mt-1">Downtown Office Tower</h3>
+              <p class="text-white/70 text-sm mt-2">San Diego, CA</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="group card-hover animate-on-scroll delay-1">
+          <div class="relative overflow-hidden rounded-2xl">
+            <img src="https://images.unsplash.com/photo-1582407947304-fd86f028f716?q=80&w=2796&auto=format&fit=crop" alt="Healthcare Facility" class="w-full aspect-[4/3] object-cover transition-transform duration-500 group-hover:scale-105">
+            <div class="absolute inset-0 bg-gradient-to-t from-neutral-950/80 via-transparent to-transparent"></div>
+            <div class="absolute bottom-0 left-0 right-0 p-6">
+              <span class="text-brand-400 text-sm font-medium">Healthcare</span>
+              <h3 class="text-xl font-semibold text-white mt-1">Medical Center Expansion</h3>
+              <p class="text-white/70 text-sm mt-2">La Jolla, CA</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="group card-hover animate-on-scroll delay-2">
+          <div class="relative overflow-hidden rounded-2xl">
+            <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=2675&auto=format&fit=crop" alt="Residential Development" class="w-full aspect-[4/3] object-cover transition-transform duration-500 group-hover:scale-105">
+            <div class="absolute inset-0 bg-gradient-to-t from-neutral-950/80 via-transparent to-transparent"></div>
+            <div class="absolute bottom-0 left-0 right-0 p-6">
+              <span class="text-brand-400 text-sm font-medium">Residential</span>
+              <h3 class="text-xl font-semibold text-white mt-1">Luxury Home Community</h3>
+              <p class="text-white/70 text-sm mt-2">Carlsbad, CA</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 4 -->
+        <div class="group card-hover animate-on-scroll">
+          <div class="relative overflow-hidden rounded-2xl">
+            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2669&auto=format&fit=crop" alt="Retail Complex" class="w-full aspect-[4/3] object-cover transition-transform duration-500 group-hover:scale-105">
+            <div class="absolute inset-0 bg-gradient-to-t from-neutral-950/80 via-transparent to-transparent"></div>
+            <div class="absolute bottom-0 left-0 right-0 p-6">
+              <span class="text-brand-400 text-sm font-medium">Retail</span>
+              <h3 class="text-xl font-semibold text-white mt-1">Shopping Center</h3>
+              <p class="text-white/70 text-sm mt-2">Chula Vista, CA</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 5 -->
+        <div class="group card-hover animate-on-scroll delay-1">
+          <div class="relative overflow-hidden rounded-2xl">
+            <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=2670&auto=format&fit=crop" alt="Hospitality Project" class="w-full aspect-[4/3] object-cover transition-transform duration-500 group-hover:scale-105">
+            <div class="absolute inset-0 bg-gradient-to-t from-neutral-950/80 via-transparent to-transparent"></div>
+            <div class="absolute bottom-0 left-0 right-0 p-6">
+              <span class="text-brand-400 text-sm font-medium">Hospitality</span>
+              <h3 class="text-xl font-semibold text-white mt-1">Beachfront Resort</h3>
+              <p class="text-white/70 text-sm mt-2">Oceanside, CA</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 6 -->
+        <div class="group card-hover animate-on-scroll delay-2">
+          <div class="relative overflow-hidden rounded-2xl">
+            <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=2676&auto=format&fit=crop" alt="Industrial Facility" class="w-full aspect-[4/3] object-cover transition-transform duration-500 group-hover:scale-105">
+            <div class="absolute inset-0 bg-gradient-to-t from-neutral-950/80 via-transparent to-transparent"></div>
+            <div class="absolute bottom-0 left-0 right-0 p-6">
+              <span class="text-brand-400 text-sm font-medium">Industrial</span>
+              <h3 class="text-xl font-semibold text-white mt-1">Distribution Center</h3>
+              <p class="text-white/70 text-sm mt-2">Escondido, CA</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-20 lg:py-28 bg-neutral-950 text-white">
+    <div class="max-w-4xl mx-auto px-6 lg:px-8 text-center">
+      <h2 class="text-3xl md:text-4xl leading-tight mb-6">
+        <span class="font-medium">Ready to Start</span>
+        <span class="font-serif italic block">Your Project?</span>
+      </h2>
+      <p class="text-xl text-white/70 mb-10">Let's discuss how we can help bring your vision to life.</p>
+      <a href="contact.html" class="btn-primary text-white px-8 py-4 rounded-full text-base font-semibold inline-flex items-center gap-2">
+        Get Started Today
+        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+        </svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-neutral-950 text-white pt-20 pb-8 border-t border-white/10">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 mb-16">
+        <div class="lg:col-span-2">
+          <img src="https://i0.wp.com/permitsandmore.com/wp-content/uploads/2016/06/cropped-logo-1.png?fit=263%2C60&ssl=1" alt="Permits & More" class="h-12 w-auto mb-6">
+          <p class="text-white/60 leading-relaxed max-w-md mb-6">San Diego's trusted partner for building permit processing. We transform the complex into the achievable, helping you build with confidence.</p>
+          <div class="flex gap-4">
+            <a href="#" class="w-10 h-10 rounded-full bg-white/10 hover:bg-brand-500 flex items-center justify-center transition-colors" aria-label="LinkedIn">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+            </a>
+            <a href="#" class="w-10 h-10 rounded-full bg-white/10 hover:bg-brand-500 flex items-center justify-center transition-colors" aria-label="Facebook">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/></svg>
+            </a>
+            <a href="#" class="w-10 h-10 rounded-full bg-white/10 hover:bg-brand-500 flex items-center justify-center transition-colors" aria-label="Instagram">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            </a>
           </div>
         </div>
         <div>
-          <h3 class="text-lg font-bold mb-4">Quick Links</h3>
+          <h4 class="font-semibold mb-6">Quick Links</h4>
           <ul class="space-y-3">
-            <li><a href="about.html" class="text-gray-400 hover:text-white transition-colors">About</a></li>
-            <li><a href="services.html" class="text-gray-400 hover:text-white transition-colors">Services</a></li>
-            <li><a href="work.html" class="text-gray-400 hover:text-white transition-colors">Our Work</a></li>
-            <li><a href="approach.html" class="text-gray-400 hover:text-white transition-colors">Our Approach</a></li>
-            <li><a href="contact.html" class="text-gray-400 hover:text-white transition-colors">Contact</a></li>
+            <li><a href="about.html" class="text-white/60 hover:text-white transition-colors">About Us</a></li>
+            <li><a href="services.html" class="text-white/60 hover:text-white transition-colors">Services</a></li>
+            <li><a href="work.html" class="text-white/60 hover:text-white transition-colors">Projects</a></li>
+            <li><a href="newsletter.html" class="text-white/60 hover:text-white transition-colors">Newsletter</a></li>
+            <li><a href="reviews.html" class="text-white/60 hover:text-white transition-colors">Reviews</a></li>
+            <li><a href="contact.html" class="text-white/60 hover:text-white transition-colors">Contact</a></li>
           </ul>
         </div>
         <div>
-          <h3 class="text-lg font-bold mb-4">Services</h3>
-          <ul class="space-y-3">
-            <li><a href="services.html" class="text-gray-400 hover:text-white transition-colors">Permit Processing</a></li>
-            <li><a href="services.html" class="text-gray-400 hover:text-white transition-colors">Inspection Coordination</a></li>
-            <li><a href="services.html" class="text-gray-400 hover:text-white transition-colors">Compliance Support</a></li>
-            <li><a href="services.html" class="text-gray-400 hover:text-white transition-colors">Code Review</a></li>
-          </ul>
-        </div>
-        <div>
-          <h3 class="text-lg font-bold mb-4">Contact</h3>
-          <ul class="space-y-3 text-gray-400">
-            <li>619-323-4048</li>
-            <li>info@permitsandmore.com</li>
-            <li>101 West Broadway<br>Suite 300<br>San Diego CA 92101</li>
+          <h4 class="font-semibold mb-6">Contact</h4>
+          <ul class="space-y-3 text-white/60">
+            <li><a href="tel:6193234048" class="hover:text-white transition-colors">(619) 323-4048</a></li>
+            <li><a href="mailto:info@permitsandmore.com" class="hover:text-white transition-colors">info@permitsandmore.com</a></li>
+            <li class="pt-2">101 West Broadway<br>Suite 300<br>San Diego, CA 92101</li>
           </ul>
         </div>
       </div>
-      <div class="border-t border-gray-800 pt-6 md:pt-8">
-        <div class="flex flex-col md:flex-row justify-between items-center">
-          <p class="text-gray-400 text-sm mb-4 md:mb-0">© 2025 Permits &amp; More. All Rights Reserved.</p>
-          <div class="flex flex-wrap justify-center md:justify-end gap-4 md:gap-6">
-            <a href="#" class="text-gray-400 hover:text-white text-sm transition-colors">Privacy Policy</a>
-            <a href="#" class="text-gray-400 hover:text-white text-sm transition-colors">Terms of Service</a>
-          </div>
+      <div class="divider-gradient mb-8"></div>
+      <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+        <p class="text-white/40 text-sm">&copy; 2026 Permits & More. All rights reserved.</p>
+        <div class="flex gap-6 text-sm">
+          <a href="#" class="text-white/40 hover:text-white transition-colors">Privacy Policy</a>
+          <a href="#" class="text-white/40 hover:text-white transition-colors">Terms of Service</a>
         </div>
       </div>
     </div>
   </footer>
 
   <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-      const mobileNav = document.getElementById('mobile-nav');
-      if (mobileMenuBtn && mobileNav) {
-        mobileMenuBtn.addEventListener('click', function() {
-          mobileNav.classList.toggle('hidden');
-          const icon = mobileMenuBtn.querySelector('i');
-          if (icon) {
-            icon.classList.toggle('fa-bars');
-            icon.classList.toggle('fa-times');
-          }
-        });
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const line1 = document.getElementById('line1');
+    const line2 = document.getElementById('line2');
+    const line3 = document.getElementById('line3');
+    let menuOpen = false;
+
+    mobileMenuBtn.addEventListener('click', () => {
+      menuOpen = !menuOpen;
+      if (menuOpen) {
+        mobileMenu.classList.remove('translate-x-full');
+        line1.style.transform = 'rotate(45deg) translate(4px, 4px)';
+        line2.style.opacity = '0';
+        line3.style.transform = 'rotate(-45deg) translate(4px, -4px)';
+        line3.style.width = '1.5rem';
+      } else {
+        mobileMenu.classList.add('translate-x-full');
+        line1.style.transform = '';
+        line2.style.opacity = '1';
+        line3.style.transform = '';
+        line3.style.width = '1rem';
       }
     });
 
-    let currentProjectSlide = 0;
-    const projectSlides = document.querySelectorAll('.project-slide');
-    const projectIndicators = document.querySelectorAll('[id^="project-indicator-"]');
-
-    function showProjectSlide(index) {
-      projectSlides.forEach((slide, i) => {
-        slide.classList.toggle('active', i === index);
-      });
-      projectIndicators.forEach((indicator, i) => {
-        if (i === index) {
-          indicator.classList.remove('bg-gray-300');
-          indicator.classList.add('bg-secondary');
-        } else {
-          indicator.classList.remove('bg-secondary');
-          indicator.classList.add('bg-gray-300');
-        }
-      });
-    }
-
-    function nextProject() {
-      currentProjectSlide = (currentProjectSlide + 1) % projectSlides.length;
-      showProjectSlide(currentProjectSlide);
-    }
-
-    function previousProject() {
-      currentProjectSlide = (currentProjectSlide - 1 + projectSlides.length) % projectSlides.length;
-      showProjectSlide(currentProjectSlide);
-    }
-
-    function goToProject(index) {
-      currentProjectSlide = index;
-      showProjectSlide(currentProjectSlide);
-    }
-
-    if (projectSlides.length > 1) {
-      setInterval(nextProject, 8000);
-    }
+    const observerOptions = { root: null, rootMargin: '0px', threshold: 0.1 };
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+    }, observerOptions);
+    document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
   </script>
 </body>
 
 </html>
-

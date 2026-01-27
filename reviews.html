@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Reviews - Read what our clients say about Permits & More's expert permit processing services in San Diego.">
+  <meta name="keywords" content="reviews, testimonials, client feedback, permit processing, San Diego">
+  <meta name="author" content="Permits & More">
+  <title>Reviews - Permits & More</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: { 50: '#eff6ff', 100: '#dbeafe', 200: '#bfdbfe', 300: '#93c5fd', 400: '#60a5fa', 500: '#3B82F6', 600: '#2563eb', 700: '#1d4ed8', 800: '#1e40af', 900: '#1e3a8a' },
+            neutral: { 850: '#1a1a1a', 950: '#0a0a0a' }
+          },
+          fontFamily: { sans: ['Outfit', 'system-ui', 'sans-serif'], serif: ['Instrument Serif', 'Georgia', 'serif'] },
+        }
+      }
+    }
+  </script>
+
+  <style>
+    * { box-sizing: border-box; }
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: #f1f1f1; }
+    ::-webkit-scrollbar-thumb { background: #3B82F6; border-radius: 4px; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Outfit', sans-serif; margin: 0; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+    .font-serif { font-family: 'Instrument Serif', Georgia, serif; }
+    .btn-primary { background: #3B82F6; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
+    .btn-primary:hover { background: #2563eb; transform: translateY(-2px); box-shadow: 0 20px 40px -10px rgba(59, 130, 246, 0.4); }
+    .card-hover { transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); }
+    .card-hover:hover { transform: translateY(-8px); box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15); }
+    .link-underline { position: relative; }
+    .link-underline::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 0; height: 1.5px; background: currentColor; transition: width 0.3s ease; }
+    .link-underline:hover::after { width: 100%; }
+    .animate-on-scroll { opacity: 0; transform: translateY(40px); transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1); }
+    .animate-on-scroll.visible { opacity: 1; transform: translateY(0); }
+    .animate-on-scroll.delay-1 { transition-delay: 0.1s; }
+    .animate-on-scroll.delay-2 { transition-delay: 0.2s; }
+    .animate-on-scroll.delay-3 { transition-delay: 0.3s; }
+    .divider-gradient { height: 1px; background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.3), transparent); }
+    .mobile-menu-overlay { backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); }
+  </style>
+</head>
+
+<body class="bg-white text-neutral-850">
+
+  <!-- Header Navigation -->
+  <header id="header" class="fixed top-0 left-0 right-0 z-50 bg-white shadow-sm transition-all duration-500">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20 lg:h-24">
+        <a href="index.html" class="relative z-10 flex-shrink-0">
+          <img src="https://i0.wp.com/permitsandmore.com/wp-content/uploads/2016/06/cropped-logo-1.png?fit=263%2C60&ssl=1" alt="Permits & More" class="h-10 lg:h-14 w-auto">
+        </a>
+
+        <nav class="hidden md:flex items-center gap-6 lg:gap-8">
+          <a href="about.html" class="nav-link link-underline text-sm font-medium tracking-wide uppercase text-neutral-700 hover:text-brand-500 transition-colors duration-300">About</a>
+          <a href="services.html" class="nav-link link-underline text-sm font-medium tracking-wide uppercase text-neutral-700 hover:text-brand-500 transition-colors duration-300">Services</a>
+          <a href="work.html" class="nav-link link-underline text-sm font-medium tracking-wide uppercase text-neutral-700 hover:text-brand-500 transition-colors duration-300">Projects</a>
+          <a href="newsletter.html" class="nav-link link-underline text-sm font-medium tracking-wide uppercase text-neutral-700 hover:text-brand-500 transition-colors duration-300">Newsletter</a>
+          <a href="reviews.html" class="nav-link link-underline text-sm font-medium tracking-wide uppercase text-brand-500 transition-colors duration-300">Reviews</a>
+          <a href="contact.html" class="nav-link link-underline text-sm font-medium tracking-wide uppercase text-neutral-700 hover:text-brand-500 transition-colors duration-300">Contact</a>
+        </nav>
+
+        <button id="mobile-menu-btn" class="md:hidden relative z-10 w-10 h-10 flex items-center justify-center" aria-label="Toggle menu">
+          <div class="space-y-1.5">
+            <span class="block w-6 h-0.5 bg-neutral-700 transition-all duration-300 origin-center" id="line1"></span>
+            <span class="block w-6 h-0.5 bg-neutral-700 transition-all duration-300" id="line2"></span>
+            <span class="block w-4 h-0.5 bg-neutral-700 transition-all duration-300 origin-center" id="line3"></span>
+          </div>
+        </button>
+      </div>
+    </div>
+
+    <div id="mobile-menu" class="fixed inset-0 bg-white mobile-menu-overlay translate-x-full transition-transform duration-500 ease-out md:hidden">
+      <div class="flex flex-col items-center justify-center h-full gap-6">
+        <a href="about.html" class="text-2xl font-light tracking-wide hover:text-brand-500 transition-colors">About</a>
+        <a href="services.html" class="text-2xl font-light tracking-wide hover:text-brand-500 transition-colors">Services</a>
+        <a href="work.html" class="text-2xl font-light tracking-wide hover:text-brand-500 transition-colors">Projects</a>
+        <a href="newsletter.html" class="text-2xl font-light tracking-wide hover:text-brand-500 transition-colors">Newsletter</a>
+        <a href="reviews.html" class="text-2xl font-light tracking-wide text-brand-500">Reviews</a>
+        <a href="contact.html" class="text-2xl font-light tracking-wide hover:text-brand-500 transition-colors">Contact</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Page Hero -->
+  <section class="pt-32 lg:pt-40 pb-16 lg:pb-20 bg-neutral-50">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 text-center">
+      <p class="text-brand-500 text-sm font-medium tracking-[0.2em] uppercase mb-4">Testimonials</p>
+      <h1 class="text-4xl md:text-5xl lg:text-6xl leading-tight">
+        <span class="font-medium">Client</span>
+        <span class="font-serif italic text-brand-500"> Reviews</span>
+      </h1>
+      <p class="text-lg text-neutral-600 max-w-2xl mx-auto mt-6">
+        See what our clients have to say about working with Permits & More.
+      </p>
+    </div>
+  </section>
+
+  <!-- Stats Bar -->
+  <section class="py-12 bg-brand-500">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center text-white">
+        <div>
+          <div class="text-4xl md:text-5xl font-light mb-2">500+</div>
+          <div class="text-white/80">Projects Completed</div>
+        </div>
+        <div>
+          <div class="text-4xl md:text-5xl font-light mb-2">98%</div>
+          <div class="text-white/80">Approval Rate</div>
+        </div>
+        <div>
+          <div class="text-4xl md:text-5xl font-light mb-2">5+</div>
+          <div class="text-white/80">Years Experience</div>
+        </div>
+        <div>
+          <div class="text-4xl md:text-5xl font-light mb-2">4.9</div>
+          <div class="text-white/80">Average Rating</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reviews Grid -->
+  <section class="py-20 lg:py-28 bg-white">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl leading-tight animate-on-scroll">
+          <span class="font-medium">What Our</span>
+          <span class="font-serif italic"> Clients Say</span>
+        </h2>
+        <p class="text-neutral-600 max-w-2xl mx-auto mt-4 animate-on-scroll delay-1">
+          Don't just take our word for it - hear from the contractors, architects, and homeowners we've helped.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Review 1 -->
+        <div class="bg-neutral-50 rounded-2xl p-8 card-hover animate-on-scroll">
+          <div class="flex gap-1 text-amber-400 mb-4">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          </div>
+          <p class="text-neutral-700 leading-relaxed mb-6">"Permits & More made what seemed like an impossible permitting process completely manageable. Their expertise saved us weeks of delays and countless headaches. Highly recommend!"</p>
+          <div class="flex items-center">
+            <div class="w-12 h-12 bg-brand-500 rounded-full flex items-center justify-center text-white font-semibold mr-4">JM</div>
+            <div>
+              <div class="font-semibold">John Martinez</div>
+              <div class="text-neutral-500 text-sm">General Contractor, San Diego</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Review 2 -->
+        <div class="bg-neutral-50 rounded-2xl p-8 card-hover animate-on-scroll delay-1">
+          <div class="flex gap-1 text-amber-400 mb-4">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          </div>
+          <p class="text-neutral-700 leading-relaxed mb-6">"As an architect, I've worked with many permit expeditors, but Permits & More stands out for their professionalism and attention to detail. They truly understand the complexities of the process."</p>
+          <div class="flex items-center">
+            <div class="w-12 h-12 bg-brand-700 rounded-full flex items-center justify-center text-white font-semibold mr-4">SK</div>
+            <div>
+              <div class="font-semibold">Sarah Kim</div>
+              <div class="text-neutral-500 text-sm">Architect, La Jolla</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Review 3 -->
+        <div class="bg-neutral-50 rounded-2xl p-8 card-hover animate-on-scroll delay-2">
+          <div class="flex gap-1 text-amber-400 mb-4">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          </div>
+          <p class="text-neutral-700 leading-relaxed mb-6">"We had a code violation issue that seemed impossible to resolve. The team at Permits & More navigated us through the entire process and got us back in compliance quickly."</p>
+          <div class="flex items-center">
+            <div class="w-12 h-12 bg-brand-400 rounded-full flex items-center justify-center text-white font-semibold mr-4">RP</div>
+            <div>
+              <div class="font-semibold">Robert Patterson</div>
+              <div class="text-neutral-500 text-sm">Property Owner, Carlsbad</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Review 4 -->
+        <div class="bg-neutral-50 rounded-2xl p-8 card-hover animate-on-scroll">
+          <div class="flex gap-1 text-amber-400 mb-4">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          </div>
+          <p class="text-neutral-700 leading-relaxed mb-6">"First-time approval on a complex commercial project! Their knowledge of San Diego building codes is unmatched. They've become our go-to for all permit needs."</p>
+          <div class="flex items-center">
+            <div class="w-12 h-12 bg-brand-500 rounded-full flex items-center justify-center text-white font-semibold mr-4">MT</div>
+            <div>
+              <div class="font-semibold">Maria Torres</div>
+              <div class="text-neutral-500 text-sm">Developer, Downtown SD</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Review 5 -->
+        <div class="bg-neutral-50 rounded-2xl p-8 card-hover animate-on-scroll delay-1">
+          <div class="flex gap-1 text-amber-400 mb-4">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          </div>
+          <p class="text-neutral-700 leading-relaxed mb-6">"The communication throughout the process was exceptional. They kept us updated every step of the way and were always available to answer questions. True professionals!"</p>
+          <div class="flex items-center">
+            <div class="w-12 h-12 bg-brand-700 rounded-full flex items-center justify-center text-white font-semibold mr-4">DL</div>
+            <div>
+              <div class="font-semibold">David Lee</div>
+              <div class="text-neutral-500 text-sm">Homeowner, Chula Vista</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Review 6 -->
+        <div class="bg-neutral-50 rounded-2xl p-8 card-hover animate-on-scroll delay-2">
+          <div class="flex gap-1 text-amber-400 mb-4">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+          </div>
+          <p class="text-neutral-700 leading-relaxed mb-6">"We've completed over 20 projects with Permits & More. Their consistency and reliability are unmatched in the industry. They make permit processing look easy!"</p>
+          <div class="flex items-center">
+            <div class="w-12 h-12 bg-brand-400 rounded-full flex items-center justify-center text-white font-semibold mr-4">AC</div>
+            <div>
+              <div class="font-semibold">Amanda Chen</div>
+              <div class="text-neutral-500 text-sm">Sign Contractor, Oceanside</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-20 lg:py-28 bg-neutral-950 text-white">
+    <div class="max-w-4xl mx-auto px-6 lg:px-8 text-center">
+      <h2 class="text-3xl md:text-4xl leading-tight mb-6">
+        <span class="font-medium">Ready to Experience</span>
+        <span class="font-serif italic block">the Difference?</span>
+      </h2>
+      <p class="text-xl text-white/70 mb-10">Join hundreds of satisfied clients who trust Permits & More for their permit processing needs.</p>
+      <a href="contact.html" class="btn-primary text-white px-8 py-4 rounded-full text-base font-semibold inline-flex items-center gap-2">
+        Start Your Project Today
+        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+        </svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-neutral-950 text-white pt-20 pb-8 border-t border-white/10">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 mb-16">
+        <div class="lg:col-span-2">
+          <img src="https://i0.wp.com/permitsandmore.com/wp-content/uploads/2016/06/cropped-logo-1.png?fit=263%2C60&ssl=1" alt="Permits & More" class="h-12 w-auto mb-6">
+          <p class="text-white/60 leading-relaxed max-w-md mb-6">San Diego's trusted partner for building permit processing. We transform the complex into the achievable, helping you build with confidence.</p>
+          <div class="flex gap-4">
+            <a href="#" class="w-10 h-10 rounded-full bg-white/10 hover:bg-brand-500 flex items-center justify-center transition-colors" aria-label="LinkedIn">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+            </a>
+            <a href="#" class="w-10 h-10 rounded-full bg-white/10 hover:bg-brand-500 flex items-center justify-center transition-colors" aria-label="Facebook">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/></svg>
+            </a>
+            <a href="#" class="w-10 h-10 rounded-full bg-white/10 hover:bg-brand-500 flex items-center justify-center transition-colors" aria-label="Instagram">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            </a>
+          </div>
+        </div>
+        <div>
+          <h4 class="font-semibold mb-6">Quick Links</h4>
+          <ul class="space-y-3">
+            <li><a href="about.html" class="text-white/60 hover:text-white transition-colors">About Us</a></li>
+            <li><a href="services.html" class="text-white/60 hover:text-white transition-colors">Services</a></li>
+            <li><a href="work.html" class="text-white/60 hover:text-white transition-colors">Projects</a></li>
+            <li><a href="newsletter.html" class="text-white/60 hover:text-white transition-colors">Newsletter</a></li>
+            <li><a href="reviews.html" class="text-white/60 hover:text-white transition-colors">Reviews</a></li>
+            <li><a href="contact.html" class="text-white/60 hover:text-white transition-colors">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-semibold mb-6">Contact</h4>
+          <ul class="space-y-3 text-white/60">
+            <li><a href="tel:6193234048" class="hover:text-white transition-colors">(619) 323-4048</a></li>
+            <li><a href="mailto:info@permitsandmore.com" class="hover:text-white transition-colors">info@permitsandmore.com</a></li>
+            <li class="pt-2">101 West Broadway<br>Suite 300<br>San Diego, CA 92101</li>
+          </ul>
+        </div>
+      </div>
+      <div class="divider-gradient mb-8"></div>
+      <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+        <p class="text-white/40 text-sm">&copy; 2026 Permits & More. All rights reserved.</p>
+        <div class="flex gap-6 text-sm">
+          <a href="#" class="text-white/40 hover:text-white transition-colors">Privacy Policy</a>
+          <a href="#" class="text-white/40 hover:text-white transition-colors">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const line1 = document.getElementById('line1');
+    const line2 = document.getElementById('line2');
+    const line3 = document.getElementById('line3');
+    let menuOpen = false;
+
+    mobileMenuBtn.addEventListener('click', () => {
+      menuOpen = !menuOpen;
+      if (menuOpen) {
+        mobileMenu.classList.remove('translate-x-full');
+        line1.style.transform = 'rotate(45deg) translate(4px, 4px)';
+        line2.style.opacity = '0';
+        line3.style.transform = 'rotate(-45deg) translate(4px, -4px)';
+        line3.style.width = '1.5rem';
+      } else {
+        mobileMenu.classList.add('translate-x-full');
+        line1.style.transform = '';
+        line2.style.opacity = '1';
+        line3.style.transform = '';
+        line3.style.width = '1rem';
+      }
+    });
+
+    const observerOptions = { root: null, rootMargin: '0px', threshold: 0.1 };
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+    }, observerOptions);
+    document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
+  </script>
+</body>
+
+</html>
