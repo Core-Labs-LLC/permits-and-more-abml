@@ -56,7 +56,7 @@
 <body class="bg-white text-neutral-850">
 
   <!-- Header Navigation -->
-  <header id="header" class="fixed top-0 left-0 right-0 z-50 bg-white shadow-sm transition-all duration-500">
+  <header id="header" class="fixed top-0 left-0 right-0 z-[110] bg-white shadow-sm transition-all duration-500">
     <div class="max-w-7xl mx-auto px-6 lg:px-8">
       <div class="flex items-center justify-between h-20 lg:h-24">
         <a href="index.html" class="relative z-10 flex-shrink-0">
@@ -82,19 +82,17 @@
       </div>
     </div>
 
-    <div id="mobile-menu" class="fixed inset-0 bg-white/95 mobile-menu-overlay opacity-0 pointer-events-none transition-opacity duration-300 ease-out md:hidden" style="z-index: 100;">
-      <button id="mobile-menu-close" class="absolute top-6 right-6 w-10 h-10 flex items-center justify-center text-neutral-800 hover:text-brand-500 transition-colors" aria-label="Close menu">
-        <svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-        </svg>
-      </button>
-      <div class="flex flex-col items-end justify-center h-full pr-8 gap-6">
-        <a href="about.html" class="mobile-nav-link text-3xl font-light tracking-wide text-neutral-800 hover:text-brand-500 transition-all duration-300 translate-x-8 opacity-0">About</a>
-        <a href="services.html" class="mobile-nav-link text-3xl font-light tracking-wide text-neutral-800 hover:text-brand-500 transition-all duration-300 translate-x-8 opacity-0">Services</a>
-        <a href="work.html" class="mobile-nav-link text-3xl font-light tracking-wide text-neutral-800 hover:text-brand-500 transition-all duration-300 translate-x-8 opacity-0">Projects</a>
-        <a href="newsletter.html" class="mobile-nav-link text-3xl font-light tracking-wide text-neutral-800 hover:text-brand-500 transition-all duration-300 translate-x-8 opacity-0">Newsletter</a>
-        <a href="reviews.html" class="mobile-nav-link text-3xl font-light tracking-wide text-brand-500 transition-all duration-300 translate-x-8 opacity-0">Reviews</a>
-        <a href="contact.html" class="mobile-nav-link text-3xl font-light tracking-wide text-neutral-800 hover:text-brand-500 transition-all duration-300 translate-x-8 opacity-0">Contact</a>
+    <div id="mobile-menu" class="fixed top-20 left-0 right-0 bottom-0 bg-white mobile-menu-overlay opacity-0 pointer-events-none transition-opacity duration-300 ease-out md:hidden" style="z-index: 100;">
+      <div class="flex flex-col items-center justify-center h-full gap-6">
+        <a href="index.html" class="mobile-nav-link mb-4 translate-y-4 opacity-0 transition-all duration-300">
+          <img src="https://i0.wp.com/permitsandmore.com/wp-content/uploads/2016/06/cropped-logo-1.png?fit=263%2C60&ssl=1" alt="Permits & More" class="h-12 w-auto" />
+        </a>
+        <a href="about.html" class="mobile-nav-link text-3xl font-light tracking-wide text-neutral-800 hover:text-brand-500 transition-all duration-300 translate-y-4 opacity-0">About</a>
+        <a href="services.html" class="mobile-nav-link text-3xl font-light tracking-wide text-neutral-800 hover:text-brand-500 transition-all duration-300 translate-y-4 opacity-0">Services</a>
+        <a href="work.html" class="mobile-nav-link text-3xl font-light tracking-wide text-neutral-800 hover:text-brand-500 transition-all duration-300 translate-y-4 opacity-0">Projects</a>
+        <a href="newsletter.html" class="mobile-nav-link text-3xl font-light tracking-wide text-neutral-800 hover:text-brand-500 transition-all duration-300 translate-y-4 opacity-0">Newsletter</a>
+        <a href="reviews.html" class="mobile-nav-link text-3xl font-light tracking-wide text-brand-500 transition-all duration-300 translate-y-4 opacity-0">Reviews</a>
+        <a href="contact.html" class="mobile-nav-link text-3xl font-light tracking-wide text-neutral-800 hover:text-brand-500 transition-all duration-300 translate-y-4 opacity-0">Contact</a>
       </div>
     </div>
   </header>
@@ -337,7 +335,6 @@
 
   <script>
     const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-    const mobileMenuClose = document.getElementById('mobile-menu-close');
     const mobileMenu = document.getElementById('mobile-menu');
     const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
     const line1 = document.getElementById('line1');
@@ -355,8 +352,8 @@
       line3.style.width = '1.5rem';
       mobileNavLinks.forEach((link, index) => {
         setTimeout(() => {
-          link.classList.remove('translate-x-8', 'opacity-0');
-          link.classList.add('translate-x-0', 'opacity-100');
+          link.classList.remove('translate-y-4', 'opacity-0');
+          link.classList.add('translate-y-0', 'opacity-100');
         }, 100 + (index * 80));
       });
     }
@@ -364,8 +361,8 @@
     function closeMenu() {
       menuOpen = false;
       mobileNavLinks.forEach((link) => {
-        link.classList.add('translate-x-8', 'opacity-0');
-        link.classList.remove('translate-x-0', 'opacity-100');
+        link.classList.add('translate-y-4', 'opacity-0');
+        link.classList.remove('translate-y-0', 'opacity-100');
       });
       line1.style.transform = '';
       line2.style.opacity = '1';
@@ -378,7 +375,6 @@
     }
 
     mobileMenuBtn.addEventListener('click', () => { menuOpen ? closeMenu() : openMenu(); });
-    mobileMenuClose.addEventListener('click', closeMenu);
     mobileNavLinks.forEach(link => { link.addEventListener('click', closeMenu); });
 
     const observerOptions = { root: null, rootMargin: '0px', threshold: 0.1 };
