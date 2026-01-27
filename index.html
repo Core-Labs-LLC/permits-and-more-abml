@@ -1,1132 +1,1607 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Permits & More - San Diego's premier permit processing experts. We navigate the complexity so you can build with confidence. Serving architects, developers, and contractors for 5+ years."
+    />
+    <meta
+      name="keywords"
+      content="building permits, permit processing, San Diego permits, code compliance, building code violations, construction permits, California permits"
+    />
+    <meta name="author" content="Permits & More" />
+    <meta
+      property="og:title"
+      content="Permits & More - San Diego's Premier Permit Processing Experts"
+    />
+    <meta
+      property="og:description"
+      content="From concept to permit approval. We navigate the complexity so you can build with confidence."
+    />
+    <meta property="og:type" content="website" />
+    <title>
+      Permits & More - San Diego's Premier Permit Processing Experts
+    </title>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description"
-    content="Permits & More - San Diego's premier permit processing experts. We navigate the complexity so you can build with confidence. Serving architects, developers, and contractors for 5+ years.">
-  <meta name="keywords"
-    content="building permits, permit processing, San Diego permits, code compliance, building code violations, construction permits, California permits">
-  <meta name="author" content="Permits & More">
-  <meta property="og:title" content="Permits & More - San Diego's Premier Permit Processing Experts">
-  <meta property="og:description"
-    content="From concept to permit approval. We navigate the complexity so you can build with confidence.">
-  <meta property="og:type" content="website">
-  <title>Permits & More - San Diego's Premier Permit Processing Experts</title>
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
-  <!-- Preconnect for performance -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Premium Font Pairing: Outfit (modern geometric) + Instrument Serif (elegant display) -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap"
+      rel="stylesheet"
+    />
 
-  <!-- Premium Font Pairing: Outfit (modern geometric) + Instrument Serif (elegant display) -->
-  <link
-    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap"
-    rel="stylesheet">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Tailwind CSS -->
-  <script src="https://cdn.tailwindcss.com"></script>
-
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            brand: {
-              50: '#eff6ff',
-              100: '#dbeafe',
-              200: '#bfdbfe',
-              300: '#93c5fd',
-              400: '#60a5fa',
-              500: '#3B82F6',
-              600: '#2563eb',
-              700: '#1d4ed8',
-              800: '#1e40af',
-              900: '#1e3a8a',
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              brand: {
+                50: "#eff6ff",
+                100: "#dbeafe",
+                200: "#bfdbfe",
+                300: "#93c5fd",
+                400: "#60a5fa",
+                500: "#3B82F6",
+                600: "#2563eb",
+                700: "#1d4ed8",
+                800: "#1e40af",
+                900: "#1e3a8a",
+              },
+              neutral: {
+                850: "#1a1a1a",
+                950: "#0a0a0a",
+              },
             },
-            neutral: {
-              850: '#1a1a1a',
-              950: '#0a0a0a',
-            }
+            fontFamily: {
+              sans: ["Outfit", "system-ui", "sans-serif"],
+              serif: ["Instrument Serif", "Georgia", "serif"],
+            },
+            animation: {
+              "fade-up": "fadeUp 0.8s ease-out forwards",
+              "fade-in": "fadeIn 1s ease-out forwards",
+              "slide-in-right": "slideInRight 0.8s ease-out forwards",
+              "scale-in": "scaleIn 0.6s ease-out forwards",
+              float: "float 6s ease-in-out infinite",
+            },
+            keyframes: {
+              fadeUp: {
+                "0%": { opacity: "0", transform: "translateY(30px)" },
+                "100%": { opacity: "1", transform: "translateY(0)" },
+              },
+              fadeIn: {
+                "0%": { opacity: "0" },
+                "100%": { opacity: "1" },
+              },
+              slideInRight: {
+                "0%": { opacity: "0", transform: "translateX(-30px)" },
+                "100%": { opacity: "1", transform: "translateX(0)" },
+              },
+              scaleIn: {
+                "0%": { opacity: "0", transform: "scale(0.95)" },
+                "100%": { opacity: "1", transform: "scale(1)" },
+              },
+              float: {
+                "0%, 100%": { transform: "translateY(0)" },
+                "50%": { transform: "translateY(-10px)" },
+              },
+            },
           },
-          fontFamily: {
-            sans: ['Outfit', 'system-ui', 'sans-serif'],
-            serif: ['Instrument Serif', 'Georgia', 'serif'],
-          },
-          animation: {
-            'fade-up': 'fadeUp 0.8s ease-out forwards',
-            'fade-in': 'fadeIn 1s ease-out forwards',
-            'slide-in-right': 'slideInRight 0.8s ease-out forwards',
-            'scale-in': 'scaleIn 0.6s ease-out forwards',
-            'float': 'float 6s ease-in-out infinite',
-          },
-          keyframes: {
-            fadeUp: {
-              '0%': { opacity: '0', transform: 'translateY(30px)' },
-              '100%': { opacity: '1', transform: 'translateY(0)' },
-            },
-            fadeIn: {
-              '0%': { opacity: '0' },
-              '100%': { opacity: '1' },
-            },
-            slideInRight: {
-              '0%': { opacity: '0', transform: 'translateX(-30px)' },
-              '100%': { opacity: '1', transform: 'translateX(0)' },
-            },
-            scaleIn: {
-              '0%': { opacity: '0', transform: 'scale(0.95)' },
-              '100%': { opacity: '1', transform: 'scale(1)' },
-            },
-            float: {
-              '0%, 100%': { transform: 'translateY(0)' },
-              '50%': { transform: 'translateY(-10px)' },
-            },
-          },
+        },
+      };
+    </script>
+
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+
+      ::-webkit-scrollbar-track {
+        background: #f1f1f1;
+      }
+
+      ::-webkit-scrollbar-thumb {
+        background: #3b82f6;
+        border-radius: 4px;
+      }
+
+      ::-webkit-scrollbar-thumb:hover {
+        background: #2563eb;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: "Outfit", sans-serif;
+        margin: 0;
+        overflow-x: hidden;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      .font-serif {
+        font-family: "Instrument Serif", Georgia, serif;
+      }
+
+      /* Premium gradient text */
+      .gradient-text {
+        background: linear-gradient(
+          135deg,
+          #3b82f6 0%,
+          #60a5fa 50%,
+          #3b82f6 100%
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      /* Sophisticated button styles */
+      .btn-primary {
+        position: relative;
+        overflow: hidden;
+        background: #3b82f6;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .btn-primary::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.2),
+          transparent
+        );
+        transition: left 0.5s;
+      }
+
+      .btn-primary:hover::before {
+        left: 100%;
+      }
+
+      .btn-primary:hover {
+        background: #2563eb;
+        transform: translateY(-2px);
+        box-shadow: 0 20px 40px -10px rgba(59, 130, 246, 0.4);
+      }
+
+      .btn-secondary {
+        position: relative;
+        border: 1.5px solid currentColor;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .btn-secondary:hover {
+        background: white;
+        color: #1a1a1a;
+        transform: translateY(-2px);
+      }
+
+      /* Card hover effects */
+      .card-hover {
+        transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .card-hover:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+      }
+
+      /* Image reveal animation */
+      .img-reveal {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .img-reveal::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #3b82f6;
+        transform: scaleX(1);
+        transform-origin: right;
+        transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .img-reveal.revealed::after {
+        transform: scaleX(0);
+      }
+
+      /* Underline animation for links */
+      .link-underline {
+        position: relative;
+      }
+
+      .link-underline::after {
+        content: "";
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        width: 0;
+        height: 1.5px;
+        background: currentColor;
+        transition: width 0.3s ease;
+      }
+
+      .link-underline:hover::after {
+        width: 100%;
+      }
+
+      /* Parallax effect for hero */
+      .parallax-bg {
+        will-change: transform;
+      }
+
+      /* Grain texture overlay */
+      .grain-overlay::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0.03;
+        pointer-events: none;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+      }
+
+      /* Scroll indicator */
+      .scroll-indicator {
+        animation: bounce 2s infinite;
+      }
+
+      @keyframes bounce {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+
+        50% {
+          transform: translateY(8px);
         }
       }
-    }
-  </script>
 
-  <style>
-    * {
-      box-sizing: border-box;
-    }
+      /* Intersection observer animations */
+      .animate-on-scroll {
+        opacity: 0;
+        transform: translateY(40px);
+        transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+      }
 
-    ::-webkit-scrollbar {
-      width: 8px;
-    }
-
-    ::-webkit-scrollbar-track {
-      background: #f1f1f1;
-    }
-
-    ::-webkit-scrollbar-thumb {
-      background: #3B82F6;
-      border-radius: 4px;
-    }
-
-    ::-webkit-scrollbar-thumb:hover {
-      background: #2563eb;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: 'Outfit', sans-serif;
-      margin: 0;
-      overflow-x: hidden;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
-
-    .font-serif {
-      font-family: 'Instrument Serif', Georgia, serif;
-    }
-
-    /* Premium gradient text */
-    .gradient-text {
-      background: linear-gradient(135deg, #3B82F6 0%, #60a5fa 50%, #3B82F6 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    /* Sophisticated button styles */
-    .btn-primary {
-      position: relative;
-      overflow: hidden;
-      background: #3B82F6;
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    .btn-primary::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-      transition: left 0.5s;
-    }
-
-    .btn-primary:hover::before {
-      left: 100%;
-    }
-
-    .btn-primary:hover {
-      background: #2563eb;
-      transform: translateY(-2px);
-      box-shadow: 0 20px 40px -10px rgba(59, 130, 246, 0.4);
-    }
-
-    .btn-secondary {
-      position: relative;
-      border: 1.5px solid currentColor;
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    .btn-secondary:hover {
-      background: white;
-      color: #1a1a1a;
-      transform: translateY(-2px);
-    }
-
-    /* Card hover effects */
-    .card-hover {
-      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    .card-hover:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
-    }
-
-    /* Image reveal animation */
-    .img-reveal {
-      position: relative;
-      overflow: hidden;
-    }
-
-    .img-reveal::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: #3B82F6;
-      transform: scaleX(1);
-      transform-origin: right;
-      transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    .img-reveal.revealed::after {
-      transform: scaleX(0);
-    }
-
-    /* Underline animation for links */
-    .link-underline {
-      position: relative;
-    }
-
-    .link-underline::after {
-      content: '';
-      position: absolute;
-      bottom: -2px;
-      left: 0;
-      width: 0;
-      height: 1.5px;
-      background: currentColor;
-      transition: width 0.3s ease;
-    }
-
-    .link-underline:hover::after {
-      width: 100%;
-    }
-
-    /* Parallax effect for hero */
-    .parallax-bg {
-      will-change: transform;
-    }
-
-    /* Grain texture overlay */
-    .grain-overlay::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      opacity: 0.03;
-      pointer-events: none;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-    }
-
-    /* Scroll indicator */
-    .scroll-indicator {
-      animation: bounce 2s infinite;
-    }
-
-    @keyframes bounce {
-
-      0%,
-      100% {
+      .animate-on-scroll.visible {
+        opacity: 1;
         transform: translateY(0);
       }
 
-      50% {
-        transform: translateY(8px);
-      }
-    }
-
-    /* Intersection observer animations */
-    .animate-on-scroll {
-      opacity: 0;
-      transform: translateY(40px);
-      transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    .animate-on-scroll.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .animate-on-scroll.delay-1 {
-      transition-delay: 0.1s;
-    }
-
-    .animate-on-scroll.delay-2 {
-      transition-delay: 0.2s;
-    }
-
-    .animate-on-scroll.delay-3 {
-      transition-delay: 0.3s;
-    }
-
-    .animate-on-scroll.delay-4 {
-      transition-delay: 0.4s;
-    }
-
-    /* Stats counter animation */
-    .stat-number {
-      font-variant-numeric: tabular-nums;
-    }
-
-    /* Premium divider */
-    .divider-gradient {
-      height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.3), transparent);
-    }
-
-    /* Mobile menu */
-    .mobile-menu-overlay {
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-    }
-
-    /* Service icon gradient background */
-    .icon-gradient {
-      background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
-    }
-
-    /* Testimonial card */
-    .testimonial-card {
-      background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
-    }
-
-    /* Process step connector */
-    .step-connector {
-      background: linear-gradient(180deg, #3B82F6 0%, transparent 100%);
-    }
-
-    @media (max-width: 768px) {
-      .mobile-menu {
-        display: block;
+      .animate-on-scroll.delay-1 {
+        transition-delay: 0.1s;
       }
 
-      .desktop-nav {
-        display: none;
+      .animate-on-scroll.delay-2 {
+        transition-delay: 0.2s;
       }
-    }
-  </style>
-</head>
 
-<body class="bg-white text-neutral-850">
+      .animate-on-scroll.delay-3 {
+        transition-delay: 0.3s;
+      }
 
-  <!-- Header Navigation -->
-  <header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500">
-    <div class="max-w-7xl mx-auto px-6 lg:px-8">
-      <div class="flex items-center justify-between h-20 lg:h-24">
-        <!-- Logo -->
-        <a href="index.html" class="relative z-10 flex-shrink-0">
-          <img
-            src="https://i0.wp.com/permitsandmore.com/wp-content/uploads/2016/06/cropped-logo-1.png?fit=263%2C60&ssl=1"
-            alt="Permits & More" class="h-10 lg:h-14 w-auto transition-all duration-300" id="header-logo">
-        </a>
+      .animate-on-scroll.delay-4 {
+        transition-delay: 0.4s;
+      }
 
-        <!-- Desktop Navigation -->
-        <nav class="hidden md:flex items-center gap-6 lg:gap-8">
-          <a href="about.html"
-            class="nav-link link-underline text-sm font-medium tracking-wide uppercase transition-colors duration-300">About</a>
-          <a href="services.html"
-            class="nav-link link-underline text-sm font-medium tracking-wide uppercase transition-colors duration-300">Services</a>
-          <a href="work.html"
-            class="nav-link link-underline text-sm font-medium tracking-wide uppercase transition-colors duration-300">Projects</a>
-          <a href="newsletter.html"
-            class="nav-link link-underline text-sm font-medium tracking-wide uppercase transition-colors duration-300">Newsletter</a>
-          <a href="reviews.html"
-            class="nav-link link-underline text-sm font-medium tracking-wide uppercase transition-colors duration-300">Reviews</a>
-          <a href="contact.html"
-            class="nav-link link-underline text-sm font-medium tracking-wide uppercase transition-colors duration-300">Contact</a>
-        </nav>
+      /* Stats counter animation */
+      .stat-number {
+        font-variant-numeric: tabular-nums;
+      }
 
-        <!-- Mobile Menu Button -->
-        <button id="mobile-menu-btn" class="md:hidden relative z-10 w-10 h-10 flex items-center justify-center"
-          aria-label="Toggle menu">
-          <div class="space-y-1.5" id="hamburger">
-            <span class="block w-6 h-0.5 bg-current transition-all duration-300 origin-center" id="line1"></span>
-            <span class="block w-6 h-0.5 bg-current transition-all duration-300" id="line2"></span>
-            <span class="block w-4 h-0.5 bg-current transition-all duration-300 origin-center" id="line3"></span>
+      /* Premium divider */
+      .divider-gradient {
+        height: 1px;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(59, 130, 246, 0.3),
+          transparent
+        );
+      }
+
+      /* Mobile menu */
+      .mobile-menu-overlay {
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+      }
+
+      /* Service icon gradient background */
+      .icon-gradient {
+        background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+      }
+
+      /* Testimonial card */
+      .testimonial-card {
+        background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
+      }
+
+      /* Process step connector */
+      .step-connector {
+        background: linear-gradient(180deg, #3b82f6 0%, transparent 100%);
+      }
+
+      @media (max-width: 768px) {
+        .mobile-menu {
+          display: block;
+        }
+
+        .desktop-nav {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+
+  <body class="bg-white text-neutral-850">
+    <!-- Header Navigation -->
+    <header
+      id="header"
+      class="fixed top-0 left-0 right-0 z-50 transition-all duration-500"
+    >
+      <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <div class="flex items-center justify-between h-20 lg:h-24">
+          <!-- Logo -->
+          <a href="index.html" class="relative z-10 flex-shrink-0">
+            <img
+              src="https://i0.wp.com/permitsandmore.com/wp-content/uploads/2016/06/cropped-logo-1.png?fit=263%2C60&ssl=1"
+              alt="Permits & More"
+              class="h-10 lg:h-14 w-auto transition-all duration-300"
+              id="header-logo"
+            />
+          </a>
+
+          <!-- Desktop Navigation -->
+          <nav class="hidden md:flex items-center gap-6 lg:gap-8">
+            <a
+              href="about.html"
+              class="nav-link link-underline text-sm font-medium tracking-wide uppercase transition-colors duration-300"
+              >About</a
+            >
+            <a
+              href="services.html"
+              class="nav-link link-underline text-sm font-medium tracking-wide uppercase transition-colors duration-300"
+              >Services</a
+            >
+            <a
+              href="work.html"
+              class="nav-link link-underline text-sm font-medium tracking-wide uppercase transition-colors duration-300"
+              >Projects</a
+            >
+            <a
+              href="newsletter.html"
+              class="nav-link link-underline text-sm font-medium tracking-wide uppercase transition-colors duration-300"
+              >Newsletter</a
+            >
+            <a
+              href="reviews.html"
+              class="nav-link link-underline text-sm font-medium tracking-wide uppercase transition-colors duration-300"
+              >Reviews</a
+            >
+            <a
+              href="contact.html"
+              class="nav-link link-underline text-sm font-medium tracking-wide uppercase transition-colors duration-300"
+              >Contact</a
+            >
+          </nav>
+
+          <!-- Mobile Menu Button -->
+          <button
+            id="mobile-menu-btn"
+            class="md:hidden relative z-10 w-10 h-10 flex items-center justify-center"
+            aria-label="Toggle menu"
+          >
+            <div class="space-y-1.5" id="hamburger">
+              <span
+                class="block w-6 h-0.5 bg-current transition-all duration-300 origin-center"
+                id="line1"
+              ></span>
+              <span
+                class="block w-6 h-0.5 bg-current transition-all duration-300"
+                id="line2"
+              ></span>
+              <span
+                class="block w-4 h-0.5 bg-current transition-all duration-300 origin-center"
+                id="line3"
+              ></span>
+            </div>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Menu Overlay -->
+      <div
+        id="mobile-menu"
+        class="fixed inset-0 bg-white mobile-menu-overlay translate-x-full transition-transform duration-500 ease-out md:hidden"
+      >
+        <div class="flex flex-col items-center justify-center h-full gap-6">
+          <a
+            href="about.html"
+            class="text-2xl font-light tracking-wide hover:text-brand-500 transition-colors"
+            >About</a
+          >
+          <a
+            href="services.html"
+            class="text-2xl font-light tracking-wide hover:text-brand-500 transition-colors"
+            >Services</a
+          >
+          <a
+            href="work.html"
+            class="text-2xl font-light tracking-wide hover:text-brand-500 transition-colors"
+            >Projects</a
+          >
+          <a
+            href="newsletter.html"
+            class="text-2xl font-light tracking-wide hover:text-brand-500 transition-colors"
+            >Newsletter</a
+          >
+          <a
+            href="reviews.html"
+            class="text-2xl font-light tracking-wide hover:text-brand-500 transition-colors"
+            >Reviews</a
+          >
+          <a
+            href="contact.html"
+            class="text-2xl font-light tracking-wide hover:text-brand-500 transition-colors"
+            >Contact</a
+          >
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section
+      id="hero"
+      class="relative min-h-screen flex items-center justify-center overflow-hidden grain-overlay"
+    >
+      <!-- Background Image with Overlay -->
+      <div class="absolute inset-0">
+        <img
+          src="assets/san-diego-skyline.jpg"
+          alt="San Diego downtown skyline at sunset"
+          class="w-full h-full object-cover parallax-bg"
+          id="hero-bg"
+        />
+        <div
+          class="absolute inset-0 bg-gradient-to-b from-neutral-950/70 via-neutral-950/50 to-neutral-950/80"
+        ></div>
+      </div>
+
+      <!-- Hero Content -->
+      <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 text-center">
+        <div
+          class="max-w-4xl mx-auto bg-neutral-950/40 backdrop-blur-sm rounded-3xl p-8 md:p-12 lg:p-16 lg:bg-transparent lg:backdrop-blur-none lg:p-0"
+        >
+          <!-- Eyebrow -->
+          <p
+            class="text-brand-400 text-sm md:text-base font-medium tracking-[0.2em] uppercase mb-6 animate-fade-in"
+            style="animation-delay: 0.2s"
+          >
+            San Diego's Premier Permit Experts
+          </p>
+
+          <!-- Main Headline -->
+          <h1
+            class="text-4xl md:text-6xl lg:text-7xl text-white leading-[1.1] mb-8"
+          >
+            <span
+              class="font-semibold block animate-fade-up lg:whitespace-nowrap"
+              style="animation-delay: 0.4s"
+              >Navigate the Complexity.</span
+            >
+            <span
+              class="font-serif italic block mt-2 animate-fade-up"
+              style="animation-delay: 0.6s"
+              >Build with <span class="text-brand-400">Confidence.</span></span
+            >
+          </h1>
+
+          <!-- Subheadline -->
+          <p
+            class="text-lg md:text-xl text-white/90 font-normal leading-relaxed max-w-2xl mx-auto mb-10 animate-fade-up"
+            style="animation-delay: 0.8s"
+          >
+            From initial concept to final approval, we transform the complex
+            permitting process into a seamless experience.
+          </p>
+
+          <!-- CTA Buttons -->
+          <div
+            class="flex flex-col sm:flex-row gap-4 justify-center animate-fade-up"
+            style="animation-delay: 1s"
+          >
+            <a
+              href="contact.html"
+              class="btn-primary text-white px-8 py-4 rounded-full text-base font-semibold inline-flex items-center justify-center gap-2 group"
+            >
+              Start Your Project
+              <svg
+                class="w-4 h-4 transition-transform group-hover:translate-x-1"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M17 8l4 4m0 0l-4 4m4-4H3"
+                />
+              </svg>
+            </a>
+            <a
+              href="services.html"
+              class="btn-secondary text-white px-8 py-4 rounded-full text-base font-semibold"
+            >
+              Explore Services
+            </a>
           </div>
+        </div>
+      </div>
+
+      <!-- Scroll Indicator -->
+      <div class="absolute bottom-10 left-1/2 -translate-x-1/2 z-10">
+        <button
+          onclick="scrollToSection('about')"
+          class="scroll-indicator flex flex-col items-center gap-2 text-white/60 hover:text-white transition-colors cursor-pointer"
+          aria-label="Scroll to next section"
+        >
+          <span class="text-xs tracking-widest uppercase">Scroll</span>
+          <svg
+            class="w-5 h-5"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="1.5"
+              d="M19 14l-7 7m0 0l-7-7m7 7V3"
+            />
+          </svg>
         </button>
       </div>
-    </div>
+    </section>
 
-    <!-- Mobile Menu Overlay -->
-    <div id="mobile-menu"
-      class="fixed inset-0 bg-white mobile-menu-overlay translate-x-full transition-transform duration-500 ease-out md:hidden">
-      <div class="flex flex-col items-center justify-center h-full gap-6">
-        <a href="about.html" class="text-2xl font-light tracking-wide hover:text-brand-500 transition-colors">About</a>
-        <a href="services.html" class="text-2xl font-light tracking-wide hover:text-brand-500 transition-colors">Services</a>
-        <a href="work.html" class="text-2xl font-light tracking-wide hover:text-brand-500 transition-colors">Projects</a>
-        <a href="newsletter.html" class="text-2xl font-light tracking-wide hover:text-brand-500 transition-colors">Newsletter</a>
-        <a href="reviews.html" class="text-2xl font-light tracking-wide hover:text-brand-500 transition-colors">Reviews</a>
-        <a href="contact.html" class="text-2xl font-light tracking-wide hover:text-brand-500 transition-colors">Contact</a>
-      </div>
-    </div>
-  </header>
-
-  <!-- Hero Section -->
-  <section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden grain-overlay">
-    <!-- Background Image with Overlay -->
-    <div class="absolute inset-0">
-      <img src="https://images.unsplash.com/photo-1605283176568-9b41fde3672e?q=80&w=2574&auto=format&fit=crop"
-        alt="San Diego downtown skyline at sunset" class="w-full h-full object-cover parallax-bg" id="hero-bg">
-      <div class="absolute inset-0 bg-gradient-to-b from-neutral-950/70 via-neutral-950/50 to-neutral-950/80"></div>
-    </div>
-
-    <!-- Hero Content -->
-    <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 text-center">
-      <div
-        class="max-w-4xl mx-auto bg-neutral-950/40 backdrop-blur-sm rounded-3xl p-8 md:p-12 lg:p-16 lg:bg-transparent lg:backdrop-blur-none lg:p-0">
-        <!-- Eyebrow -->
-        <p class="text-brand-400 text-sm md:text-base font-medium tracking-[0.2em] uppercase mb-6 animate-fade-in"
-          style="animation-delay: 0.2s;">
-          San Diego's Premier Permit Experts
-        </p>
-
-        <!-- Main Headline -->
-        <h1 class="text-4xl md:text-6xl lg:text-7xl text-white leading-[1.1] mb-8">
-          <span class="font-semibold block animate-fade-up lg:whitespace-nowrap" style="animation-delay: 0.4s;">Navigate
-            the Complexity.</span>
-          <span class="font-serif italic block mt-2 animate-fade-up" style="animation-delay: 0.6s;">Build with <span
-              class="text-brand-400">Confidence.</span></span>
-        </h1>
-
-        <!-- Subheadline -->
-        <p class="text-lg md:text-xl text-white/90 font-normal leading-relaxed max-w-2xl mx-auto mb-10 animate-fade-up"
-          style="animation-delay: 0.8s;">
-          From initial concept to final approval, we transform the complex permitting process into a seamless
-          experience.
-        </p>
-
-        <!-- CTA Buttons -->
-        <div class="flex flex-col sm:flex-row gap-4 justify-center animate-fade-up" style="animation-delay: 1s;">
-          <a href="contact.html"
-            class="btn-primary text-white px-8 py-4 rounded-full text-base font-semibold inline-flex items-center justify-center gap-2 group">
-            Start Your Project
-            <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24"
-              stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-            </svg>
-          </a>
-          <a href="services.html" class="btn-secondary text-white px-8 py-4 rounded-full text-base font-semibold">
-            Explore Services
-          </a>
-        </div>
-      </div>
-    </div>
-
-    <!-- Scroll Indicator -->
-    <div class="absolute bottom-10 left-1/2 -translate-x-1/2 z-10">
-      <button onclick="scrollToSection('about')"
-        class="scroll-indicator flex flex-col items-center gap-2 text-white/60 hover:text-white transition-colors cursor-pointer"
-        aria-label="Scroll to next section">
-        <span class="text-xs tracking-widest uppercase">Scroll</span>
-        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-        </svg>
-      </button>
-    </div>
-  </section>
-
-  <!-- About Section -->
-  <section id="about" class="py-24 lg:py-32 bg-white">
-    <div class="max-w-7xl mx-auto px-6 lg:px-8">
-      <div class="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
-        <!-- Left: Image -->
-        <div class="animate-on-scroll">
-          <div class="relative">
-            <div class="img-reveal rounded-2xl overflow-hidden">
-              <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=2676&auto=format&fit=crop"
-                alt="Construction site in San Diego with workers reviewing blueprints"
-                class="w-full aspect-[4/5] object-cover">
+    <!-- About Section -->
+    <section id="about" class="py-24 lg:py-32 bg-white">
+      <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <div class="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+          <!-- Left: Image -->
+          <div class="animate-on-scroll">
+            <div class="relative">
+              <div class="img-reveal rounded-2xl overflow-hidden">
+                <img
+                  src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=2676&auto=format&fit=crop"
+                  alt="Construction site in San Diego with workers reviewing blueprints"
+                  class="w-full aspect-[4/5] object-cover"
+                />
+              </div>
+              <!-- Floating Stats Card -->
+              <div
+                class="absolute -bottom-8 -right-8 bg-white rounded-2xl shadow-2xl p-6 lg:p-8 card-hover"
+              >
+                <div
+                  class="text-4xl lg:text-5xl font-light text-brand-500 stat-number"
+                  data-target="500"
+                >
+                  0
+                </div>
+                <div class="text-sm text-neutral-600 mt-1">
+                  Projects Completed
+                </div>
+              </div>
             </div>
-            <!-- Floating Stats Card -->
-            <div class="absolute -bottom-8 -right-8 bg-white rounded-2xl shadow-2xl p-6 lg:p-8 card-hover">
-              <div class="text-4xl lg:text-5xl font-light text-brand-500 stat-number" data-target="500">0</div>
-              <div class="text-sm text-neutral-600 mt-1">Projects Completed</div>
+          </div>
+
+          <!-- Right: Content -->
+          <div>
+            <p
+              class="text-brand-500 text-sm font-medium tracking-[0.2em] uppercase mb-4 animate-on-scroll"
+            >
+              Who We Are
+            </p>
+            <h2
+              class="text-3xl md:text-4xl lg:text-5xl leading-tight mb-6 animate-on-scroll delay-1"
+            >
+              <span class="font-medium">Your Partner in</span>
+              <span class="font-serif italic block">Permit Excellence</span>
+            </h2>
+            <div
+              class="space-y-4 text-neutral-700 leading-relaxed animate-on-scroll delay-2"
+            >
+              <p>
+                Permits & More provides exceptional engineering services
+                designed to move your project seamlessly from concept through
+                design to full permit approval. We've built our reputation on
+                precision, reliability, and an unwavering commitment to meeting
+                your timelines.
+              </p>
+              <p>
+                For over five years, we've been the trusted partner for
+                architects, developers, sign contractors, general contractors,
+                and homeowners throughout San Diego. Our mission is simple:
+                transform the often lengthy and tedious permitting process into
+                a faster, easier, and stress-free experience.
+              </p>
+            </div>
+
+            <!-- Quick Stats -->
+            <div
+              class="grid grid-cols-3 gap-8 mt-10 pt-10 border-t border-neutral-100 animate-on-scroll delay-3"
+            >
+              <div>
+                <div
+                  class="text-3xl font-light text-brand-500 stat-number"
+                  data-target="5"
+                >
+                  0
+                </div>
+                <div class="text-sm text-neutral-500 mt-1">
+                  Years Experience
+                </div>
+              </div>
+              <div>
+                <div
+                  class="text-3xl font-light text-brand-500 stat-number"
+                  data-target="98"
+                >
+                  0
+                </div>
+                <div class="text-sm text-neutral-500 mt-1">% Approval Rate</div>
+              </div>
+              <div>
+                <div
+                  class="text-3xl font-light text-brand-500 stat-number"
+                  data-target="24"
+                >
+                  0
+                </div>
+                <div class="text-sm text-neutral-500 mt-1">Hour Response</div>
+              </div>
             </div>
           </div>
         </div>
+      </div>
+    </section>
 
-        <!-- Right: Content -->
-        <div>
-          <p class="text-brand-500 text-sm font-medium tracking-[0.2em] uppercase mb-4 animate-on-scroll">
-            Who We Are
+    <!-- Services Section -->
+    <section id="services" class="py-24 lg:py-32 bg-neutral-50">
+      <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <!-- Section Header -->
+        <div class="max-w-3xl mb-16 lg:mb-20">
+          <p
+            class="text-brand-500 text-sm font-medium tracking-[0.2em] uppercase mb-4 animate-on-scroll"
+          >
+            What We Do
           </p>
-          <h2 class="text-3xl md:text-4xl lg:text-5xl leading-tight mb-6 animate-on-scroll delay-1">
-            <span class="font-medium">Your Partner in</span>
-            <span class="font-serif italic block">Permit Excellence</span>
+          <h2
+            class="text-3xl md:text-4xl lg:text-5xl leading-tight animate-on-scroll delay-1"
+          >
+            <span class="font-medium">Comprehensive</span>
+            <span class="font-serif italic"> Permit Services</span>
           </h2>
-          <div class="space-y-4 text-neutral-700 leading-relaxed animate-on-scroll delay-2">
-            <p>
-              Permits & More provides exceptional engineering services designed to move your project seamlessly from
-              concept through design to full permit approval. We've built our reputation on precision, reliability, and
-              an unwavering commitment to meeting your timelines.
+          <p
+            class="text-neutral-600 mt-6 text-lg leading-relaxed animate-on-scroll delay-2"
+          >
+            From residential renovations to major commercial developments, we
+            provide end-to-end permit processing services tailored to your
+            project's unique requirements.
+          </p>
+        </div>
+
+        <!-- Services Grid -->
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Service 1 -->
+          <div
+            class="bg-white rounded-2xl p-8 lg:p-10 card-hover animate-on-scroll"
+          >
+            <div
+              class="icon-gradient w-14 h-14 rounded-xl flex items-center justify-center mb-6"
+            >
+              <svg
+                class="w-7 h-7 text-brand-500"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.5"
+                  d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                />
+              </svg>
+            </div>
+            <h3 class="text-xl font-semibold mb-3">Permit Processing</h3>
+            <p class="text-neutral-600 leading-relaxed">
+              Complete end-to-end permit application management, from initial
+              submission through final approval with the City of San Diego and
+              surrounding jurisdictions.
             </p>
-            <p>
-              For over five years, we've been the trusted partner for architects, developers, sign contractors, general
-              contractors, and homeowners throughout San Diego. Our mission is simple: transform the often lengthy and
-              tedious permitting process into a faster, easier, and stress-free experience.
+          </div>
+
+          <!-- Service 2 -->
+          <div
+            class="bg-white rounded-2xl p-8 lg:p-10 card-hover animate-on-scroll delay-1"
+          >
+            <div
+              class="icon-gradient w-14 h-14 rounded-xl flex items-center justify-center mb-6"
+            >
+              <svg
+                class="w-7 h-7 text-brand-500"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.5"
+                  d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
+                />
+              </svg>
+            </div>
+            <h3 class="text-xl font-semibold mb-3">Code Compliance</h3>
+            <p class="text-neutral-600 leading-relaxed">
+              Building code violation assistance to help you resolve issues
+              quickly and maintain full compliance, protecting and optimizing
+              your property's value.
             </p>
           </div>
 
-          <!-- Quick Stats -->
-          <div class="grid grid-cols-3 gap-8 mt-10 pt-10 border-t border-neutral-100 animate-on-scroll delay-3">
-            <div>
-              <div class="text-3xl font-light text-brand-500 stat-number" data-target="5">0</div>
-              <div class="text-sm text-neutral-500 mt-1">Years Experience</div>
+          <!-- Service 3 -->
+          <div
+            class="bg-white rounded-2xl p-8 lg:p-10 card-hover animate-on-scroll delay-2"
+          >
+            <div
+              class="icon-gradient w-14 h-14 rounded-xl flex items-center justify-center mb-6"
+            >
+              <svg
+                class="w-7 h-7 text-brand-500"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.5"
+                  d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"
+                />
+              </svg>
             </div>
-            <div>
-              <div class="text-3xl font-light text-brand-500 stat-number" data-target="98">0</div>
-              <div class="text-sm text-neutral-500 mt-1">% Approval Rate</div>
+            <h3 class="text-xl font-semibold mb-3">Plan Review</h3>
+            <p class="text-neutral-600 leading-relaxed">
+              Expert pre-submission plan review to identify and resolve
+              potential issues before they become costly delays in the approval
+              process.
+            </p>
+          </div>
+
+          <!-- Service 4 -->
+          <div
+            class="bg-white rounded-2xl p-8 lg:p-10 card-hover animate-on-scroll delay-3"
+          >
+            <div
+              class="icon-gradient w-14 h-14 rounded-xl flex items-center justify-center mb-6"
+            >
+              <svg
+                class="w-7 h-7 text-brand-500"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.5"
+                  d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                />
+              </svg>
             </div>
-            <div>
-              <div class="text-3xl font-light text-brand-500 stat-number" data-target="24">0</div>
-              <div class="text-sm text-neutral-500 mt-1">Hour Response</div>
+            <h3 class="text-xl font-semibold mb-3">Expedited Processing</h3>
+            <p class="text-neutral-600 leading-relaxed">
+              Fast-track permit services when time is critical. We leverage our
+              relationships and expertise to accelerate your approval timeline.
+            </p>
+          </div>
+
+          <!-- Service 5 -->
+          <div
+            class="bg-white rounded-2xl p-8 lg:p-10 card-hover animate-on-scroll delay-4"
+          >
+            <div
+              class="icon-gradient w-14 h-14 rounded-xl flex items-center justify-center mb-6"
+            >
+              <svg
+                class="w-7 h-7 text-brand-500"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.5"
+                  d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
+                />
+              </svg>
+            </div>
+            <h3 class="text-xl font-semibold mb-3">Contractor Support</h3>
+            <p class="text-neutral-600 leading-relaxed">
+              Dedicated support for architects, developers, sign contractors,
+              and general contractors with specialized permit requirements.
+            </p>
+          </div>
+
+          <!-- Service 6 -->
+          <div
+            class="bg-white rounded-2xl p-8 lg:p-10 card-hover animate-on-scroll delay-4"
+          >
+            <div
+              class="icon-gradient w-14 h-14 rounded-xl flex items-center justify-center mb-6"
+            >
+              <svg
+                class="w-7 h-7 text-brand-500"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.5"
+                  d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
+                />
+              </svg>
+            </div>
+            <h3 class="text-xl font-semibold mb-3">Residential Permits</h3>
+            <p class="text-neutral-600 leading-relaxed">
+              Homeowner-friendly permit services for renovations, additions,
+              ADUs, and remodels throughout San Diego County.
+            </p>
+          </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="text-center mt-16 animate-on-scroll">
+          <a
+            href="services.html"
+            class="btn-primary text-white px-8 py-4 rounded-full text-base font-semibold inline-flex items-center gap-2 group"
+          >
+            View All Services
+            <svg
+              class="w-4 h-4 transition-transform group-hover:translate-x-1"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M17 8l4 4m0 0l-4 4m4-4H3"
+              />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Process Section -->
+    <section id="process" class="py-24 lg:py-32 bg-white">
+      <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <div class="grid lg:grid-cols-2 gap-16 lg:gap-24">
+          <!-- Left: Content -->
+          <div>
+            <p
+              class="text-brand-500 text-sm font-medium tracking-[0.2em] uppercase mb-4 animate-on-scroll"
+            >
+              Our Process
+            </p>
+            <h2
+              class="text-3xl md:text-4xl lg:text-5xl leading-tight mb-6 animate-on-scroll delay-1"
+            >
+              <span class="font-medium">From Concept</span>
+              <span class="font-serif italic block">to Approval</span>
+            </h2>
+            <p
+              class="text-neutral-600 text-lg leading-relaxed mb-10 animate-on-scroll delay-2"
+            >
+              We've refined our process over hundreds of projects to ensure
+              precision, efficiency, and successful outcomes every time.
+            </p>
+
+            <!-- Process Steps -->
+            <div class="space-y-8">
+              <!-- Step 1 -->
+              <div class="flex gap-6 animate-on-scroll delay-2">
+                <div class="flex-shrink-0">
+                  <div
+                    class="w-12 h-12 rounded-full bg-brand-500 text-white flex items-center justify-center font-semibold"
+                  >
+                    01
+                  </div>
+                </div>
+                <div>
+                  <h3 class="text-lg font-semibold mb-2">
+                    Consultation & Assessment
+                  </h3>
+                  <p class="text-neutral-600">
+                    We review your project requirements and create a customized
+                    permit strategy aligned with your timeline and budget.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Step 2 -->
+              <div class="flex gap-6 animate-on-scroll delay-3">
+                <div class="flex-shrink-0">
+                  <div
+                    class="w-12 h-12 rounded-full bg-brand-500 text-white flex items-center justify-center font-semibold"
+                  >
+                    02
+                  </div>
+                </div>
+                <div>
+                  <h3 class="text-lg font-semibold mb-2">
+                    Document Preparation
+                  </h3>
+                  <p class="text-neutral-600">
+                    Our team prepares and organizes all required documentation,
+                    ensuring compliance with current building codes and
+                    regulations.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Step 3 -->
+              <div class="flex gap-6 animate-on-scroll delay-4">
+                <div class="flex-shrink-0">
+                  <div
+                    class="w-12 h-12 rounded-full bg-brand-500 text-white flex items-center justify-center font-semibold"
+                  >
+                    03
+                  </div>
+                </div>
+                <div>
+                  <h3 class="text-lg font-semibold mb-2">
+                    Submission & Tracking
+                  </h3>
+                  <p class="text-neutral-600">
+                    We submit your application and actively manage the review
+                    process, addressing any questions or requests from
+                    officials.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Step 4 -->
+              <div class="flex gap-6 animate-on-scroll delay-4">
+                <div class="flex-shrink-0">
+                  <div
+                    class="w-12 h-12 rounded-full bg-brand-500 text-white flex items-center justify-center font-semibold"
+                  >
+                    04
+                  </div>
+                </div>
+                <div>
+                  <h3 class="text-lg font-semibold mb-2">Approval & Handoff</h3>
+                  <p class="text-neutral-600">
+                    Once approved, we deliver your permits and provide guidance
+                    on next steps for your construction project.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Image -->
+          <div class="animate-on-scroll">
+            <div class="relative h-full min-h-[500px]">
+              <img
+                src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2670&auto=format&fit=crop"
+                alt="Modern San Diego architecture"
+                class="w-full h-full object-cover rounded-2xl"
+              />
+              <!-- Accent decoration -->
+              <div
+                class="absolute -z-10 -bottom-6 -right-6 w-full h-full border-2 border-brand-200 rounded-2xl"
+              ></div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Services Section -->
-  <section id="services" class="py-24 lg:py-32 bg-neutral-50">
-    <div class="max-w-7xl mx-auto px-6 lg:px-8">
-      <!-- Section Header -->
-      <div class="max-w-3xl mb-16 lg:mb-20">
-        <p class="text-brand-500 text-sm font-medium tracking-[0.2em] uppercase mb-4 animate-on-scroll">
-          What We Do
-        </p>
-        <h2 class="text-3xl md:text-4xl lg:text-5xl leading-tight animate-on-scroll delay-1">
-          <span class="font-medium">Comprehensive</span>
-          <span class="font-serif italic"> Permit Services</span>
-        </h2>
-        <p class="text-neutral-600 mt-6 text-lg leading-relaxed animate-on-scroll delay-2">
-          From residential renovations to major commercial developments, we provide end-to-end permit processing
-          services tailored to your project's unique requirements.
-        </p>
+    <!-- Testimonial/Trust Section -->
+    <section
+      id="trust"
+      class="py-24 lg:py-32 bg-neutral-950 text-white relative overflow-hidden"
+    >
+      <!-- Background Pattern -->
+      <div class="absolute inset-0 opacity-5">
+        <div
+          class="absolute top-0 left-0 w-96 h-96 bg-brand-500 rounded-full filter blur-3xl"
+        ></div>
+        <div
+          class="absolute bottom-0 right-0 w-96 h-96 bg-brand-500 rounded-full filter blur-3xl"
+        ></div>
       </div>
 
-      <!-- Services Grid -->
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <!-- Service 1 -->
-        <div class="bg-white rounded-2xl p-8 lg:p-10 card-hover animate-on-scroll">
-          <div class="icon-gradient w-14 h-14 rounded-xl flex items-center justify-center mb-6">
-            <svg class="w-7 h-7 text-brand-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-            </svg>
-          </div>
-          <h3 class="text-xl font-semibold mb-3">Permit Processing</h3>
-          <p class="text-neutral-600 leading-relaxed">
-            Complete end-to-end permit application management, from initial submission through final approval with the
-            City of San Diego and surrounding jurisdictions.
+      <div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <p
+            class="text-brand-400 text-sm font-medium tracking-[0.2em] uppercase mb-4 animate-on-scroll"
+          >
+            Why Choose Us
           </p>
+          <h2
+            class="text-3xl md:text-4xl lg:text-5xl leading-tight animate-on-scroll delay-1"
+          >
+            <span class="font-light">Trusted by San Diego's</span>
+            <span class="font-serif italic block">Leading Builders</span>
+          </h2>
         </div>
 
-        <!-- Service 2 -->
-        <div class="bg-white rounded-2xl p-8 lg:p-10 card-hover animate-on-scroll delay-1">
-          <div class="icon-gradient w-14 h-14 rounded-xl flex items-center justify-center mb-6">
-            <svg class="w-7 h-7 text-brand-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-            </svg>
+        <!-- Trust Points -->
+        <div class="grid md:grid-cols-3 gap-8 lg:gap-12">
+          <div class="text-center animate-on-scroll">
+            <div
+              class="text-5xl lg:text-6xl font-light text-brand-400 mb-4 stat-number"
+              data-target="500"
+            >
+              0
+            </div>
+            <div class="text-lg font-medium mb-2">Projects Completed</div>
+            <p class="text-white/60 text-sm">
+              Across residential, commercial, and industrial sectors
+            </p>
           </div>
-          <h3 class="text-xl font-semibold mb-3">Code Compliance</h3>
-          <p class="text-neutral-600 leading-relaxed">
-            Building code violation assistance to help you resolve issues quickly and maintain full compliance,
-            protecting and optimizing your property's value.
-          </p>
+          <div class="text-center animate-on-scroll delay-1">
+            <div
+              class="text-5xl lg:text-6xl font-light text-brand-400 mb-4 stat-number"
+              data-target="98"
+            >
+              0
+            </div>
+            <div class="text-lg font-medium mb-2">% First-Time Approval</div>
+            <p class="text-white/60 text-sm">
+              Our expertise minimizes rejections and revisions
+            </p>
+          </div>
+          <div class="text-center animate-on-scroll delay-2">
+            <div class="text-5xl lg:text-6xl font-light text-brand-400 mb-4">
+              5+
+            </div>
+            <div class="text-lg font-medium mb-2">Years of Excellence</div>
+            <p class="text-white/60 text-sm">
+              Deep relationships with city officials and inspectors
+            </p>
+          </div>
         </div>
 
-        <!-- Service 3 -->
-        <div class="bg-white rounded-2xl p-8 lg:p-10 card-hover animate-on-scroll delay-2">
-          <div class="icon-gradient w-14 h-14 rounded-xl flex items-center justify-center mb-6">
-            <svg class="w-7 h-7 text-brand-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
-            </svg>
-          </div>
-          <h3 class="text-xl font-semibold mb-3">Plan Review</h3>
-          <p class="text-neutral-600 leading-relaxed">
-            Expert pre-submission plan review to identify and resolve potential issues before they become costly delays
-            in the approval process.
-          </p>
-        </div>
-
-        <!-- Service 4 -->
-        <div class="bg-white rounded-2xl p-8 lg:p-10 card-hover animate-on-scroll delay-3">
-          <div class="icon-gradient w-14 h-14 rounded-xl flex items-center justify-center mb-6">
-            <svg class="w-7 h-7 text-brand-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-            </svg>
-          </div>
-          <h3 class="text-xl font-semibold mb-3">Expedited Processing</h3>
-          <p class="text-neutral-600 leading-relaxed">
-            Fast-track permit services when time is critical. We leverage our relationships and expertise to accelerate
-            your approval timeline.
-          </p>
-        </div>
-
-        <!-- Service 5 -->
-        <div class="bg-white rounded-2xl p-8 lg:p-10 card-hover animate-on-scroll delay-4">
-          <div class="icon-gradient w-14 h-14 rounded-xl flex items-center justify-center mb-6">
-            <svg class="w-7 h-7 text-brand-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-            </svg>
-          </div>
-          <h3 class="text-xl font-semibold mb-3">Contractor Support</h3>
-          <p class="text-neutral-600 leading-relaxed">
-            Dedicated support for architects, developers, sign contractors, and general contractors with specialized
-            permit requirements.
-          </p>
-        </div>
-
-        <!-- Service 6 -->
-        <div class="bg-white rounded-2xl p-8 lg:p-10 card-hover animate-on-scroll delay-4">
-          <div class="icon-gradient w-14 h-14 rounded-xl flex items-center justify-center mb-6">
-            <svg class="w-7 h-7 text-brand-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
-            </svg>
-          </div>
-          <h3 class="text-xl font-semibold mb-3">Residential Permits</h3>
-          <p class="text-neutral-600 leading-relaxed">
-            Homeowner-friendly permit services for renovations, additions, ADUs, and remodels throughout San Diego
-            County.
-          </p>
-        </div>
-      </div>
-
-      <!-- CTA -->
-      <div class="text-center mt-16 animate-on-scroll">
-        <a href="services.html"
-          class="btn-primary text-white px-8 py-4 rounded-full text-base font-semibold inline-flex items-center gap-2 group">
-          View All Services
-          <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24"
-            stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+        <!-- Quote -->
+        <div class="mt-20 max-w-4xl mx-auto text-center animate-on-scroll">
+          <svg
+            class="w-12 h-12 text-brand-500/30 mx-auto mb-6"
+            fill="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"
+            />
           </svg>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Process Section -->
-  <section id="process" class="py-24 lg:py-32 bg-white">
-    <div class="max-w-7xl mx-auto px-6 lg:px-8">
-      <div class="grid lg:grid-cols-2 gap-16 lg:gap-24">
-        <!-- Left: Content -->
-        <div>
-          <p class="text-brand-500 text-sm font-medium tracking-[0.2em] uppercase mb-4 animate-on-scroll">
-            Our Process
-          </p>
-          <h2 class="text-3xl md:text-4xl lg:text-5xl leading-tight mb-6 animate-on-scroll delay-1">
-            <span class="font-medium">From Concept</span>
-            <span class="font-serif italic block">to Approval</span>
-          </h2>
-          <p class="text-neutral-600 text-lg leading-relaxed mb-10 animate-on-scroll delay-2">
-            We've refined our process over hundreds of projects to ensure precision, efficiency, and successful outcomes
-            every time.
-          </p>
-
-          <!-- Process Steps -->
-          <div class="space-y-8">
-            <!-- Step 1 -->
-            <div class="flex gap-6 animate-on-scroll delay-2">
-              <div class="flex-shrink-0">
-                <div
-                  class="w-12 h-12 rounded-full bg-brand-500 text-white flex items-center justify-center font-semibold">
-                  01</div>
-              </div>
-              <div>
-                <h3 class="text-lg font-semibold mb-2">Consultation & Assessment</h3>
-                <p class="text-neutral-600">We review your project requirements and create a customized permit strategy
-                  aligned with your timeline and budget.</p>
-              </div>
-            </div>
-
-            <!-- Step 2 -->
-            <div class="flex gap-6 animate-on-scroll delay-3">
-              <div class="flex-shrink-0">
-                <div
-                  class="w-12 h-12 rounded-full bg-brand-500 text-white flex items-center justify-center font-semibold">
-                  02</div>
-              </div>
-              <div>
-                <h3 class="text-lg font-semibold mb-2">Document Preparation</h3>
-                <p class="text-neutral-600">Our team prepares and organizes all required documentation, ensuring
-                  compliance with current building codes and regulations.</p>
-              </div>
-            </div>
-
-            <!-- Step 3 -->
-            <div class="flex gap-6 animate-on-scroll delay-4">
-              <div class="flex-shrink-0">
-                <div
-                  class="w-12 h-12 rounded-full bg-brand-500 text-white flex items-center justify-center font-semibold">
-                  03</div>
-              </div>
-              <div>
-                <h3 class="text-lg font-semibold mb-2">Submission & Tracking</h3>
-                <p class="text-neutral-600">We submit your application and actively manage the review process,
-                  addressing any questions or requests from officials.</p>
-              </div>
-            </div>
-
-            <!-- Step 4 -->
-            <div class="flex gap-6 animate-on-scroll delay-4">
-              <div class="flex-shrink-0">
-                <div
-                  class="w-12 h-12 rounded-full bg-brand-500 text-white flex items-center justify-center font-semibold">
-                  04</div>
-              </div>
-              <div>
-                <h3 class="text-lg font-semibold mb-2">Approval & Handoff</h3>
-                <p class="text-neutral-600">Once approved, we deliver your permits and provide guidance on next steps
-                  for your construction project.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Right: Image -->
-        <div class="animate-on-scroll">
-          <div class="relative h-full min-h-[500px]">
-            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2670&auto=format&fit=crop"
-              alt="Modern San Diego architecture" class="w-full h-full object-cover rounded-2xl">
-            <!-- Accent decoration -->
-            <div class="absolute -z-10 -bottom-6 -right-6 w-full h-full border-2 border-brand-200 rounded-2xl"></div>
-          </div>
+          <blockquote
+            class="text-2xl md:text-3xl font-light leading-relaxed mb-8"
+          >
+            "Our mission is to make the often long and tedious process of
+            obtaining building permits
+            <span class="text-brand-400 font-serif italic"
+              >faster, easier, and less stressful</span
+            >
+            on you, the client."
+          </blockquote>
+          <div class="text-white/60">— Permits & More Team</div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Testimonial/Trust Section -->
-  <section id="trust" class="py-24 lg:py-32 bg-neutral-950 text-white relative overflow-hidden">
-    <!-- Background Pattern -->
-    <div class="absolute inset-0 opacity-5">
-      <div class="absolute top-0 left-0 w-96 h-96 bg-brand-500 rounded-full filter blur-3xl"></div>
-      <div class="absolute bottom-0 right-0 w-96 h-96 bg-brand-500 rounded-full filter blur-3xl"></div>
-    </div>
-
-    <div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
-      <div class="text-center max-w-3xl mx-auto mb-16">
-        <p class="text-brand-400 text-sm font-medium tracking-[0.2em] uppercase mb-4 animate-on-scroll">
-          Why Choose Us
-        </p>
-        <h2 class="text-3xl md:text-4xl lg:text-5xl leading-tight animate-on-scroll delay-1">
-          <span class="font-light">Trusted by San Diego's</span>
-          <span class="font-serif italic block">Leading Builders</span>
-        </h2>
-      </div>
-
-      <!-- Trust Points -->
-      <div class="grid md:grid-cols-3 gap-8 lg:gap-12">
-        <div class="text-center animate-on-scroll">
-          <div class="text-5xl lg:text-6xl font-light text-brand-400 mb-4 stat-number" data-target="500">0</div>
-          <div class="text-lg font-medium mb-2">Projects Completed</div>
-          <p class="text-white/60 text-sm">Across residential, commercial, and industrial sectors</p>
-        </div>
-        <div class="text-center animate-on-scroll delay-1">
-          <div class="text-5xl lg:text-6xl font-light text-brand-400 mb-4 stat-number" data-target="98">0</div>
-          <div class="text-lg font-medium mb-2">% First-Time Approval</div>
-          <p class="text-white/60 text-sm">Our expertise minimizes rejections and revisions</p>
-        </div>
-        <div class="text-center animate-on-scroll delay-2">
-          <div class="text-5xl lg:text-6xl font-light text-brand-400 mb-4">5+</div>
-          <div class="text-lg font-medium mb-2">Years of Excellence</div>
-          <p class="text-white/60 text-sm">Deep relationships with city officials and inspectors</p>
-        </div>
-      </div>
-
-      <!-- Quote -->
-      <div class="mt-20 max-w-4xl mx-auto text-center animate-on-scroll">
-        <svg class="w-12 h-12 text-brand-500/30 mx-auto mb-6" fill="currentColor" viewBox="0 0 24 24">
-          <path
-            d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
-        </svg>
-        <blockquote class="text-2xl md:text-3xl font-light leading-relaxed mb-8">
-          "Our mission is to make the often long and tedious process of obtaining building permits <span
-            class="text-brand-400 font-serif italic">faster, easier, and less stressful</span> on you, the client."
-        </blockquote>
-        <div class="text-white/60">— Permits & More Team</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- San Diego Focus Section -->
-  <section id="location" class="py-24 lg:py-32 bg-white">
-    <div class="max-w-7xl mx-auto px-6 lg:px-8">
-      <div class="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
-        <!-- Left: Content -->
-        <div>
-          <p class="text-brand-500 text-sm font-medium tracking-[0.2em] uppercase mb-4 animate-on-scroll">
-            Local Expertise
-          </p>
-          <h2 class="text-3xl md:text-4xl lg:text-5xl leading-tight mb-6 animate-on-scroll delay-1">
-            <span class="font-medium">Proudly Serving</span>
-            <span class="font-serif italic block">San Diego</span>
-          </h2>
-          <div class="space-y-4 text-neutral-600 leading-relaxed animate-on-scroll delay-2">
-            <p>
-              Based in the heart of downtown San Diego, we've built deep relationships with the City's Building
-              Department and surrounding jurisdictions. Our local expertise means we understand the nuances of San
-              Diego's permitting landscape like no one else.
+    <!-- San Diego Focus Section -->
+    <section id="location" class="py-24 lg:py-32 bg-white">
+      <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <div class="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+          <!-- Left: Content -->
+          <div>
+            <p
+              class="text-brand-500 text-sm font-medium tracking-[0.2em] uppercase mb-4 animate-on-scroll"
+            >
+              Local Expertise
             </p>
-            <p>
-              Whether you're developing in the Gaslamp Quarter, renovating a home in La Jolla, or building commercial
-              space in Chula Vista, our team has the experience and connections to navigate your permit through to
-              approval.
-            </p>
+            <h2
+              class="text-3xl md:text-4xl lg:text-5xl leading-tight mb-6 animate-on-scroll delay-1"
+            >
+              <span class="font-medium">Proudly Serving</span>
+              <span class="font-serif italic block">San Diego</span>
+            </h2>
+            <div
+              class="space-y-4 text-neutral-600 leading-relaxed animate-on-scroll delay-2"
+            >
+              <p>
+                Based in the heart of downtown San Diego, we've built deep
+                relationships with the City's Building Department and
+                surrounding jurisdictions. Our local expertise means we
+                understand the nuances of San Diego's permitting landscape like
+                no one else.
+              </p>
+              <p>
+                Whether you're developing in the Gaslamp Quarter, renovating a
+                home in La Jolla, or building commercial space in Chula Vista,
+                our team has the experience and connections to navigate your
+                permit through to approval.
+              </p>
+            </div>
+
+            <!-- Service Areas -->
+            <div class="mt-8 animate-on-scroll delay-3">
+              <h4 class="font-medium mb-4">Areas We Serve:</h4>
+              <div class="flex flex-wrap gap-2">
+                <span
+                  class="px-4 py-2 bg-brand-50 text-brand-700 rounded-full text-sm"
+                  >City of San Diego</span
+                >
+                <span
+                  class="px-4 py-2 bg-brand-50 text-brand-700 rounded-full text-sm"
+                  >San Diego County</span
+                >
+                <span
+                  class="px-4 py-2 bg-brand-50 text-brand-700 rounded-full text-sm"
+                  >La Jolla</span
+                >
+                <span
+                  class="px-4 py-2 bg-brand-50 text-brand-700 rounded-full text-sm"
+                  >Chula Vista</span
+                >
+                <span
+                  class="px-4 py-2 bg-brand-50 text-brand-700 rounded-full text-sm"
+                  >Carlsbad</span
+                >
+                <span
+                  class="px-4 py-2 bg-brand-50 text-brand-700 rounded-full text-sm"
+                  >Oceanside</span
+                >
+                <span
+                  class="px-4 py-2 bg-brand-50 text-brand-700 rounded-full text-sm"
+                  >+ Surrounding Areas</span
+                >
+              </div>
+            </div>
           </div>
 
-          <!-- Service Areas -->
-          <div class="mt-8 animate-on-scroll delay-3">
-            <h4 class="font-medium mb-4">Areas We Serve:</h4>
-            <div class="flex flex-wrap gap-2">
-              <span class="px-4 py-2 bg-brand-50 text-brand-700 rounded-full text-sm">City of San Diego</span>
-              <span class="px-4 py-2 bg-brand-50 text-brand-700 rounded-full text-sm">San Diego County</span>
-              <span class="px-4 py-2 bg-brand-50 text-brand-700 rounded-full text-sm">La Jolla</span>
-              <span class="px-4 py-2 bg-brand-50 text-brand-700 rounded-full text-sm">Chula Vista</span>
-              <span class="px-4 py-2 bg-brand-50 text-brand-700 rounded-full text-sm">Carlsbad</span>
-              <span class="px-4 py-2 bg-brand-50 text-brand-700 rounded-full text-sm">Oceanside</span>
-              <span class="px-4 py-2 bg-brand-50 text-brand-700 rounded-full text-sm">+ Surrounding Areas</span>
+          <!-- Right: Image Grid -->
+          <div class="grid grid-cols-2 gap-4 animate-on-scroll">
+            <div class="space-y-4">
+              <img
+                src="https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=2670&auto=format&fit=crop"
+                alt="San Diego Coronado Bridge"
+                class="w-full aspect-[3/4] object-cover rounded-2xl"
+              />
+              <img
+                src="https://images.unsplash.com/photo-1562095241-8c6714fd4178?q=80&w=2564&auto=format&fit=crop"
+                alt="San Diego downtown buildings"
+                class="w-full aspect-square object-cover rounded-2xl"
+              />
+            </div>
+            <div class="space-y-4 pt-8">
+              <img
+                src="https://images.unsplash.com/photo-1589083130544-0d6a2926e519?q=80&w=2670&auto=format&fit=crop"
+                alt="San Diego coastal view"
+                class="w-full aspect-square object-cover rounded-2xl"
+              />
+              <img
+                src="https://images.unsplash.com/photo-1583001931096-959e9a1a6223?q=80&w=2574&auto=format&fit=crop"
+                alt="San Diego architecture"
+                class="w-full aspect-[3/4] object-cover rounded-2xl"
+              />
             </div>
           </div>
         </div>
-
-        <!-- Right: Image Grid -->
-        <div class="grid grid-cols-2 gap-4 animate-on-scroll">
-          <div class="space-y-4">
-            <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=2670&auto=format&fit=crop"
-              alt="San Diego Coronado Bridge" class="w-full aspect-[3/4] object-cover rounded-2xl">
-            <img src="https://images.unsplash.com/photo-1562095241-8c6714fd4178?q=80&w=2564&auto=format&fit=crop"
-              alt="San Diego downtown buildings" class="w-full aspect-square object-cover rounded-2xl">
-          </div>
-          <div class="space-y-4 pt-8">
-            <img src="https://images.unsplash.com/photo-1589083130544-0d6a2926e519?q=80&w=2670&auto=format&fit=crop"
-              alt="San Diego coastal view" class="w-full aspect-square object-cover rounded-2xl">
-            <img src="https://images.unsplash.com/photo-1583001931096-959e9a1a6223?q=80&w=2574&auto=format&fit=crop"
-              alt="San Diego architecture" class="w-full aspect-[3/4] object-cover rounded-2xl">
-          </div>
-        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- CTA Section -->
-  <section id="cta" class="relative py-24 lg:py-32 overflow-hidden">
-    <!-- Background Image -->
-    <div class="absolute inset-0">
-      <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=2675&auto=format&fit=crop"
-        alt="Modern building exterior" class="w-full h-full object-cover">
-      <div class="absolute inset-0 bg-gradient-to-r from-brand-600/95 to-brand-500/90"></div>
-    </div>
-
-    <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
-      <div class="max-w-3xl mx-auto text-center text-white">
-        <h2 class="text-3xl md:text-4xl lg:text-5xl leading-tight mb-6 animate-on-scroll">
-          <span class="font-medium">Ready to Start</span>
-          <span class="font-serif italic block">Your Project?</span>
-        </h2>
-        <p class="text-xl text-white/80 mb-10 animate-on-scroll delay-1">
-          Let's discuss how we can help streamline your permit process and get your project moving forward.
-        </p>
-        <div class="flex flex-col sm:flex-row gap-4 justify-center animate-on-scroll delay-2">
-          <a href="contact.html"
-            class="bg-white text-brand-600 hover:bg-neutral-100 px-8 py-4 rounded-full text-base font-semibold transition-all duration-300 transform hover:-translate-y-1 inline-flex items-center justify-center gap-2">
-            Schedule a Consultation
-            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-            </svg>
-          </a>
-          <a href="tel:6193234048"
-            class="border-2 border-white text-white hover:bg-white hover:text-brand-600 px-8 py-4 rounded-full text-base font-semibold transition-all duration-300">
-            (619) 323-4048
-          </a>
-        </div>
+    <!-- CTA Section -->
+    <section id="cta" class="relative py-24 lg:py-32 overflow-hidden">
+      <!-- Background Image -->
+      <div class="absolute inset-0">
+        <img
+          src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=2675&auto=format&fit=crop"
+          alt="Modern building exterior"
+          class="w-full h-full object-cover"
+        />
+        <div
+          class="absolute inset-0 bg-gradient-to-r from-brand-600/95 to-brand-500/90"
+        ></div>
       </div>
-    </div>
-  </section>
 
-  <!-- Footer -->
-  <footer class="bg-neutral-950 text-white pt-20 pb-8">
-    <div class="max-w-7xl mx-auto px-6 lg:px-8">
-      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 mb-16">
-        <!-- Column 1: Brand -->
-        <div class="lg:col-span-2">
-          <img
-            src="https://i0.wp.com/permitsandmore.com/wp-content/uploads/2016/06/cropped-logo-1.png?fit=263%2C60&ssl=1"
-            alt="Permits & More" class="h-12 w-auto mb-6">
-          <p class="text-white/60 leading-relaxed max-w-md mb-6">
-            San Diego's trusted partner for building permit processing. We transform the complex into the achievable,
-            helping you build with confidence.
+      <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
+        <div class="max-w-3xl mx-auto text-center text-white">
+          <h2
+            class="text-3xl md:text-4xl lg:text-5xl leading-tight mb-6 animate-on-scroll"
+          >
+            <span class="font-medium">Ready to Start</span>
+            <span class="font-serif italic block">Your Project?</span>
+          </h2>
+          <p class="text-xl text-white/80 mb-10 animate-on-scroll delay-1">
+            Let's discuss how we can help streamline your permit process and get
+            your project moving forward.
           </p>
-          <div class="flex gap-4">
-            <a href="#"
-              class="w-10 h-10 rounded-full bg-white/10 hover:bg-brand-500 flex items-center justify-center transition-colors"
-              aria-label="LinkedIn">
-              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+          <div
+            class="flex flex-col sm:flex-row gap-4 justify-center animate-on-scroll delay-2"
+          >
+            <a
+              href="contact.html"
+              class="bg-white text-brand-600 hover:bg-neutral-100 px-8 py-4 rounded-full text-base font-semibold transition-all duration-300 transform hover:-translate-y-1 inline-flex items-center justify-center gap-2"
+            >
+              Schedule a Consultation
+              <svg
+                class="w-4 h-4"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
                 <path
-                  d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M17 8l4 4m0 0l-4 4m4-4H3"
+                />
               </svg>
             </a>
-            <a href="#"
-              class="w-10 h-10 rounded-full bg-white/10 hover:bg-brand-500 flex items-center justify-center transition-colors"
-              aria-label="Facebook">
-              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                <path
-                  d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z" />
-              </svg>
-            </a>
-            <a href="#"
-              class="w-10 h-10 rounded-full bg-white/10 hover:bg-brand-500 flex items-center justify-center transition-colors"
-              aria-label="Instagram">
-              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                <path
-                  d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
-              </svg>
+            <a
+              href="tel:6193234048"
+              class="border-2 border-white text-white hover:bg-white hover:text-brand-600 px-8 py-4 rounded-full text-base font-semibold transition-all duration-300"
+            >
+              (619) 323-4048
             </a>
           </div>
         </div>
+      </div>
+    </section>
 
-        <!-- Column 2: Quick Links -->
-        <div>
-          <h4 class="font-semibold mb-6">Quick Links</h4>
-          <ul class="space-y-3">
-            <li><a href="about.html" class="text-white/60 hover:text-white transition-colors">About Us</a></li>
-            <li><a href="services.html" class="text-white/60 hover:text-white transition-colors">Services</a></li>
-            <li><a href="work.html" class="text-white/60 hover:text-white transition-colors">Our Work</a></li>
-            <li><a href="contact.html" class="text-white/60 hover:text-white transition-colors">Contact</a></li>
-          </ul>
+    <!-- Footer -->
+    <footer class="bg-neutral-950 text-white pt-20 pb-8">
+      <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 mb-16">
+          <!-- Column 1: Brand -->
+          <div class="lg:col-span-2">
+            <img
+              src="https://i0.wp.com/permitsandmore.com/wp-content/uploads/2016/06/cropped-logo-1.png?fit=263%2C60&ssl=1"
+              alt="Permits & More"
+              class="h-12 w-auto mb-6"
+            />
+            <p class="text-white/60 leading-relaxed max-w-md mb-6">
+              San Diego's trusted partner for building permit processing. We
+              transform the complex into the achievable, helping you build with
+              confidence.
+            </p>
+            <div class="flex gap-4">
+              <a
+                href="#"
+                class="w-10 h-10 rounded-full bg-white/10 hover:bg-brand-500 flex items-center justify-center transition-colors"
+                aria-label="LinkedIn"
+              >
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path
+                    d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"
+                  />
+                </svg>
+              </a>
+              <a
+                href="#"
+                class="w-10 h-10 rounded-full bg-white/10 hover:bg-brand-500 flex items-center justify-center transition-colors"
+                aria-label="Facebook"
+              >
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path
+                    d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"
+                  />
+                </svg>
+              </a>
+              <a
+                href="#"
+                class="w-10 h-10 rounded-full bg-white/10 hover:bg-brand-500 flex items-center justify-center transition-colors"
+                aria-label="Instagram"
+              >
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path
+                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
+                  />
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Column 2: Quick Links -->
+          <div>
+            <h4 class="font-semibold mb-6">Quick Links</h4>
+            <ul class="space-y-3">
+              <li>
+                <a
+                  href="about.html"
+                  class="text-white/60 hover:text-white transition-colors"
+                  >About Us</a
+                >
+              </li>
+              <li>
+                <a
+                  href="services.html"
+                  class="text-white/60 hover:text-white transition-colors"
+                  >Services</a
+                >
+              </li>
+              <li>
+                <a
+                  href="work.html"
+                  class="text-white/60 hover:text-white transition-colors"
+                  >Our Work</a
+                >
+              </li>
+              <li>
+                <a
+                  href="contact.html"
+                  class="text-white/60 hover:text-white transition-colors"
+                  >Contact</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <!-- Column 3: Contact -->
+          <div>
+            <h4 class="font-semibold mb-6">Contact</h4>
+            <ul class="space-y-3 text-white/60">
+              <li>
+                <a
+                  href="tel:6193234048"
+                  class="hover:text-white transition-colors"
+                  >(619) 323-4048</a
+                >
+              </li>
+              <li>
+                <a
+                  href="mailto:info@permitsandmore.com"
+                  class="hover:text-white transition-colors"
+                  >info@permitsandmore.com</a
+                >
+              </li>
+              <li class="pt-2">
+                101 West Broadway<br />
+                Suite 300<br />
+                San Diego, CA 92101
+              </li>
+            </ul>
+          </div>
         </div>
 
-        <!-- Column 3: Contact -->
-        <div>
-          <h4 class="font-semibold mb-6">Contact</h4>
-          <ul class="space-y-3 text-white/60">
-            <li>
-              <a href="tel:6193234048" class="hover:text-white transition-colors">(619) 323-4048</a>
-            </li>
-            <li>
-              <a href="mailto:info@permitsandmore.com"
-                class="hover:text-white transition-colors">info@permitsandmore.com</a>
-            </li>
-            <li class="pt-2">
-              101 West Broadway<br>
-              Suite 300<br>
-              San Diego, CA 92101
-            </li>
-          </ul>
+        <!-- Divider -->
+        <div class="divider-gradient mb-8"></div>
+
+        <!-- Bottom Row -->
+        <div
+          class="flex flex-col md:flex-row justify-between items-center gap-4"
+        >
+          <p class="text-white/40 text-sm">
+            &copy; 2026 Permits & More. All rights reserved.
+          </p>
+          <div class="flex gap-6 text-sm">
+            <a href="#" class="text-white/40 hover:text-white transition-colors"
+              >Privacy Policy</a
+            >
+            <a href="#" class="text-white/40 hover:text-white transition-colors"
+              >Terms of Service</a
+            >
+          </div>
         </div>
       </div>
+    </footer>
 
-      <!-- Divider -->
-      <div class="divider-gradient mb-8"></div>
+    <script>
+      // Mobile Menu Toggle
+      const mobileMenuBtn = document.getElementById("mobile-menu-btn");
+      const mobileMenu = document.getElementById("mobile-menu");
+      const line1 = document.getElementById("line1");
+      const line2 = document.getElementById("line2");
+      const line3 = document.getElementById("line3");
+      let menuOpen = false;
 
-      <!-- Bottom Row -->
-      <div class="flex flex-col md:flex-row justify-between items-center gap-4">
-        <p class="text-white/40 text-sm">
-          &copy; 2026 Permits & More. All rights reserved.
-        </p>
-        <div class="flex gap-6 text-sm">
-          <a href="#" class="text-white/40 hover:text-white transition-colors">Privacy Policy</a>
-          <a href="#" class="text-white/40 hover:text-white transition-colors">Terms of Service</a>
-        </div>
-      </div>
-    </div>
-  </footer>
-
-  <script>
-    // Mobile Menu Toggle
-    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-    const mobileMenu = document.getElementById('mobile-menu');
-    const line1 = document.getElementById('line1');
-    const line2 = document.getElementById('line2');
-    const line3 = document.getElementById('line3');
-    let menuOpen = false;
-
-    mobileMenuBtn.addEventListener('click', () => {
-      menuOpen = !menuOpen;
-      if (menuOpen) {
-        mobileMenu.classList.remove('translate-x-full');
-        line1.style.transform = 'rotate(45deg) translate(4px, 4px)';
-        line2.style.opacity = '0';
-        line3.style.transform = 'rotate(-45deg) translate(4px, -4px)';
-        line3.style.width = '1.5rem';
-      } else {
-        mobileMenu.classList.add('translate-x-full');
-        line1.style.transform = '';
-        line2.style.opacity = '1';
-        line3.style.transform = '';
-        line3.style.width = '1rem';
-      }
-    });
-
-    // Header Scroll Effect
-    const header = document.getElementById('header');
-    const heroSection = document.getElementById('hero');
-
-    function updateHeader() {
-      const scrollY = window.scrollY;
-      const heroHeight = heroSection.offsetHeight;
-
-      if (scrollY > 100) {
-        header.classList.add('bg-white', 'shadow-lg', 'shadow-neutral-100/50');
-        header.querySelectorAll('.nav-link').forEach(link => {
-          link.classList.remove('text-white');
-          link.classList.add('text-neutral-700', 'hover:text-brand-500');
-        });
-        mobileMenuBtn.classList.remove('text-white');
-        mobileMenuBtn.classList.add('text-neutral-700');
-      } else {
-        header.classList.remove('bg-white', 'shadow-lg', 'shadow-neutral-100/50');
-        header.querySelectorAll('.nav-link').forEach(link => {
-          link.classList.add('text-white');
-          link.classList.remove('text-neutral-700', 'hover:text-brand-500');
-        });
-        mobileMenuBtn.classList.add('text-white');
-        mobileMenuBtn.classList.remove('text-neutral-700');
-      }
-    }
-
-    window.addEventListener('scroll', updateHeader);
-    updateHeader();
-
-    // Parallax Effect for Hero
-    const heroBg = document.getElementById('hero-bg');
-    window.addEventListener('scroll', () => {
-      const scrollY = window.scrollY;
-      if (scrollY < window.innerHeight) {
-        heroBg.style.transform = `translateY(${scrollY * 0.3}px)`;
-      }
-    });
-
-    // Scroll to Section
-    function scrollToSection(id) {
-      const element = document.getElementById(id);
-      if (element) {
-        const headerHeight = header.offsetHeight;
-        const targetPosition = element.offsetTop - headerHeight;
-        window.scrollTo({
-          top: targetPosition,
-          behavior: 'smooth'
-        });
-      }
-    }
-
-    // Intersection Observer for Scroll Animations
-    const observerOptions = {
-      root: null,
-      rootMargin: '0px',
-      threshold: 0.1
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-
-          // Trigger image reveal
-          const imgReveal = entry.target.querySelector('.img-reveal');
-          if (imgReveal) {
-            setTimeout(() => imgReveal.classList.add('revealed'), 200);
-          }
-
-          // Trigger counter animation
-          const counters = entry.target.querySelectorAll('.stat-number[data-target]');
-          counters.forEach(counter => {
-            animateCounter(counter);
-          });
-        }
-      });
-    }, observerOptions);
-
-    document.querySelectorAll('.animate-on-scroll').forEach(el => {
-      observer.observe(el);
-    });
-
-    // Counter Animation
-    function animateCounter(element) {
-      const target = parseInt(element.dataset.target);
-      const duration = 2000;
-      const step = target / (duration / 16);
-      let current = 0;
-
-      const timer = setInterval(() => {
-        current += step;
-        if (current >= target) {
-          element.textContent = target;
-          clearInterval(timer);
+      mobileMenuBtn.addEventListener("click", () => {
+        menuOpen = !menuOpen;
+        if (menuOpen) {
+          mobileMenu.classList.remove("translate-x-full");
+          line1.style.transform = "rotate(45deg) translate(4px, 4px)";
+          line2.style.opacity = "0";
+          line3.style.transform = "rotate(-45deg) translate(4px, -4px)";
+          line3.style.width = "1.5rem";
         } else {
-          element.textContent = Math.floor(current);
-        }
-      }, 16);
-    }
-
-    // Also animate standalone stat numbers in view
-    const statsObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting && entry.target.dataset.target) {
-          animateCounter(entry.target);
-          statsObserver.unobserve(entry.target);
+          mobileMenu.classList.add("translate-x-full");
+          line1.style.transform = "";
+          line2.style.opacity = "1";
+          line3.style.transform = "";
+          line3.style.width = "1rem";
         }
       });
-    }, observerOptions);
 
-    document.querySelectorAll('.stat-number[data-target]').forEach(el => {
-      statsObserver.observe(el);
-    });
+      // Header Scroll Effect
+      const header = document.getElementById("header");
+      const heroSection = document.getElementById("hero");
 
-    // Smooth scroll for all anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        const href = this.getAttribute('href');
-        if (href === '#') return;
+      function updateHeader() {
+        const scrollY = window.scrollY;
+        const heroHeight = heroSection.offsetHeight;
 
-        e.preventDefault();
-        const target = document.querySelector(href);
-        if (target) {
+        if (scrollY > 100) {
+          header.classList.add(
+            "bg-white",
+            "shadow-lg",
+            "shadow-neutral-100/50",
+          );
+          header.querySelectorAll(".nav-link").forEach((link) => {
+            link.classList.remove("text-white");
+            link.classList.add("text-neutral-700", "hover:text-brand-500");
+          });
+          mobileMenuBtn.classList.remove("text-white");
+          mobileMenuBtn.classList.add("text-neutral-700");
+        } else {
+          header.classList.remove(
+            "bg-white",
+            "shadow-lg",
+            "shadow-neutral-100/50",
+          );
+          header.querySelectorAll(".nav-link").forEach((link) => {
+            link.classList.add("text-white");
+            link.classList.remove("text-neutral-700", "hover:text-brand-500");
+          });
+          mobileMenuBtn.classList.add("text-white");
+          mobileMenuBtn.classList.remove("text-neutral-700");
+        }
+      }
+
+      window.addEventListener("scroll", updateHeader);
+      updateHeader();
+
+      // Parallax Effect for Hero
+      const heroBg = document.getElementById("hero-bg");
+      window.addEventListener("scroll", () => {
+        const scrollY = window.scrollY;
+        if (scrollY < window.innerHeight) {
+          heroBg.style.transform = `translateY(${scrollY * 0.3}px)`;
+        }
+      });
+
+      // Scroll to Section
+      function scrollToSection(id) {
+        const element = document.getElementById(id);
+        if (element) {
           const headerHeight = header.offsetHeight;
-          const targetPosition = target.offsetTop - headerHeight;
+          const targetPosition = element.offsetTop - headerHeight;
           window.scrollTo({
             top: targetPosition,
-            behavior: 'smooth'
+            behavior: "smooth",
           });
         }
-      });
-    });
-  </script>
-</body>
+      }
 
+      // Intersection Observer for Scroll Animations
+      const observerOptions = {
+        root: null,
+        rootMargin: "0px",
+        threshold: 0.1,
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+
+            // Trigger image reveal
+            const imgReveal = entry.target.querySelector(".img-reveal");
+            if (imgReveal) {
+              setTimeout(() => imgReveal.classList.add("revealed"), 200);
+            }
+
+            // Trigger counter animation
+            const counters = entry.target.querySelectorAll(
+              ".stat-number[data-target]",
+            );
+            counters.forEach((counter) => {
+              animateCounter(counter);
+            });
+          }
+        });
+      }, observerOptions);
+
+      document.querySelectorAll(".animate-on-scroll").forEach((el) => {
+        observer.observe(el);
+      });
+
+      // Counter Animation
+      function animateCounter(element) {
+        const target = parseInt(element.dataset.target);
+        const duration = 2000;
+        const step = target / (duration / 16);
+        let current = 0;
+
+        const timer = setInterval(() => {
+          current += step;
+          if (current >= target) {
+            element.textContent = target;
+            clearInterval(timer);
+          } else {
+            element.textContent = Math.floor(current);
+          }
+        }, 16);
+      }
+
+      // Also animate standalone stat numbers in view
+      const statsObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && entry.target.dataset.target) {
+            animateCounter(entry.target);
+            statsObserver.unobserve(entry.target);
+          }
+        });
+      }, observerOptions);
+
+      document.querySelectorAll(".stat-number[data-target]").forEach((el) => {
+        statsObserver.observe(el);
+      });
+
+      // Smooth scroll for all anchor links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          const href = this.getAttribute("href");
+          if (href === "#") return;
+
+          e.preventDefault();
+          const target = document.querySelector(href);
+          if (target) {
+            const headerHeight = header.offsetHeight;
+            const targetPosition = target.offsetTop - headerHeight;
+            window.scrollTo({
+              top: targetPosition,
+              behavior: "smooth",
+            });
+          }
+        });
+      });
+    </script>
+  </body>
 </html>
