@@ -72,20 +72,20 @@
           <a href="contact.html" class="nav-link link-underline text-sm font-medium tracking-wide uppercase text-neutral-700 hover:text-brand-500 transition-colors duration-300">Contact</a>
         </nav>
 
-        <button id="mobile-menu-btn" class="md:hidden relative z-10 w-10 h-10 flex items-center justify-center" aria-label="Toggle menu">
-          <div class="space-y-1.5">
-            <span class="block w-6 h-0.5 bg-neutral-700 transition-all duration-300 origin-center" id="line1"></span>
-            <span class="block w-6 h-0.5 bg-neutral-700 transition-all duration-300" id="line2"></span>
-            <span class="block w-4 h-0.5 bg-neutral-700 transition-all duration-300 origin-center" id="line3"></span>
+        <button id="mobile-menu-btn" class="md:hidden relative z-10 w-12 h-12 flex items-center justify-center overflow-visible" aria-label="Toggle menu">
+          <div class="relative w-6 h-5 flex flex-col justify-between">
+            <span class="block w-6 h-0.5 bg-neutral-700 transition-all duration-300 origin-center absolute top-0 left-0" id="line1"></span>
+            <span class="block w-6 h-0.5 bg-neutral-700 transition-all duration-300 absolute top-1/2 left-0 -translate-y-1/2" id="line2"></span>
+            <span class="block w-4 h-0.5 bg-neutral-700 transition-all duration-300 origin-center absolute bottom-0 left-0" id="line3"></span>
           </div>
         </button>
       </div>
     </div>
 
     <div id="mobile-menu" class="fixed top-20 left-0 right-0 bottom-0 bg-white mobile-menu-overlay opacity-0 pointer-events-none transition-opacity duration-300 ease-out md:hidden" style="z-index: 100;">
-      <div class="flex flex-col items-center justify-center h-full gap-6">
-        <a href="index.html" class="mobile-nav-link mb-4 translate-y-4 opacity-0 transition-all duration-300">
-          <img src="https://i0.wp.com/permitsandmore.com/wp-content/uploads/2016/06/cropped-logo-1.png?fit=263%2C60&ssl=1" alt="Permits & More" class="h-12 w-auto" />
+      <div class="flex flex-col items-center justify-center h-full gap-8">
+        <a href="index.html" class="mobile-nav-link translate-y-4 opacity-0 transition-all duration-300">
+          <img src="https://i0.wp.com/permitsandmore.com/wp-content/uploads/2016/06/cropped-logo-1.png?fit=263%2C60&ssl=1" alt="Permits & More" class="h-10 w-auto" />
         </a>
         <a href="about.html" class="mobile-nav-link text-3xl font-light tracking-wide text-neutral-800 hover:text-brand-500 transition-all duration-300 translate-y-4 opacity-0">About</a>
         <a href="services.html" class="mobile-nav-link text-3xl font-light tracking-wide text-neutral-800 hover:text-brand-500 transition-all duration-300 translate-y-4 opacity-0">Services</a>
@@ -253,9 +253,12 @@
       mobileMenu.classList.remove('opacity-0', 'pointer-events-none');
       mobileMenu.classList.add('opacity-100', 'pointer-events-auto');
       document.getElementById('header-logo').classList.add('opacity-0');
-      line1.style.transform = 'rotate(45deg) translate(4px, 4px)';
+      line1.style.top = '50%';
+      line1.style.transform = 'translateY(-50%) rotate(45deg)';
       line2.style.opacity = '0';
-      line3.style.transform = 'rotate(-45deg) translate(4px, -4px)';
+      line3.style.bottom = 'auto';
+      line3.style.top = '50%';
+      line3.style.transform = 'translateY(-50%) rotate(-45deg)';
       line3.style.width = '1.5rem';
       mobileNavLinks.forEach((link, index) => {
         setTimeout(() => {
@@ -272,8 +275,11 @@
         link.classList.remove('translate-y-0', 'opacity-100');
       });
       document.getElementById('header-logo').classList.remove('opacity-0');
+      line1.style.top = '0';
       line1.style.transform = '';
       line2.style.opacity = '1';
+      line3.style.bottom = '0';
+      line3.style.top = 'auto';
       line3.style.transform = '';
       line3.style.width = '1rem';
       setTimeout(() => {
