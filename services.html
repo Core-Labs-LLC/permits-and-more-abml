@@ -95,14 +95,19 @@
       </div>
     </div>
 
-    <div id="mobile-menu" class="fixed inset-0 bg-white mobile-menu-overlay translate-x-full transition-transform duration-500 ease-out md:hidden">
-      <div class="flex flex-col items-center justify-center h-full gap-6">
-        <a href="about.html" class="text-2xl font-light tracking-wide hover:text-brand-500 transition-colors">About</a>
-        <a href="services.html" class="text-2xl font-light tracking-wide text-brand-500">Services</a>
-        <a href="work.html" class="text-2xl font-light tracking-wide hover:text-brand-500 transition-colors">Projects</a>
-        <a href="newsletter.html" class="text-2xl font-light tracking-wide hover:text-brand-500 transition-colors">Newsletter</a>
-        <a href="reviews.html" class="text-2xl font-light tracking-wide hover:text-brand-500 transition-colors">Reviews</a>
-        <a href="contact.html" class="text-2xl font-light tracking-wide hover:text-brand-500 transition-colors">Contact</a>
+    <div id="mobile-menu" class="fixed inset-0 bg-white/95 mobile-menu-overlay opacity-0 pointer-events-none transition-opacity duration-300 ease-out md:hidden" style="z-index: 100;">
+      <button id="mobile-menu-close" class="absolute top-6 right-6 w-10 h-10 flex items-center justify-center text-neutral-800 hover:text-brand-500 transition-colors" aria-label="Close menu">
+        <svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+      <div class="flex flex-col items-end justify-center h-full pr-8 gap-6">
+        <a href="about.html" class="mobile-nav-link text-3xl font-light tracking-wide text-neutral-800 hover:text-brand-500 transition-all duration-300 translate-x-8 opacity-0">About</a>
+        <a href="services.html" class="mobile-nav-link text-3xl font-light tracking-wide text-brand-500 transition-all duration-300 translate-x-8 opacity-0">Services</a>
+        <a href="work.html" class="mobile-nav-link text-3xl font-light tracking-wide text-neutral-800 hover:text-brand-500 transition-all duration-300 translate-x-8 opacity-0">Projects</a>
+        <a href="newsletter.html" class="mobile-nav-link text-3xl font-light tracking-wide text-neutral-800 hover:text-brand-500 transition-all duration-300 translate-x-8 opacity-0">Newsletter</a>
+        <a href="reviews.html" class="mobile-nav-link text-3xl font-light tracking-wide text-neutral-800 hover:text-brand-500 transition-all duration-300 translate-x-8 opacity-0">Reviews</a>
+        <a href="contact.html" class="mobile-nav-link text-3xl font-light tracking-wide text-neutral-800 hover:text-brand-500 transition-all duration-300 translate-x-8 opacity-0">Contact</a>
       </div>
     </div>
   </header>
@@ -299,28 +304,49 @@
 
   <script>
     const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenuClose = document.getElementById('mobile-menu-close');
     const mobileMenu = document.getElementById('mobile-menu');
+    const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
     const line1 = document.getElementById('line1');
     const line2 = document.getElementById('line2');
     const line3 = document.getElementById('line3');
     let menuOpen = false;
 
-    mobileMenuBtn.addEventListener('click', () => {
-      menuOpen = !menuOpen;
-      if (menuOpen) {
-        mobileMenu.classList.remove('translate-x-full');
-        line1.style.transform = 'rotate(45deg) translate(4px, 4px)';
-        line2.style.opacity = '0';
-        line3.style.transform = 'rotate(-45deg) translate(4px, -4px)';
-        line3.style.width = '1.5rem';
-      } else {
-        mobileMenu.classList.add('translate-x-full');
-        line1.style.transform = '';
-        line2.style.opacity = '1';
-        line3.style.transform = '';
-        line3.style.width = '1rem';
-      }
-    });
+    function openMenu() {
+      menuOpen = true;
+      mobileMenu.classList.remove('opacity-0', 'pointer-events-none');
+      mobileMenu.classList.add('opacity-100', 'pointer-events-auto');
+      line1.style.transform = 'rotate(45deg) translate(4px, 4px)';
+      line2.style.opacity = '0';
+      line3.style.transform = 'rotate(-45deg) translate(4px, -4px)';
+      line3.style.width = '1.5rem';
+      mobileNavLinks.forEach((link, index) => {
+        setTimeout(() => {
+          link.classList.remove('translate-x-8', 'opacity-0');
+          link.classList.add('translate-x-0', 'opacity-100');
+        }, 100 + (index * 80));
+      });
+    }
+
+    function closeMenu() {
+      menuOpen = false;
+      mobileNavLinks.forEach((link) => {
+        link.classList.add('translate-x-8', 'opacity-0');
+        link.classList.remove('translate-x-0', 'opacity-100');
+      });
+      line1.style.transform = '';
+      line2.style.opacity = '1';
+      line3.style.transform = '';
+      line3.style.width = '1rem';
+      setTimeout(() => {
+        mobileMenu.classList.add('opacity-0', 'pointer-events-none');
+        mobileMenu.classList.remove('opacity-100', 'pointer-events-auto');
+      }, 200);
+    }
+
+    mobileMenuBtn.addEventListener('click', () => { menuOpen ? closeMenu() : openMenu(); });
+    mobileMenuClose.addEventListener('click', closeMenu);
+    mobileNavLinks.forEach(link => { link.addEventListener('click', closeMenu); });
 
     const observerOptions = { root: null, rootMargin: '0px', threshold: 0.1 };
     const observer = new IntersectionObserver((entries) => {
