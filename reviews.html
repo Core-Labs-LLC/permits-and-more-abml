@@ -84,9 +84,7 @@
 
     <div id="mobile-menu" class="fixed top-6 left-0 right-0 bottom-0 bg-white mobile-menu-overlay opacity-0 pointer-events-none transition-opacity duration-300 ease-out md:hidden" style="z-index: 100;">
       <div class="flex flex-col items-center justify-center h-full gap-5">
-        <a href="index.html" class="mobile-nav-link translate-y-4 opacity-0 transition-all duration-300 flex justify-center pl-4">
-          <img src="https://i0.wp.com/permitsandmore.com/wp-content/uploads/2016/06/cropped-logo-1.png?fit=263%2C60&ssl=1" alt="Permits & More" class="h-10 w-auto" />
-        </a>
+        <a href="index.html" class="mobile-nav-link text-2xl font-light tracking-wide text-neutral-800 hover:text-brand-500 transition-all duration-300 translate-y-4 opacity-0 text-center">Home</a>
         <a href="about.html" class="mobile-nav-link text-2xl font-light tracking-wide text-neutral-800 hover:text-brand-500 transition-all duration-300 translate-y-4 opacity-0 text-center">About</a>
         <a href="services.html" class="mobile-nav-link text-2xl font-light tracking-wide text-neutral-800 hover:text-brand-500 transition-all duration-300 translate-y-4 opacity-0 text-center">Services</a>
         <a href="work.html" class="mobile-nav-link text-2xl font-light tracking-wide text-neutral-800 hover:text-brand-500 transition-all duration-300 translate-y-4 opacity-0 text-center">Projects</a>
@@ -346,7 +344,7 @@
       menuOpen = true;
       mobileMenu.classList.remove('opacity-0', 'pointer-events-none');
       mobileMenu.classList.add('opacity-100', 'pointer-events-auto');
-      document.getElementById('header-logo').classList.add('opacity-0');
+      // Keep header logo visible
       line1.style.top = '50%';
       line1.style.transform = 'translateY(-50%) rotate(45deg)';
       line2.style.opacity = '0';
@@ -368,7 +366,7 @@
         link.classList.add('translate-y-4', 'opacity-0');
         link.classList.remove('translate-y-0', 'opacity-100');
       });
-      document.getElementById('header-logo').classList.remove('opacity-0');
+      // Header logo stays visible
       line1.style.top = '0';
       line1.style.transform = '';
       line2.style.opacity = '1';

@@ -444,16 +444,13 @@
         class="fixed top-6 left-0 right-0 bottom-0 bg-white mobile-menu-overlay opacity-0 pointer-events-none transition-opacity duration-300 ease-out md:hidden"
         style="z-index: 100;"
       >
-        <!-- Centered Nav Links with Logo -->
+        <!-- Centered Nav Links -->
         <div class="flex flex-col items-center justify-center h-full gap-5">
-          <!-- Logo -->
-          <a href="index.html" class="mobile-nav-link translate-y-4 opacity-0 transition-all duration-300 flex justify-center pl-4">
-            <img
-              src="https://i0.wp.com/permitsandmore.com/wp-content/uploads/2016/06/cropped-logo-1.png?fit=263%2C60&ssl=1"
-              alt="Permits & More"
-              class="h-10 w-auto"
-            />
-          </a>
+          <a
+            href="index.html"
+            class="mobile-nav-link text-2xl font-light tracking-wide text-neutral-800 hover:text-brand-500 transition-all duration-300 translate-y-4 opacity-0 text-center"
+            >Home</a
+          >
           <a
             href="about.html"
             class="mobile-nav-link text-2xl font-light tracking-wide text-neutral-800 hover:text-brand-500 transition-all duration-300 translate-y-4 opacity-0 text-center"
@@ -1466,8 +1463,7 @@
         mobileMenu.classList.remove("opacity-0", "pointer-events-none");
         mobileMenu.classList.add("opacity-100", "pointer-events-auto");
         
-        // Hide header logo, show centered menu logo instead
-        document.getElementById("header-logo").classList.add("opacity-0");
+        // Keep header logo visible
         document.getElementById("header").classList.add("bg-white");
         mobileMenuBtn.classList.remove("text-white");
         mobileMenuBtn.classList.add("text-neutral-700");
@@ -1499,8 +1495,7 @@
           link.classList.remove("translate-y-0", "opacity-100");
         });
         
-        // Show header logo again
-        document.getElementById("header-logo").classList.remove("opacity-0");
+        // Header logo stays visible
         
         // Animate hamburger back
         line1.style.top = "0";
