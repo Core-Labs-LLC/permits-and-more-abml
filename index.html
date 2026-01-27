@@ -28,6 +28,9 @@
     <!-- Preconnect for performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    
+    <!-- Preload hero background image for faster loading -->
+    <link rel="preload" href="assets/san-diego-skyline.jpg" as="image" fetchpriority="high" />
 
     <!-- Premium Font Pairing: Outfit (modern geometric) + Instrument Serif (elegant display) -->
     <link
@@ -497,6 +500,9 @@
           alt="San Diego downtown skyline at sunset"
           class="w-full h-full object-cover parallax-bg"
           id="hero-bg"
+          fetchpriority="high"
+          loading="eager"
+          decoding="async"
         />
         <div
           class="absolute inset-0 bg-gradient-to-b from-neutral-950/70 via-neutral-950/50 to-neutral-950/80"
